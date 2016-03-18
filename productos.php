@@ -43,7 +43,7 @@
 
  <div class="container">
   
-      <form role="form" action="insertarproducto.php" method="post" name="frmproducto">
+      <form role="form" action="insertarproducto.php" method="post" name="frmproducto" enctype="multipart/form-data">
         
               <div class="col-xs-12">
                 <div class="form-group">
@@ -59,12 +59,45 @@
                 </div>
               </div>
 
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <label for="fabproducto">Fabricante:</label>
-                  <input type="text" class="form-control" name="fabricanteproducto">
-                </div>
-              </div>              
+
+                   <!--aqui se selecciona el fabricante desde la base de datos-->
+
+                              <?php 
+                              include("config/configdb.php");                                                       
+
+                              //hace conexion a la db
+                              $con=mysql_connect($host,$user,$pw) or die("problemas al conectar");
+                              mysql_select_db($db,$con) or die ("problemas a conectar la bd");
+
+
+                              //hacemos la consulta de seleccion para seleccionar los registros de la tabla fabricantes
+                              $registro=mysql_query("SELECT * FROM fabricantes")
+                              or die ("problemas en consulta".mysql_error());
+
+                             
+                              
+
+                              echo "<div class=col-xs-12>";
+                              echo "<div class=form-group>";
+                              echo "<label for=fabproducto>Selecciona el fabricante:</label>";
+                              echo "<select class=form-control name=fabricanteproducto>";
+
+                              //nos va ayudar a agarrar los valores de uno por uno de la base de datos
+                              while ($reg=mysql_fetch_array($registro))
+                                  {
+                                    // echo $reg['nombre_fabricante'];
+                                    echo "<option value='".$reg['nombre_fabricante']."'>".$reg['nombre_fabricante']."</option>";
+
+                                  }
+
+                              echo "</select>";
+                              echo "</div>";
+                              echo "</div>";
+
+                               ?>
+
+
+
 
               <div class="col-xs-12">
                 <div class="form-group">
@@ -89,6 +122,16 @@
                   <input type="text" class="form-control" name="ventaproducto">
                 </div>
               </div>
+
+  <!--
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="imgproducto">Insertar imagen:</label>
+                  <input type="file" class="form-control" name="imagenproducto">
+                  <input type="submit" value="Subir">
+                </div>
+              </div>
+   -->
 
               <div class="form-group">        
                   <div class="col-sm-offset-2 col-sm-10">
