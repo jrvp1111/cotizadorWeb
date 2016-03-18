@@ -21,15 +21,6 @@ $registro=mysql_query("SELECT * FROM fabricantes")
 or die ("problemas en consulta".mysql_error());
 
 
-/*
-//nos va ayudar a agarrar los valores de uno por uno de la base de datos
-while ($reg=mysql_fetch_array($registro)){
-	echo $reg['nombre_fabricante'];
-  }
-*/
-
-
-
 
 //aqui se genera  la consulta para insertar el fabricante traido por el metodo post
 mysql_query("INSERT INTO productos (modelo_producto,descripcion_producto,fabricante_producto,estado_producto,costo_producto,venta_producto) VALUES ('$_POST[modeloproducto]','$_POST[descripcionproducto]','$_POST[fabricanteproducto]','$_POST[estadoproducto]','$_POST[costoproducto]','$_POST[ventaproducto]')",$con);

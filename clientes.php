@@ -25,9 +25,9 @@
       <ul class="nav navbar-nav">
         <li><a href="index.php">Inicio</a></li>>
         <li><a href="cotizaciones.php">Cotizaciones</a></li>
-        <li><a href="clientes.php">Clientes</a></li>
+        <li class="active"><a href="clientes.php">Clientes</a></li>
         <li><a href="productos.php">Productos</a></li>
-        <li class="active"><a href="fabricantes.php">Fabricantes</a></li>
+        <li><a href="fabricantes.php">Fabricantes</a></li>
         <li><a href="usuarios.php">Usuarios</a></li>
         <li><a href="pagos.php">Pagos</a></li>        
       </ul>
@@ -42,24 +42,49 @@
 
 <div class="container">
   
-      <form role="form" action="insertarfabricante.php" method="post" name="frmfabricante">
+      <form role="form" action="insertarcliente.php" method="post" name="frmcliente">
         
               <div class="col-xs-12">
                 <div class="form-group">
-                  <label for="nombfabricante">Nombre del fabricante:</label>
-                  <input type="text" class="form-control" name="nombrefabricante">
+                  <label for="nombcliente">Nombre del cliente:</label>
+                  <input type="text" class="form-control" name="nombrecliente">
                 </div>
               </div>
-  
+
               <div class="col-xs-12">
                 <div class="form-group">
-                  <label for="sel1">Selecciona el origen:</label>
-                  <select class="form-control" name="origen">
-                    <option>Mexico</option>
-                    <option>Estados Unidos</option>
-                  </select>      
+                  <label for="nombcomercial">Nombre comercial:</label>
+                  <input type="text" class="form-control" name="nombrecomercial">
                 </div>
-              </div> 
+              </div>
+
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="dircliente">Direccion:</label>
+                  <input type="text" class="form-control" name="direccioncliente">
+                </div>
+              </div>
+
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="emacliente">Email:</label>
+                  <input type="email" class="form-control" name="emailcliente">
+                </div>
+              </div>
+
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="telcliente">Telefono:</label>
+                  <input type="text" class="form-control" name="telefonocliente">
+                </div>
+              </div>
+
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="nombcontacto">Nombre del contacto:</label>
+                  <input type="text" class="form-control" name="nombrecontacto">
+                </div>
+              </div>
 
               <div class="form-group">        
                   <div class="col-sm-offset-2 col-sm-10">

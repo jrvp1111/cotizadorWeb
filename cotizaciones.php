@@ -27,10 +27,9 @@
         <li class="active"><a href="cotizaciones.php">Cotizaciones</a></li>
         <li><a href="#">Clientes</a></li>
         <li><a href="productos.php">Productos</a></li>
-        <li><a href="fabricantes.php">Fabricante</a></li>
-        <li><a href="#">Usuarios</a></li>
-        <li><a href="#">Configuracion</a></li>
-        <li><a href="#">Pagos</a></li>        
+        <li><a href="fabricantes.php">Fabricantes</a></li>
+        <li><a href="usuarios.php">Usuarios</a></li>
+        <li><a href="pagos.php">Pagos</a></li>        
       </ul>
     </div>
   </div>
