@@ -23,11 +23,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Inicio</a></li>>
+        <li><a href="#">Inicio</a></li>>
         <li><a href="#">Cotizaciones</a></li>
         <li><a href="#">Clientes</a></li>
         <li><a href="#">Productos</a></li>
-        <li><a href="#">Fabricante</a></li>
+        <li class="active"><a href="#">Fabricante</a></li>
         <li><a href="#">Usuarios</a></li>
         <li><a href="#">Configuracion</a></li>
         <li><a href="#">Pagos</a></li>        
@@ -41,10 +41,18 @@
 <!--saltos para que no se oculte el texto en el detras del nav-->
 <br><br><hr>
 
-  
 
+  <form role="form">
+    <div class="form-group">
+      <label for="sel1">Selecciona el origen:</label>
+      <select class="form-control" id="origen">
+        <option>Mexico</option>
+        <option>Estados Unidos</option>
+      </select>
+      
+    </div>
+  </form>
 
-  
   </body>
 </html>
 

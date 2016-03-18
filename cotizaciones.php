@@ -23,8 +23,8 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Inicio</a></li>>
-        <li><a href="#">Cotizaciones</a></li>
+        <li><a href="#">Inicio</a></li>>
+        <li class="active"><a href="#">Cotizaciones</a></li>
         <li><a href="#">Clientes</a></li>
         <li><a href="#">Productos</a></li>
         <li><a href="#">Fabricante</a></li>
@@ -41,7 +41,7 @@
 <!--saltos para que no se oculte el texto en el detras del nav-->
 <br><br><hr>
 
-  
+
 
 
   
