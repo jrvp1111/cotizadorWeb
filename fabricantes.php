@@ -23,11 +23,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php">Inicio</a></li>>
+        <li><a href="index.php">Inicio</a></li>>
         <li><a href="cotizaciones.php">Cotizaciones</a></li>
         <li><a href="#">Clientes</a></li>
         <li><a href="productos.php">Productos</a></li>
-        <li><a href="fabricantes.php">Fabricante</a></li>
+        <li class="active"><a href="fabricantes.php">Fabricante</a></li>
         <li><a href="#">Usuarios</a></li>
         <li><a href="#">Configuracion</a></li>
         <li><a href="#">Pagos</a></li>        
@@ -41,10 +41,36 @@
 <!--saltos para que no se oculte el texto en el detras del nav-->
 <br><br><hr>
 
+<div class="container">
   
+      <form role="form" action="insertarfabricante.php" method="post" name="frmfabricante">
+        
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="nombfabricante">Nombre del fabricante:</label>
+                  <input type="text" class="form-control" name="nombrefabricante">
+                </div>
+              </div>
+  
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="sel1">Selecciona el origen:</label>
+                  <select class="form-control" name="origen">
+                    <option>Mexico</option>
+                    <option>Estados Unidos</option>
+                  </select>      
+                </div>
+              </div> 
+
+              <div class="form-group">        
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="Guardar" class="btn btn-default"></input>
+                  </div>
+              </div>
+      </form>
+ </div>
 
 
-  
   </body>
 </html>
 

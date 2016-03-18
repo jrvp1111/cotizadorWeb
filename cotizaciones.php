@@ -23,11 +23,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">Inicio</a></li>>
-        <li class="active"><a href="#">Cotizaciones</a></li>
+        <li><a href="index.php">Inicio</a></li>>
+        <li class="active"><a href="cotizaciones.php">Cotizaciones</a></li>
         <li><a href="#">Clientes</a></li>
-        <li><a href="#">Productos</a></li>
-        <li><a href="#">Fabricante</a></li>
+        <li><a href="productos.php">Productos</a></li>
+        <li><a href="fabricantes.php">Fabricante</a></li>
         <li><a href="#">Usuarios</a></li>
         <li><a href="#">Configuracion</a></li>
         <li><a href="#">Pagos</a></li>        
