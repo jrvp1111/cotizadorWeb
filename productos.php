@@ -29,7 +29,6 @@
         <li  class="active"><a href="productos.php">Productos</a></li>
         <li><a href="fabricantes.php">Fabricantes</a></li>
         <li><a href="#">Usuarios</a></li>
-        <li><a href="#">Configuracion</a></li>
         <li><a href="#">Pagos</a></li>        
       </ul>
     </div>

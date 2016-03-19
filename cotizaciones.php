@@ -25,7 +25,7 @@
       <ul class="nav navbar-nav">
         <li><a href="index.php">Inicio</a></li>>
         <li class="active"><a href="cotizaciones.php">Cotizaciones</a></li>
-        <li><a href="#">Clientes</a></li>
+        <li><a href="clientes.php">Clientes</a></li>
         <li><a href="productos.php">Productos</a></li>
         <li><a href="fabricantes.php">Fabricantes</a></li>
         <li><a href="usuarios.php">Usuarios</a></li>

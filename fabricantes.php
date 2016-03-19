@@ -41,33 +41,59 @@
 <br><br><hr>
 
 <div class="container">
-  
-      <form role="form" action="insertarfabricante.php" method="post" name="frmfabricante">
-        
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <label for="nombfabricante">Nombre del fabricante:</label>
-                  <input type="text" class="form-control" name="nombrefabricante">
-                </div>
-              </div>
-  
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <label for="sel1">Selecciona el origen:</label>
-                  <select class="form-control" name="origen">
-                    <option>Mexico</option>
-                    <option>Estados Unidos</option>
-                  </select>      
-                </div>
-              </div> 
+  <h2>Fabricante</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalnuevofabricante">Nuevo Fabricante</button>
 
-              <div class="form-group">        
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <input type="submit" value="Guardar" class="btn btn-default"></input>
-                  </div>
-              </div>
-      </form>
- </div>
+  <!-- Modal -->
+  <div class="modal fade" id="modalnuevofabricante" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Agregar nuevo fabricante</h4>
+        </div>
+        <div class="modal-body">
+         <!--contenido del modal-->
+                    <div class="container">
+                      
+                          <form role="form" action="insertarfabricante.php" method="post" name="frmfabricante">
+                            
+                                  <div class="col-xs-8">
+                                    <div class="form-group">
+                                      <label for="nombfabricante">Nombre del fabricante:</label>
+                                      <input type="text" class="form-control" name="nombrefabricante">
+                                    </div>
+                                  </div>
+                      
+                                  <div class="col-xs-8">
+                                    <div class="form-group">
+                                      <label for="sel1">Selecciona el origen:</label>
+                                      <select class="form-control" name="origen">
+                                        <option>Mexico</option>
+                                        <option>Estados Unidos</option>
+                                      </select>      
+                                    </div>
+                                  </div> 
+
+                                 <div class="form-group">        
+                                      <div class="col-sm-offset-2 col-sm-10">
+                                        <input type="submit" value="Guardar" class="btn btn-default"></input>
+                                      </div>
+                                  </div>
+                          </form>
+                     </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
   </body>
