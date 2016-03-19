@@ -41,7 +41,7 @@
 <br><br><hr>
 
 <div class="container">
-  <h2>Fabricante</h2>
+  <h2>Fabricantes</h2>
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalnuevofabricante">Nuevo Fabricante</button>
 
@@ -55,44 +55,78 @@
         </div>
         <div class="modal-body">
          <!--contenido del modal-->
-                    <div class="container">
-                      
-                          <form role="form" action="insertarfabricante.php" method="post" name="frmfabricante">
-                            
-                                  <div class="col-xs-8">
-                                    <div class="form-group">
-                                      <label for="nombfabricante">Nombre del fabricante:</label>
-                                      <input type="text" class="form-control" name="nombrefabricante">
-                                    </div>
-                                  </div>
-                      
-                                  <div class="col-xs-8">
-                                    <div class="form-group">
-                                      <label for="sel1">Selecciona el origen:</label>
-                                      <select class="form-control" name="origen">
-                                        <option>Mexico</option>
-                                        <option>Estados Unidos</option>
-                                      </select>      
-                                    </div>
-                                  </div> 
 
-                                 <div class="form-group">        
-                                      <div class="col-sm-offset-2 col-sm-10">
-                                        <input type="submit" value="Guardar" class="btn btn-default"></input>
+                <form role="form" action="insertarfabricante.php" method="post" name="frmfabricante">
+                      
+                      <div class="container">
+                              
+                                    <div class="col-xs-8">
+                                      <div class="form-group">
+                                        <label for="nombfabricante">Nombre del fabricante:</label>
+                                        <input type="text" class="form-control" name="nombrefabricante">
                                       </div>
-                                  </div>
-                          </form>
-                     </div>
+                                    </div>
+                        
+                                    <div class="col-xs-8">
+                                      <div class="form-group">
+                                        <label for="sel1">Selecciona el origen:</label>
+                                        <select class="form-control" name="origen">
+                                          <option>Mexico</option>
+                                          <option>Estados Unidos</option>
+                                        </select>      
+                                      </div>
+                                    </div>                                
+                            
+                      </div>
 
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                          <input type="submit" value="Guardar" class="btn btn-default"></input>
+                      </div>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </form>       
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<hr>
+
+<?php
+
+
+include("config/configdb.php");                                                       
+
+                                            //hace conexion a la db
+$con=mysql_connect($host,$user,$pw) or die("problemas al conectar");
+mysql_select_db($db,$con) or die ("problemas a conectar la bd");
+
+mysqli_select_db($con,"fabricantes.php");
+$sql="SELECT * FROM clientes WHERE id = '".$q."'";
+$result = mysqli_query($con,$sql);
+
+echo "<table>
+<tr>
+<th>Cliente</th>
+<th>Direccion</th>
+<th>Email</th>
+<th>Telefono</th>
+<th>Contacto</th>
+</tr>";
+while($row = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    echo "<td>" . $row['nombre_comercial'] . "</td>";
+    echo "<td>" . $row['direccion_cliente'] . "</td>";
+    echo "<td>" . $row['email_cliente'] . "</td>";
+    echo "<td>" . $row['telefono_cliente'] . "</td>";
+    echo "<td>" . $row['nombre_contacto'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+mysqli_close($con);
+?>
+
 
 
 

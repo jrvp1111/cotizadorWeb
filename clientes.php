@@ -40,62 +40,84 @@
 <!--saltos para que no se oculte el texto en el detras del nav-->
 <br><br><hr>
 
+
 <div class="container">
-  
-      <form role="form" action="insertarcliente.php" method="post" name="frmcliente">
-        
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <label for="nombcliente">Nombre del cliente:</label>
-                  <input type="text" class="form-control" name="nombrecliente">
-                </div>
-              </div>
+  <h2>Clientes</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalnuevocliente">Nuevo Fabricante</button>
 
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <label for="nombcomercial">Nombre comercial:</label>
-                  <input type="text" class="form-control" name="nombrecomercial">
-                </div>
-              </div>
+  <!-- Modal -->
+  <div class="modal fade" id="modalnuevocliente" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Agregar nuevo cliente</h4>
+        </div>
+        <div class="modal-body">
+         <!--contenido del modal-->
 
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <label for="dircliente">Direccion:</label>
-                  <input type="text" class="form-control" name="direccioncliente">
-                </div>
-              </div>
+                <form role="form" action="insertarcliente.php" method="post" name="frmcliente">
+                      
+                      <div class="container">
+                              
+                                    <div class="col-xs-8">
+                                      <div class="form-group">
+                                        <label for="nombcliente">Nombre del cliente:</label>
+                                        <input type="text" class="form-control" name="nombrecliente">
+                                      </div>
+                                    </div>
 
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <label for="emacliente">Email:</label>
-                  <input type="email" class="form-control" name="emailcliente">
-                </div>
-              </div>
+                                    <div class="col-xs-8">
+                                      <div class="form-group">
+                                        <label for="nombcomercial">Nombre comercial:</label>
+                                        <input type="text" class="form-control" name="nombrecomercial">
+                                      </div>
+                                    </div>
 
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <label for="telcliente">Telefono:</label>
-                  <input type="text" class="form-control" name="telefonocliente">
-                </div>
-              </div>
+                                    <div class="col-xs-8">
+                                      <div class="form-group">
+                                        <label for="dircliente">Direccion:</label>
+                                        <input type="text" class="form-control" name="direccioncliente">
+                                      </div>
+                                    </div>
 
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <label for="nombcontacto">Nombre del contacto:</label>
-                  <input type="text" class="form-control" name="nombrecontacto">
-                </div>
-              </div>
+                                    <div class="col-xs-8">
+                                      <div class="form-group">
+                                        <label for="emacliente">Email:</label>
+                                        <input type="email" class="form-control" name="emailcliente">
+                                      </div>
+                                    </div>
 
-              <div class="form-group">        
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <input type="submit" value="Guardar" class="btn btn-default"></input>
-                  </div>
-              </div>
-      </form>
- </div>
+                                    <div class="col-xs-8">
+                                      <div class="form-group">
+                                        <label for="telcliente">Telefono:</label>
+                                        <input type="text" class="form-control" name="telefonocliente">
+                                      </div>
+                                    </div>
 
+                                    <div class="col-xs-8">
+                                      <div class="form-group">
+                                        <label for="nombcontacto">Nombre del contacto:</label>
+                                        <input type="text" class="form-control" name="nombrecontacto">
+                                      </div>
+                                    </div>                              
+                            
+                      </div>
 
-  </body>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                          <input type="submit" value="Guardar" class="btn btn-default"></input>
+                      </div>
+
+                </form>       
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
 </html>
 
 
