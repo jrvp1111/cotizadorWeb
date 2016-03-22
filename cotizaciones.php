@@ -42,6 +42,102 @@
 
 
 
+      <div class="container">
+          <h2>Cotizaciones</h2>
+
+                <form role="form" action="insertarcotizacion.php" method="post" name="frmcotizacion">
+                           
+                      <div class="col-md-2">
+                         <div class="form-group">
+                           <label for="feccotizacion">Fecha:</label>
+                           <input type="text" class="form-control" name="fechacotizacion" placeholder="Selecciona la fecha">
+                         </div>
+                      </div>
+
+                      <div class="col-md-5">
+                          <div class="form-group">
+                            <label for="nombcotizacion">Seleccionar el cliente:</label>
+                            <input type="text" class="form-control" name="nombrecotizacion" placeholder="Selecciona el cliente">
+                          </div>
+                       </div>
+
+                       <div class="col-md-5">
+                         <div class="form-group">
+                            <label for="atencotizacion">Atención:</label>
+                            <input type="text" class="form-control" name="atencioncotizacion" placeholder="Atención">
+                          </div>
+                       </div>
+
+                       <div class="col-md-4">
+                         <div class="form-group">
+                            <label for="telcotizacion">Telefono:</label>
+                            <input type="text" class="form-control" name="telefonocotizacion">
+                          </div>
+                       </div>
+
+                       <div class="col-md-4">
+                         <div class="form-group">
+                            <label for="emaicotizacion">Email:</label>
+                            <input type="text" class="form-control" name="emailcotizacion">
+                          </div>
+                       </div>
+
+
+                       <div class="col-md-4">
+                         <div class="form-group">
+                            <label for="notcotizacion">Nota:</label>
+                            <input type="text" class="form-control" name="notacotizacion" placeholder="Nota">
+                          </div>
+                       </div>
+
+                       <div class="col-md-4">
+                         <div class="form-group">
+                            <label for="condcotizacion">Condiciones de pago:</label>
+                                <select class="form-control" name="condicionespagocotizacion">
+                                    <option>Contado</option>
+                                    <option>Crédito 7 días</option>
+                                    <option>Crédito 15 días</option>
+                                    <option>Crédito 30 días</option>
+                                    <option>Crédito 60 días</option>
+                                </select> 
+                          </div>
+                       </div>
+
+                       <div class="col-md-4">
+                         <div class="form-group">
+                            <label for="valcotizacion">Validez:</label>
+                                <select class="form-control" name="validezcotizacion">
+                                    <option>Contado</option>
+                                    <option>Crédito 5 días</option>
+                                    <option>Crédito 10 días</option>
+                                    <option>Crédito 15 días</option>
+                                    <option>Crédito 30 días</option>
+                                </select>
+                          </div>
+                       </div>
+
+
+                       <div class="col-md-4">
+                         <div class="form-group">
+                            <label for="tiementrecotizacion">Tiempo de entrega:</label>
+                            <input type="text" class="form-control" name="tiempoentregacotizacion" placeholder="Tiempo de entrega">
+                          </div>
+                       </div>
+
+                        
+                               
+                       <div class="col-md-8">
+                          <div class="form-group">
+                              <input type="submit" value="Guardar" class="btn btn-default"></input>
+                          </div>
+                       </div>
+
+                </form>       
+        </div>
+
+
+
+
 
   
   </body>

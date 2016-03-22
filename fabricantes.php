@@ -91,43 +91,6 @@
   </div>
 </div>
 
-<hr>
-
-<?php
-
-
-include("config/configdb.php");                                                       
-
-                                            //hace conexion a la db
-$con=mysql_connect($host,$user,$pw) or die("problemas al conectar");
-mysql_select_db($db,$con) or die ("problemas a conectar la bd");
-
-mysqli_select_db($con,"fabricantes.php");
-$sql="SELECT * FROM clientes WHERE id = '".$q."'";
-$result = mysqli_query($con,$sql);
-
-echo "<table>
-<tr>
-<th>Cliente</th>
-<th>Direccion</th>
-<th>Email</th>
-<th>Telefono</th>
-<th>Contacto</th>
-</tr>";
-while($row = mysqli_fetch_array($result)) {
-    echo "<tr>";
-    echo "<td>" . $row['nombre_comercial'] . "</td>";
-    echo "<td>" . $row['direccion_cliente'] . "</td>";
-    echo "<td>" . $row['email_cliente'] . "</td>";
-    echo "<td>" . $row['telefono_cliente'] . "</td>";
-    echo "<td>" . $row['nombre_contacto'] . "</td>";
-    echo "</tr>";
-}
-echo "</table>";
-mysqli_close($con);
-?>
-
-
 
 
   </body>
