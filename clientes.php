@@ -44,7 +44,7 @@
 <div class="container">
   <h2>Clientes</h2>
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalnuevocliente">Nuevo Fabricante</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalnuevocliente">Nuevo Cliente</button>
 
   <!-- Modal -->
   <div class="modal fade" id="modalnuevocliente" role="dialog">
