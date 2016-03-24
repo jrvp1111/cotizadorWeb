@@ -17,7 +17,7 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">Cotizador Web</a>
     </div>
@@ -29,12 +29,12 @@
         <li  class="active"><a href="productos.php">Productos</a></li>
         <li><a href="fabricantes.php">Fabricantes</a></li>
         <li><a href="#">Usuarios</a></li>
-        <li><a href="#">Pagos</a></li>        
+        <li><a href="#">Pagos</a></li>
       </ul>
     </div>
   </div>
 </nav>
-      
+
 <!-- termina el menu-->
 
 <!--saltos para que no se oculte el texto en el detras del nav-->
@@ -61,7 +61,7 @@
          <!--contenido del modal-->
 
                 <form role="form" action="insertarproducto.php" method="post" name="frmproducto" enctype="multipart/form-data">
-                      
+
                       <div class="container">
 
                             <div class="col-xs-8">
@@ -82,7 +82,7 @@
                                  <!--aqui se selecciona el fabricante desde la base de datos-->
 
                                             <?php 
-                                            include("config/configdb.php");                                                       
+                                            include("config/configdb.php");
 
                                             //hace conexion a la db
                                             $con=mysql_connect($host,$user,$pw) or die("problemas al conectar");
@@ -93,8 +93,7 @@
                                             $registro=mysql_query("SELECT * FROM fabricantes")
                                             or die ("problemas en consulta".mysql_error());
 
-                                           
-                                            
+
 
                                             echo "<div class=col-xs-8>";
                                             echo "<div class=form-group>";
@@ -124,7 +123,7 @@
                                 <select class="form-control" name="estadoproducto">
                                   <option>Activo</option>
                                   <option>Inactivo</option>
-                                </select>      
+                                </select>
                               </div>
                             </div>
 
@@ -141,9 +140,7 @@
                                 <input type="text" class="form-control" name="ventaproducto">
                               </div>
                             </div>
-                              
-                              
-                            
+
                       </div>
 
                       <div class="modal-footer">
@@ -151,7 +148,7 @@
                           <input type="submit" value="Guardar" class="btn btn-default"></input>
                       </div>
 
-                </form>       
+                </form>
         </div>
       </div>
     </div>

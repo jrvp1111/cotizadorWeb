@@ -73,21 +73,23 @@
                                     <div class="col-xs-8">
                                       <div class="form-group">
                                         <label for="sel1">Selecciona el origen:</label>
-                                        <select class="form-control" id="origen" name="origen">
+                                      <!--  <select class="form-control" id="origen" name="origen">
                                           <option>Mexico</option>
                                           <option>Estados Unidos</option>
-                                        </select>
+                                        </select>  -->
+                                        <input type="text" class="form-control" id="origen" name="origen">
                                       </div>
                                     </div>
 
                                     <div class="col-xs-8">
-                                      <div id="edo">Estado</div>
+                                      <div id="mensaje">Estado</div>
                                     </div>
+
                       </div>
 
                       <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                          <input type="button" value="Guardar" onclick="javascript:EnviarDatos();" class="btn btn-default"></input>
+                          <input type="button" class="btn btn-default" value="Guardar" onclick="javascript:EnviarDatos();"></input>
                       </div>
 
                 </form>
@@ -96,44 +98,31 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript">
-    function EnviarDatos(){
-      var nombref = document.getElementById('nombrefabricante').value;
-      var origenf = document.getElementById('origen').value;
+    <script type="text/javascript">
+      function EnviarDatos(){
+        var nombrefabricante = document.getElementById('nombrefabricante').value;
+        var origen = document.getElementById('origen').value;
 
-          $.ajax({
-                  //el url es como si tuvieramos el action en el form
-                  url: 'insertarfabricante.php',
-                  //el type es como si usaramos el method
-                  type: 'post',
-                  //aqui se usa el tipo de dato json
-                  dataType: 'json',
-                  //en este caso ponemos data por que es la variable que creamos arribita
-                  data:('nombrefabricante='+nombref+'&origen='+origenf),
-                  succes:function(respuesta)
-                    {
-                        if(respuesta==1){
-                          $('#edo').html('El fabricante se guardo correctamente');
-                        }
+        $.ajax({
+          type:'POST',
+          url:'insertarfabricante.php',
+          // nombre de la primer variable+su valor, "&" es para concatenar con una segunda variable
+          data:('nombrefabricante='+nombrefabricante+'&origen='+origen),
+          success:function(respuesta){
+            if (respuesta==1){
+              $('#mensaje').html('El fabricante ha creado correctamente');
+              document.getElementById('nombrefabricante').value="";
+              document.getElementById('origen').value="";
+            }
+            else{
+              $('#mensaje').html('El fabricante no se ha creado correctamente, inténtalo de nuevo...');
+            }
+          }
 
-                        else{
-                              $('#edo').html('El fabricante no se pudo guardar, intentalo de nuevo');
-                            }
-                    }
-
-
-                })
-
-    }
-  </script>
+        })
+      }
+    </script>
 </div>
 
-
-
   </body>
-</html>
-
-
-
-</body>
 </html>
