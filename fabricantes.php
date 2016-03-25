@@ -63,12 +63,33 @@
 
               <div>
                 <form method="post" action="insertarfabricante.php">
-                  <label>Nombre fabricante:</label><br/>
-                  <input type="text" name="nombrefabricante" id="nombrefabricante" size="40"><br/>
+                  <!--<label>Nombre fabricante:</label><br/>
+                  <input type="text" name="nombrefabricante" id="nombrefabricante" class="form-control"><br/>
                   <label>origen:</label><br/>
-                  <input name="origen" id="origen" rows="5" cols="32"></input><br/>                 
+                  <input type="text" name="origen" id="origen" class="form-control"></input><br/>-->
+
+                                    <div class="col-xs-8">
+                                      <div class="form-group">
+                                        <label>Nombre fabricante:</label><br/>
+                                        <input type="text" name="nombrefabricante" id="nombrefabricante" class="form-control">
+                                      </div>
+                                    </div>
+
+                                    <div class="col-xs-8">
+                                      <div class="form-group">
+                                        <label>origen:</label><br/>
+                                        <input type="text" name="origen" id="origen" class="form-control"></input>
+                                      </div>
+                                    </div>
+
+
                 </form>
-                <div id="mensaje">Estado</div>
+                      <div class="col-xs-8">
+                         <div class="form-group">
+                            <div  id="mensaje">Estado</div>
+                         </div>
+                      </div>
+
               </div>
               <script type="text/javascript">
                 function EnviarDatos(){
