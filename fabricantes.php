@@ -63,10 +63,6 @@
 
               <div>
                 <form method="post" action="insertarfabricante.php">
-                  <!--<label>Nombre fabricante:</label><br/>
-                  <input type="text" name="nombrefabricante" id="nombrefabricante" class="form-control"><br/>
-                  <label>origen:</label><br/>
-                  <input type="text" name="origen" id="origen" class="form-control"></input><br/>-->
 
                                     <div class="col-xs-8">
                                       <div class="form-group">
@@ -77,18 +73,26 @@
 
                                     <div class="col-xs-8">
                                       <div class="form-group">
-                                        <label>origen:</label><br/>
-                                        <input type="text" name="origen" id="origen" class="form-control"></input>
+                                        <label>Origen:</label><br/>
+                                        <select name="origen" id="origen" class="form-control">
+                                          <option>Nacional</option>
+                                          <option>Importacion</option>
+                                        </select>
                                       </div>
                                     </div>
 
 
                 </form>
-                      <div class="col-xs-8">
-                         <div class="form-group">
-                            <div  id="mensaje">Estado</div>
-                         </div>
-                      </div>
+
+                
+                        <div class="col-xs-8" id="mensaje">                     
+                          <div class="alert alert-info">
+                              <strong>Estado!</strong> inserta los datos y despues da click en guardar.  
+                          </div>
+                        </div>
+
+
+                      
 
               </div>
               <script type="text/javascript">
@@ -102,12 +106,12 @@
                     data:('nombrefabricante='+nombrefabricante+'&origen='+origen),
                     success:function(respuesta){
                       if (respuesta==1){
-                        $('#mensaje').html('Se han guardado los datos correctamente');
+                        $('#mensaje').html('<div class="alert alert-success"><strong>Correcto!</strong> Los datos se han guardado correctamente.</div>');
                         document.getElementById('nombrefabricante').value="";
                         document.getElementById('origen').value="";
                       }
                       else{
-                        $('#mensaje').html('los datos no se han podido guardar, inténtalo de nuevo...');
+                        $('#mensaje').html('<div class="alert alert-danger"><strong>Incorrecto!</strong> Los datos no se han podido guardar.</div>');
                       }
                     }
 
