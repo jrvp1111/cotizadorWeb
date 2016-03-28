@@ -1,2 +1,0 @@
-# cotizadorWeb
-Cotizador Web
