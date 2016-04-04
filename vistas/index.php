@@ -32,7 +32,7 @@
           <li><a href="cotizaciones.php">Cotizaciones</a></li>
           <li><a href="clientes.php">Clientes</a></li>
           <li><a href="productos.php">Productos</a></li>
-          <li class="active"><a href="fabricantes.php">Fabricantes</a></li>
+          <li class="active"><a href="fabricantes.php">Marcas</a></li>
           <li><a href="usuarios.php">Usuarios</a></li>
           <li><a href="pagos.php">Pagos</a></li>
         </ul>
@@ -40,18 +40,18 @@
     </div>
   </nav>
 
-  <!-- termina el menu-->
+    <!-- termina el menu-->
 
   <!--saltos para que no se oculte el texto en el detras del nav-->
   <br><br><hr>
 
 
 
-    <header>Fabricantes</header>
+    <header>Marcas</header>
     <section>
     <table border="0" align="center">
     	<tr>
-        	<td width="335"><input type="text" placeholder="Busca un fabricante por: Nombre u origen" id="bs-prod"/></td>
+        	<td width="335"><input type="text" placeholder="Busca una marca por: Nombre u origen" id="bs-prod"/></td>
             <td width="100"><button id="nuevo-producto" class="btn btn-primary">Nuevo</button></td>
         </tr>
     </table>
@@ -61,19 +61,22 @@
         <table class="table table-striped table-condensed table-hover">
             <tr>
                 <th width="300">Nombre de la marca</th>
-                <th width="200">Origen del fabricante</th>
+                <th width="200">Origen de la marca</th>
                 <th width="150">Fecha Registro</th>
                 <th width="50">Opciones</th>
             </tr>
         <?php
             include('../php/conexion.php');
-            $registro = mysql_query("SELECT * FROM productos"); 
+            $registro = mysql_query("SELECT * FROM marcas"); 
             while($registro2 = mysql_fetch_array($registro)){
                 echo '<tr>
-                        <td>'.$registro2['marca_prod'].'</td>
+                        <td>'.$registro2['nomb_prod'].'</td>
                         <td>'.$registro2['origen_prod'].'</td>
                         <td>'.fechaNormal($registro2['fecha_reg']).'</td>
-                        <td><a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+                        <td>
+                            <a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>
+                            <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a>
+                        </td>
                     </tr>';       
             }
         ?>
@@ -98,17 +101,16 @@
                         <td><input type="text" required="required" readonly="readonly" id="pro" name="pro"/></td>
                     </tr>
                 	<tr>
-                    	<td>Marca del producto: </td>
+                    	<td>Nombre de la marca: </td>
                         <td><input type="text" required="required" name="nombre" id="nombre" maxlength="100"/></td>
                     </tr>
                     <tr>
-                    	<td>Origen del fabricante: </td>
-                        <td><select required="required" name="tipo" id="tipo">
+                    	<td>Origen de la marca: </td>
+                        <td><select required="required" name="origen" id="origen">
                         		<option value="Nacional">Nacional</option>
-                                <option value="Importacion">Importacion</option>
+                                <option value="Importación">Importación</option>
                             </select></td>
                     </tr>
-
                     <tr>
                     	<td colspan="2">
                         	<div id="mensaje"></div>
