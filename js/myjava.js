@@ -112,8 +112,6 @@ function editarProducto(id){
 				$('#id-prod').val(id);
 				$('#nombre').val(datos[0]);
 				$('#tipo').val(datos[1]);
-				$('#precio-uni').val(datos[2]);
-				$('#precio-dis').val(datos[3]);
 				$('#registra-producto').modal({
 					show:true,
 					backdrop:'static'

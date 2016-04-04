@@ -5,7 +5,7 @@ $dato = $_POST['dato'];
 
 //EJECUTAMOS LA CONSULTA DE BUSQUEDA
 
-$registro = mysql_query("SELECT * FROM marcas WHERE nomb_prod LIKE '%$dato%' OR origen_prod LIKE '%$dato%' ORDER BY id_prod ASC");
+$registro = mysql_query("SELECT * FROM marcas WHERE nomb_mca LIKE '%$dato%' OR origen_mca LIKE '%$dato%' ORDER BY id_mca ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -19,12 +19,12 @@ echo '<table class="table table-striped table-condensed table-hover">
 if(mysql_num_rows($registro)>0){
 	while($registro2 = mysql_fetch_array($registro)){
 		echo '<tr>
-				<td>'.$registro2['nomb_prod'].'</td>
-				<td>'.$registro2['origen_prod'].'</td>
+				<td>'.$registro2['nomb_mca'].'</td>
+				<td>'.$registro2['origen_mca'].'</td>
 				<td>'.fechaNormal($registro2['fecha_reg']).'</td>
 				<td>
-					<a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>
-					<a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a>
+					<a href="javascript:editarProducto('.$registro2['id_mca'].');" class="glyphicon glyphicon-edit"></a>
+					<a href="javascript:eliminarProducto('.$registro2['id_mca'].');" class="glyphicon glyphicon-remove-circle"></a>
 				</td>
 			  </tr>';
 	}

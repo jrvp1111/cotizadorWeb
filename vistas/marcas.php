@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tienda</title>
+<title>Cotizaciones</title>
 <link href="../css/estilo.css" rel="stylesheet">
 <script src="../js/jquery.js"></script>
 <script src="../js/myjava.js"></script>
@@ -32,7 +32,7 @@
           <li><a href="cotizaciones.php">Cotizaciones</a></li>
           <li><a href="clientes.php">Clientes</a></li>
           <li><a href="productos.php">Productos</a></li>
-          <li class="active"><a href="fabricantes.php">Marcas</a></li>
+          <li class="active"><a href="marcas.php">Marcas</a></li>
           <li><a href="usuarios.php">Usuarios</a></li>
           <li><a href="pagos.php">Pagos</a></li>
         </ul>
@@ -70,12 +70,12 @@
             $registro = mysql_query("SELECT * FROM marcas"); 
             while($registro2 = mysql_fetch_array($registro)){
                 echo '<tr>
-                        <td>'.$registro2['nomb_prod'].'</td>
-                        <td>'.$registro2['origen_prod'].'</td>
+                        <td>'.$registro2['nomb_mca'].'</td>
+                        <td>'.$registro2['origen_mca'].'</td>
                         <td>'.fechaNormal($registro2['fecha_reg']).'</td>
                         <td>
-                            <a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>
-                            <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a>
+                            <a href="javascript:editarProducto('.$registro2['id_mca'].');" class="glyphicon glyphicon-edit"></a>
+                            <a href="javascript:eliminarProducto('.$registro2['id_mca'].');" class="glyphicon glyphicon-remove-circle"></a>
                         </td>
                     </tr>';       
             }
@@ -88,7 +88,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel"><b>Registra o Edita un Producto</b></h4>
+              <h4 class="modal-title" id="myModalLabel"><b>Registra o Edita una marca</b></h4>
             </div>
             <form id="formulario" class="formulario" onsubmit="return agregaRegistro();">
             <div class="modal-body">
