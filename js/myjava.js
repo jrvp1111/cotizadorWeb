@@ -42,7 +42,7 @@ $(function(){
 	
 	$('#bs-prod').on('keyup',function(){
 		var dato = $('#bs-prod').val();
-		var url = '../php/busca_producto.php';
+		var url = '../php/busca_marca.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -57,7 +57,7 @@ $(function(){
 });
 
 function agregaRegistro(){
-	var url = '../php/agrega_producto.php';
+	var url = '../php/agrega_marca.php';
 	$.ajax({
 		type:'POST',
 		url:url,
@@ -79,7 +79,7 @@ function agregaRegistro(){
 }
 
 function eliminarMarca(id){
-	var url = '../php/elimina_producto.php';
+	var url = '../php/elimina_marca.php';
 	var pregunta = confirm('¿Esta seguro de eliminar este Producto?');
 	if(pregunta==true){
 		$.ajax({
@@ -99,7 +99,7 @@ function eliminarMarca(id){
 
 function editarMarca(id){
 	$('#formulario')[0].reset();
-	var url = '../php/edita_producto.php';
+	var url = '../php/edita_marca.php';
 		$.ajax({
 		type:'POST',
 		url:url,
