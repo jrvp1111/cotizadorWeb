@@ -2,18 +2,18 @@
 include('conexion.php');
 $id = $_POST['id-prod'];
 $proceso = $_POST['pro'];
-$nombre = $_POST['nombre'];
+$nombreMca = $_POST['nombreMca'];
 $origen = $_POST['origen'];
 $fecha = date('Y-m-d');
 //VERIFICAMOS EL PROCESO
 
 switch($proceso){
 	case 'Registro':
-		mysql_query("INSERT INTO marcas (nomb_mca, origen_mca, fecha_reg)VALUES('$nombre','$origen', '$fecha')");
+		mysql_query("INSERT INTO marcas (nomb_mca, origen_mca, fecha_reg)VALUES('$nombreMca','$origen', '$fecha')");
 	break;
 	
 	case 'Edicion':
-		mysql_query("UPDATE marcas SET nomb_mca = '$nombre', origen_mca = '$origen' WHERE id_mca = '$id'");
+		mysql_query("UPDATE marcas SET nomb_mca = '$nombreMca', origen_mca = '$origen' WHERE id_mca = '$id'");
 	break;
 }
 

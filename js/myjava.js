@@ -110,7 +110,7 @@ function editarProducto(id){
 				$('#edi').show();
 				$('#pro').val('Edicion');
 				$('#id-prod').val(id);
-				$('#nombre').val(datos[0]);
+				$('#nombreMca').val(datos[0]);
 				$('#tipo').val(datos[1]);
 				$('#registra-producto').modal({
 					show:true,

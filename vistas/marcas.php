@@ -102,7 +102,7 @@
                     </tr>
                 	<tr>
                     	<td>Nombre de la marca: </td>
-                        <td><input type="text" required="required" name="nombre" id="nombre" maxlength="100"/></td>
+                        <td><input type="text" required="required" name="nombreMca" id="nombreMca" maxlength="100"/></td>
                     </tr>
                     <tr>
                     	<td>Origen de la marca: </td>
