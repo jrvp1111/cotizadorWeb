@@ -23,8 +23,8 @@ if(mysql_num_rows($registro)>0){
 				<td>'.$registro2['origen_mca'].'</td>
 				<td>'.fechaNormal($registro2['fecha_reg']).'</td>
 				<td>
-					<a href="javascript:editarProducto('.$registro2['id_mca'].');" class="glyphicon glyphicon-edit"></a>
-					<a href="javascript:eliminarProducto('.$registro2['id_mca'].');" class="glyphicon glyphicon-remove-circle"></a>
+					<a href="javascript:editarMarca('.$registro2['id_mca'].');" class="glyphicon glyphicon-edit"></a>
+					<a href="javascript:eliminarMarca('.$registro2['id_mca'].');" class="glyphicon glyphicon-remove-circle"></a>
 				</td>
 			  </tr>';
 	}

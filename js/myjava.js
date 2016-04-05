@@ -78,7 +78,7 @@ function agregaRegistro(){
 	return false;
 }
 
-function eliminarProducto(id){
+function eliminarMarca(id){
 	var url = '../php/elimina_producto.php';
 	var pregunta = confirm('¿Esta seguro de eliminar este Producto?');
 	if(pregunta==true){
@@ -97,7 +97,7 @@ function eliminarProducto(id){
 	}
 }
 
-function editarProducto(id){
+function editarMarca(id){
 	$('#formulario')[0].reset();
 	var url = '../php/edita_producto.php';
 		$.ajax({
