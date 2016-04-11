@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -51,13 +51,13 @@
     <section>
     <table border="0" align="center">
     	<tr>
-        	<td width="335"><input type="text" placeholder="Busca una marca por: Nombre u origen" id="bs-prod"/></td>
-            <td width="100"><button id="nuevo-producto" class="btn btn-primary">Nuevo</button></td>
+        	<td width="335"><input type="text" placeholder="Busca una marca por: Nombre u origen" id="bs-mca"/></td>
+            <td width="100"><button id="nueva-marca" class="btn btn-primary">Nuevo</button></td>
         </tr>
     </table>
     </section>
 
-    <div class="registros" id="agrega-registros">
+    <div class="registros" id="agrega-registros-mca">
         <table class="table table-striped table-condensed table-hover">
             <tr>
                 <th width="300">Nombre de la marca</th>
@@ -82,8 +82,8 @@
         ?>
         </table>
     </div>
-    <!-- MODAL PARA EL REGISTRO DE PRODUCTOS-->
-    <div class="modal fade" id="registra-producto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- MODAL PARA EL REGISTRO DE MARCAS-->
+    <div class="modal fade" id="registra-marca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -94,11 +94,11 @@
             <div class="modal-body">
 				<table border="0" width="100%">
                		 <tr>
-                        <td colspan="2"><input type="text" required="required" readonly="readonly" id="id-prod" name="id-prod" readonly="readonly" style="visibility:hidden; height:5px;"/></td>
+                        <td colspan="2"><input type="text" required="required" readonly="readonly" id="id-mca" name="id-mca" readonly="readonly" style="visibility:hidden; height:5px;"/></td>
                     </tr>
                      <tr>
                     	<td width="150">Proceso: </td>
-                        <td><input type="text" required="required" readonly="readonly" id="pro" name="pro"/></td>
+                        <td><input type="text" required="required" readonly="readonly" id="pro-mca" name="pro-mca"/></td>
                     </tr>
                 	<tr>
                     	<td>Nombre de la marca: </td>
@@ -120,8 +120,8 @@
             </div>
             
             <div class="modal-footer">
-            	<input type="submit" value="Registrar" class="btn btn-success" id="reg"/>
-                <input type="submit" value="Editar" class="btn btn-warning"  id="edi"/>
+            	<input type="submit" value="Registrar" class="btn btn-success" id="reg-mca"/>
+                <input type="submit" value="Editar" class="btn btn-warning"  id="edi-mca"/>
             </div>
             </form>
           </div>

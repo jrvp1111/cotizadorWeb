@@ -1,7 +1,7 @@
 <?php
 include('conexion.php');
-$id = $_POST['id-prod'];
-$proceso = $_POST['pro'];
+$id = $_POST['id-mca'];
+$proceso = $_POST['pro-mca'];
 $nombreMca = $_POST['nombreMca'];
 $origen = $_POST['origen'];
 $fecha = date('Y-m-d');

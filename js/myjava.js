@@ -1,5 +1,5 @@
 $(function(){
-	$('#bd-desde').on('change', function(){
+	/*$('#bd-desde').on('change', function(){
 		var desde = $('#bd-desde').val();
 		var hasta = $('#bd-hasta').val();
 		var url = '../php/busca_producto_fecha.php';
@@ -27,28 +27,28 @@ $(function(){
 		}
 	});
 	return false;
-	});
+	});*/
 	
-	$('#nuevo-producto').on('click',function(){
+	$('#nueva-marca').on('click',function(){
 		$('#formulario')[0].reset();
-		$('#pro').val('Registro');
-		$('#edi').hide();
-		$('#reg').show();
-		$('#registra-producto').modal({
+		$('#pro-mca').val('Registro');
+		$('#edi-mca').hide();
+		$('#reg-mca').show();
+		$('#registra-marca').modal({
 			show:true,
 			backdrop:'static'
 		});
 	});
 	
-	$('#bs-prod').on('keyup',function(){
-		var dato = $('#bs-prod').val();
+	$('#bs-mca').on('keyup',function(){
+		var dato = $('#bs-mca').val();
 		var url = '../php/busca_marca.php';
 		$.ajax({
 		type:'POST',
 		url:url,
 		data:'dato='+dato,
 		success: function(datos){
-			$('#agrega-registros').html(datos);
+			$('#agrega-registros-mca').html(datos);
 		}
 	});
 	return false;
@@ -63,14 +63,14 @@ function agregaRegistro(){
 		url:url,
 		data:$('#formulario').serialize(),
 		success: function(registro){
-			if ($('#pro').val() == 'Registro'){
+			if ($('#pro-mca').val() == 'Registro'){
 			$('#formulario')[0].reset();
 			$('#mensaje').addClass('bien').html('Registro completado con exito').show(200).delay(2500).hide(200);
-			$('#agrega-registros').html(registro);
+			$('#agrega-registros-mca').html(registro);
 			return false;
 			}else{
 			$('#mensaje').addClass('bien').html('Edicion completada con exito').show(200).delay(2500).hide(200);
-			$('#agrega-registros').html(registro);
+			$('#agrega-registros-mca').html(registro);
 			return false;
 			}
 		}
@@ -87,7 +87,7 @@ function eliminarMarca(id){
 		url:url,
 		data:'id='+id,
 		success: function(registro){
-			$('#agrega-registros').html(registro);
+			$('#agrega-registros-mca').html(registro);
 			return false;
 		}
 	});
@@ -106,13 +106,13 @@ function editarMarca(id){
 		data:'id='+id,
 		success: function(valores){
 				var datos = eval(valores);
-				$('#reg').hide();
-				$('#edi').show();
-				$('#pro').val('Edicion');
-				$('#id-prod').val(id);
+				$('#reg-mca').hide();
+				$('#edi-mca').show();
+				$('#pro-mca').val('Edicion');
+				$('#id-mca').val(id);
 				$('#nombreMca').val(datos[0]);
-				$('#tipo').val(datos[1]);
-				$('#registra-producto').modal({
+				$('#origen').val(datos[1]);
+				$('#registra-marca').modal({
 					show:true,
 					backdrop:'static'
 				});

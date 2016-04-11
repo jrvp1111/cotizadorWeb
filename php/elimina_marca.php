@@ -24,8 +24,8 @@ echo '<table class="table table-striped table-condensed table-hover">
 				<td>'.$registro2['nomb_mca'].'</td>
 				<td>'.$registro2['origen_mca'].'</td>
 				<td>
-					<a href="javascript:editarMarcas('.$registro2['id_mca'].');" class="glyphicon glyphicon-edit"></a>
-					<a href="javascript:eliminarMarcas('.$registro2['id_mca'].');" class="glyphicon glyphicon-remove-circle"></a>
+					<a href="javascript:editarMarca('.$registro2['id_mca'].');" class="glyphicon glyphicon-edit"></a>
+					<a href="javascript:eliminarMarca('.$registro2['id_mca'].');" class="glyphicon glyphicon-remove-circle"></a>
 				</td>
 				</tr>';
 	}
