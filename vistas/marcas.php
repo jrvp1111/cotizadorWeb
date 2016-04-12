@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Cotizaciones</title>
@@ -90,7 +90,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h4 class="modal-title" id="myModalLabel"><b>Registra o Edita una marca</b></h4>
             </div>
-            <form id="formulario" class="formulario" onsubmit="return agregaRegistro();">
+            <form id="formulario-mca" class="formulario" onsubmit="return agregaRegistro();">
             <div class="modal-body">
 				<table border="0" width="100%">
                		 <tr>
