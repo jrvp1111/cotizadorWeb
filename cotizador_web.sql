@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-04-2016 a las 03:02:50
+-- Tiempo de generación: 13-04-2016 a las 02:58:34
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -19,6 +19,32 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cotizador_web`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id_cte` int(11) NOT NULL,
+  `comp_cte` varchar(100) NOT NULL,
+  `nombcomer_cte` varchar(100) NOT NULL,
+  `aten_cte` varchar(100) NOT NULL,
+  `email_cte` varchar(50) NOT NULL,
+  `tel_cte` varchar(50) NOT NULL,
+  `dir_cte` varchar(100) NOT NULL,
+  `ciud_cte` varchar(100) NOT NULL,
+  `edo_cte` varchar(100) NOT NULL,
+  `fecha_cte` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_cte`, `comp_cte`, `nombcomer_cte`, `aten_cte`, `email_cte`, `tel_cte`, `dir_cte`, `ciud_cte`, `edo_cte`, `fecha_cte`) VALUES
+(1, 'Casa Ley S.A. De C.v.', 'Casa Ley', 'Edith Arias', 'edith.arias@casaley.com.mx', '759 10 00', 'Carretera Internacional Km 1434 Col. Infonavit Humaya C.P. 80020', 'Culiacan', 'Sinaloa', '2016-04-12');
 
 -- --------------------------------------------------------
 
@@ -57,9 +83,9 @@ CREATE TABLE `productos` (
   `origen_prod` varchar(20) NOT NULL,
   `edo_prod` varchar(15) NOT NULL,
   `nota_prod` varchar(150) NOT NULL,
-  `cost_prod` int(11) NOT NULL,
-  `util_prod` int(11) NOT NULL,
-  `prec_prod` int(11) NOT NULL,
+  `cost_prod` float NOT NULL,
+  `util_prod` float NOT NULL,
+  `prec_prod` float NOT NULL,
   `fecha_prod` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -78,6 +104,12 @@ INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `orige
 --
 
 --
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id_cte`);
+
+--
 -- Indices de la tabla `marcas`
 --
 ALTER TABLE `marcas`
@@ -93,6 +125,11 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id_cte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
