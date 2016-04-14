@@ -80,6 +80,8 @@ $(function(){
 	return false;
 	});
 
+		
+
 		$('#bs-cte').on('keyup',function(){
 		var dato = $('#bs-cte').val();
 		var url = '../php/busca_cliente.php';

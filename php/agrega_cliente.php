@@ -1,7 +1,7 @@
 <?php
 include('conexion.php');
 $id = $_POST['id-cte'];
-$proceso = $_POST['proCte'];
+$proceso = $_POST['pro-cte'];
 $compCte = $_POST['compCte'];
 $nombcomerCte = $_POST['nombcomerCte'];
 $telCte = $_POST['telCte'];
