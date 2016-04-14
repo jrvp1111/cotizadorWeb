@@ -1,77 +1,69 @@
 $(function(){
-	/*$('#bd-desde').on('change', function(){
-		var desde = $('#bd-desde').val();
-		var hasta = $('#bd-hasta').val();
-		var url = '../php/busca_producto_fecha.php';
-		$.ajax({
-		type:'POST',
-		url:url,
-		data:'desde='+desde+'&hasta='+hasta,
-		success: function(datos){
-			$('#agrega-registros').html(datos);
-		}
-	});
-	return false;
-	});
-	
-	$('#bd-hasta').on('change', function(){
-		var desde = $('#bd-desde').val();
-		var hasta = $('#bd-hasta').val();
-		var url = '../php/busca_producto_fecha.php';
-		$.ajax({
-		type:'POST',
-		url:url,
-		data:'desde='+desde+'&hasta='+hasta,
-		success: function(datos){
-			$('#agrega-registros').html(datos);
-		}
-	});
-	return false;
-	});*/
-	
-	$('#nueva-marca').on('click',function(){
-		$('#formulario-mca')[0].reset();
-		$('#pro-mca').val('Registro');
-		$('#edi-mca').hide();
-		$('#reg-mca').show();
-		$('#registra-marca').modal({
-			show:true,
-			backdrop:'static'
+
+
+	$('#nueva-marca').on('click',function()
+		{
+			$('#formulario-mca')[0].reset();
+			$('#pro-mca').val('Registro');
+			$('#edi-mca').hide();
+			$('#reg-mca').show();
+			$('#registra-marca').modal
+			({
+				show:true,
+				backdrop:'static'
+			});
 		});
-	});
 
 
 
 
-	$('#nuevo-producto').on('click',function(){
-		$('#formulario-prod')[0].reset();
-		$('#pro-prod').val('Registro');
-		$('#edi-prod').hide();
-		$('#reg-prod').show();
-		$('#registra-producto').modal({
-			show:true,
-			backdrop:'static'
+	$('#nuevo-producto').on('click',function()
+		{
+			$('#formulario-prod')[0].reset();
+			$('#pro-prod').val('Registro');
+			$('#edi-prod').hide();
+			$('#reg-prod').show();
+			$('#registra-producto').modal
+			({
+				show:true,
+				backdrop:'static'
+			});
 		});
-	});
+
+
+	$('#nuevo-cliente').on('click',function()
+		{
+			$('#formulario-cte')[0].reset();
+			$('#pro-cte').val('Registro');
+			$('#edi-cte').hide();
+			$('#reg-cte').show();
+			$('#registra-cliente').modal
+			({
+				show:true,
+				backdrop:'static'
+			});
+		});
 
 
 
 
+	$('#bs-mca').on('keyup',function()
+		{
+			var dato = $('#bs-mca').val();
+			var url = '../php/busca_marca.php';
+			$.ajax(
+				{
+					type:'POST',
+					url:url,
+					data:'dato='+dato,
+					success: function(datos)
+						{
+							$('#agrega-registros-mca').html(datos);
+						}
+				});
+		return false;
+		});
 
-	
-	$('#bs-mca').on('keyup',function(){
-		var dato = $('#bs-mca').val();
-		var url = '../php/busca_marca.php';
-		$.ajax({
-		type:'POST',
-		url:url,
-		data:'dato='+dato,
-		success: function(datos){
-			$('#agrega-registros-mca').html(datos);
-		}
-	});
-	return false;
-	});
 
 
 		$('#bs-prod').on('keyup',function(){
@@ -87,7 +79,25 @@ $(function(){
 	});
 	return false;
 	});
-	
+
+		$('#bs-cte').on('keyup',function(){
+		var dato = $('#bs-cte').val();
+		var url = '../php/busca_cliente.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'dato='+dato,
+		success: function(datos){
+			$('#agrega-registros-cte').html(datos);
+		}
+	});
+	return false;
+	});
+
+
+
+
+
 });
 
 function agregaRegistro(){
@@ -136,6 +146,32 @@ function agregaRegistroProd(){
 }
 
 
+
+function agregaRegistroCte(){
+	var url = '../php/agrega_cliente.php';
+	$.ajax({
+		type:'POST',
+		url:url,
+		data:$('#formulario-cte').serialize(),
+		success: function(registro){
+			if ($('#pro-cte').val() == 'Registro'){
+			$('#formulario-cte')[0].reset();
+			$('#mensaje').addClass('bien').html('Registro completado con exito').show(200).delay(2500).hide(200);
+			$('#agrega-registros-cte').html(registro);
+			return false;
+			}else{
+			$('#mensaje').addClass('bien').html('Edicion completada con exito').show(200).delay(2500).hide(200);
+			$('#agrega-registros-cte').html(registro);
+			return false;
+			}
+		}
+	});
+	return false;
+}
+
+
+
+
 function eliminarMarca(id){
 	var url = '../php/elimina_marca.php';
 	var pregunta = confirm('¿Esta seguro de eliminar esta Marca?');
@@ -175,6 +211,26 @@ function eliminarProducto(id){
 	}
 }
 
+
+
+function eliminarCliente(id){
+	var url = '../php/elimina_cliente.php';
+	var pregunta = confirm('¿Esta seguro de eliminar este cliente?');
+	if(pregunta==true){
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'id='+id,
+		success: function(registro){
+			$('#agrega-registros-cte').html(registro);
+			return false;
+		}
+	});
+	return false;
+	}else{
+		return false;
+	}
+}
 
 
 
@@ -228,6 +284,36 @@ function editarProducto(id){
 				$('#utilidadProd').val(datos[7]);
 				$('#precProd').val(datos[8]);
 				$('#registra-producto').modal({
+					show:true,
+					backdrop:'static'
+				});
+			return false;
+		}
+	});
+	return false;
+}
+
+
+function editarCliente(id){
+	$('#formulario-cte')[0].reset();
+	var url = '../php/edita_cliente.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'id='+id,
+		success: function(valores){
+				var datos = eval(valores);
+				$('#reg-cte').hide();
+				$('#edi-cte').show();
+				$('#pro-cte').val('Edicion');
+				$('#id-cte').val(id);
+				$('#compCte').val(datos[0]);
+				$('#nombcomerCte').val(datos[1]);
+				$('#telCte').val(datos[2]);
+				$('#dirCte').val(datos[3]);
+				$('#ciudCte').val(datos[4]);
+				$('#edoCte').val(datos[5]);
+				$('#registra-cliente').modal({
 					show:true,
 					backdrop:'static'
 				});

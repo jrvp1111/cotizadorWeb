@@ -51,7 +51,7 @@
     <section>
     <table border="0" align="center">
     	<tr>
-        	<td width="335"><input type="text" placeholder="Busca un cliente: " id="bs-cte"/></td>
+        	<td width="335"><input type="text" placeholder="Busca un cliente:" id="bs-cte"/></td>
             <td width="100"><button id="nuevo-cliente" class="btn btn-primary">Nuevo</button></td>
         </tr>
     </table>
@@ -61,9 +61,7 @@
         <table class="table table-striped table-condensed table-hover">
             <tr>
                 <th width="300">Compañia</th>
-                <th width="300">Atención</th>
                 <th width="300">Telefono</th>
-                <th width="300">Email</th>
                 <th width="200">Ciudad</th>
                 <th width="150">Estado</th>
                 <th width="150">Fecha</th>
@@ -75,9 +73,7 @@
             while($registro2 = mysql_fetch_array($registro)){
                 echo '<tr>
                         <td>'.$registro2['nombcomer_cte'].'</td>
-                        <td>'.$registro2['aten_cte'].'</td>
                         <td>'.$registro2['tel_cte'].'</td>
-                        <td>'.$registro2['email_cte'].'</td>
                         <td>'.$registro2['ciud_cte'].'</td>
                         <td>'.$registro2['edo_cte'].'</td>
                         <td>'.fechaNormal($registro2['fecha_cte']).'</td>
@@ -115,14 +111,6 @@
                     <tr>
                       <td>Nombre Comercial: </td>
                         <td><input type="text" required="required" name="nombcomerCte" id="nombcomerCte" maxlength="100"/></td>
-                    </tr>
-                    <tr>
-                      <td>Atención: </td>
-                        <td><input type="text" required="required" name="atenCte" id="atenCte" maxlength="100"/></td>
-                    </tr>
-                    <tr>
-                      <td>Email: </td>
-                        <td><input type="text" required="required" name="emailCte" id="emailCte" maxlength="100"/></td>
                     </tr>
                     <tr>
                       <td>Telefono: </td>

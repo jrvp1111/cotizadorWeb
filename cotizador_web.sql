@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-04-2016 a las 02:58:34
+-- Tiempo de generación: 14-04-2016 a las 03:02:11
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -30,8 +30,6 @@ CREATE TABLE `clientes` (
   `id_cte` int(11) NOT NULL,
   `comp_cte` varchar(100) NOT NULL,
   `nombcomer_cte` varchar(100) NOT NULL,
-  `aten_cte` varchar(100) NOT NULL,
-  `email_cte` varchar(50) NOT NULL,
   `tel_cte` varchar(50) NOT NULL,
   `dir_cte` varchar(100) NOT NULL,
   `ciud_cte` varchar(100) NOT NULL,
@@ -43,8 +41,8 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cte`, `comp_cte`, `nombcomer_cte`, `aten_cte`, `email_cte`, `tel_cte`, `dir_cte`, `ciud_cte`, `edo_cte`, `fecha_cte`) VALUES
-(1, 'Casa Ley S.A. De C.v.', 'Casa Ley', 'Edith Arias', 'edith.arias@casaley.com.mx', '759 10 00', 'Carretera Internacional Km 1434 Col. Infonavit Humaya C.P. 80020', 'Culiacan', 'Sinaloa', '2016-04-12');
+INSERT INTO `clientes` (`id_cte`, `comp_cte`, `nombcomer_cte`, `tel_cte`, `dir_cte`, `ciud_cte`, `edo_cte`, `fecha_cte`) VALUES
+(1, 'Casa Ley S.A. De C.v.', 'Casa Ley', '759 10 00', 'Carretera Internacional Km 1434 Col. Infonavit Humaya C.P. 80020', 'Culiacan', 'Sinaloa', '2016-04-12');
 
 -- --------------------------------------------------------
 
@@ -67,7 +65,8 @@ INSERT INTO `marcas` (`id_mca`, `nomb_mca`, `origen_mca`, `fecha_reg`) VALUES
 (29, 'Deltatrak', 'Nacional', '2016-04-11'),
 (31, 'Extruflex', 'ImportaciÃ³n', '2016-04-11'),
 (32, 'Taylor', 'Nacional', '2016-04-12'),
-(33, 'Extech', 'Nacional', '2016-04-12');
+(33, 'Extech', 'Nacional', '2016-04-12'),
+(34, 'Escort Ilog', 'ImportaciÃ³n', '2016-04-14');
 
 -- --------------------------------------------------------
 
@@ -97,7 +96,8 @@ INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `orige
 (1, '16100', 'Graficador Desechable', 'Deltatrak', 'Nacional', 'Activo', 'se usa en los cuartos frios', 100, 50, 150, '2016-04-11'),
 (4, '365510', 'Cronometro digital', 'Extech', 'Nacional', 'Activo', 'se usa en plantas de proceso', 250, 200, 250, '2016-04-12'),
 (5, '8.08 Ribbed Conservacion', 'Banda de polivinilo para cortina hawaiana', 'Extruflex', 'ImportaciÃ³n', 'Activo', '', 25, 30, 42, '2016-04-12'),
-(6, '6065N', 'Termometro Bimetalico', 'Taylor', 'Nacional', 'Activo', '', 50, 25, 90, '2016-04-12');
+(6, '6065N', 'Termometro Bimetalico', 'Taylor', 'Nacional', 'Activo', '', 50, 25, 90, '2016-04-12'),
+(7, 'EI-HS-', 'Graficador Temperatura y humedad', 'Escort Ilog', 'ImportaciÃ³n', 'Activo', '', 1500, 1000, 2500, '2016-04-14');
 
 --
 -- Índices para tablas volcadas
@@ -134,12 +134,12 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_mca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_mca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

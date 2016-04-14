@@ -72,7 +72,7 @@
             </tr>
         <?php
             include('../php/conexion.php');
-            $registro = mysql_query("SELECT * FROM productos"); 
+            $registro = mysql_query("SELECT * FROM productos ORDER BY desc_prod ASC"); 
             while($registro2 = mysql_fetch_array($registro)){
                 echo '<tr>
                         <td>'.$registro2['nomb_prod'].'</td>
@@ -127,7 +127,7 @@
                         <td><select required="required" name="mcaProd" id="mcaProd">
 
                           <?php
-                          $sql="SELECT * FROM marcas";
+                          $sql="SELECT * FROM marcas ORDER BY nomb_mca ASC";
                           $rec=mysql_query($sql);
                           while($row=mysql_fetch_array($rec))
                           {
@@ -140,12 +140,6 @@
                             </select>
                         </td>
                     </tr>
-
-
-                   <!-- <tr>
-                      <td>Marca: </td>
-                        <td><input type="text" required="required" name="mcaProd" id="mcaProd" maxlength="100"/></td>
-                    </tr> -->
 
                     <tr>
                       <td>Origen: </td>
