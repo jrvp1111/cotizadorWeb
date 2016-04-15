@@ -93,7 +93,7 @@
         </table>
     </div>
     <!-- MODAL PARA EL REGISTRO DE PRODUCTOS-->
-    <div class="modal fade" id="registra-producto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="registra-producto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" onload="calcular();" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -167,19 +167,34 @@
 
                     <tr>
                       <td>Costo: </td>
-                        <td><input type="text" required="required" name="costProd" id="costProd" maxlength="100"/></td>
+                        <td><input type="text" required="required" name="costProd" id="costProd" onkeyup="calcular();" maxlength="100"/></td>
                     </tr>
 
                     <tr>
-                      <td>Utilidad: </td>
-                        <td><input type="text" required="required" name="utilidadProd" id="utilidadProd" maxlength="100"/></td>
+                      <td>Porcentaje de Utilidad: </td>
+                        <td><input type="text" required="required" name="utilidadProd" id="utilidadProd" onkeyup="calcular();" maxlength="100"/></td>
                     </tr>
+
+                    <script language="JavaScript">  
+                        function calcular()
+                        {
+                            var precio=  parseFloat( document.getElementById("costProd").value);   
+                            var costo = parseFloat( document.getElementById("utilidadProd").value);            
+                            var precioventa = document.getElementById("precProd").value = ((precio*costo)/100)+precio;              
+                        }   
+                    </script>
+
+
 
                     <tr>
                       <td>Precio venta: </td>
                         <td><input type="text" required="required" name="precProd" id="precProd" maxlength="100"/></td>
                     </tr>
 
+                    <tr>
+                        <td>Precio recomendado: </td>
+                        <td><input type="text" required="required" name="precRec" id="precRec" maxlength="100"/></td>
+                    </tr>
 
                     <tr>
                       <td colspan="2">

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-04-2016 a las 03:02:11
+-- Tiempo de generación: 15-04-2016 a las 07:00:44
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -42,7 +42,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_cte`, `comp_cte`, `nombcomer_cte`, `tel_cte`, `dir_cte`, `ciud_cte`, `edo_cte`, `fecha_cte`) VALUES
-(1, 'Casa Ley S.A. De C.v.', 'Casa Ley', '759 10 00', 'Carretera Internacional Km 1434 Col. Infonavit Humaya C.P. 80020', 'Culiacan', 'Sinaloa', '2016-04-12');
+(1, 'Casa Ley S.A. De C.V.', 'Casa Ley', '(667) 759 1000', 'Carretera Internacional Km 1434 Col. Infonavit Humaya C.P. 80020', 'CuliacÃ¡n', 'Sinaloa', '2016-04-12'),
+(2, 'Sergio Valenzuela Salazar', 'Distribuidora de Occidente', '(667) 716 4522', 'Rio Zuaque # 980 Col. Antonio Rosales C.P. 80230', 'CuliacÃ¡n', 'Sinaloa', '2016-04-15');
 
 -- --------------------------------------------------------
 
@@ -85,6 +86,7 @@ CREATE TABLE `productos` (
   `cost_prod` float NOT NULL,
   `util_prod` float NOT NULL,
   `prec_prod` float NOT NULL,
+  `prec_rec` float NOT NULL,
   `fecha_prod` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -92,12 +94,11 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `origen_prod`, `edo_prod`, `nota_prod`, `cost_prod`, `util_prod`, `prec_prod`, `fecha_prod`) VALUES
-(1, '16100', 'Graficador Desechable', 'Deltatrak', 'Nacional', 'Activo', 'se usa en los cuartos frios', 100, 50, 150, '2016-04-11'),
-(4, '365510', 'Cronometro digital', 'Extech', 'Nacional', 'Activo', 'se usa en plantas de proceso', 250, 200, 250, '2016-04-12'),
-(5, '8.08 Ribbed Conservacion', 'Banda de polivinilo para cortina hawaiana', 'Extruflex', 'ImportaciÃ³n', 'Activo', '', 25, 30, 42, '2016-04-12'),
-(6, '6065N', 'Termometro Bimetalico', 'Taylor', 'Nacional', 'Activo', '', 50, 25, 90, '2016-04-12'),
-(7, 'EI-HS-', 'Graficador Temperatura y humedad', 'Escort Ilog', 'ImportaciÃ³n', 'Activo', '', 1500, 1000, 2500, '2016-04-14');
+INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `origen_prod`, `edo_prod`, `nota_prod`, `cost_prod`, `util_prod`, `prec_prod`, `prec_rec`, `fecha_prod`) VALUES
+(1, '16100', 'Graficador Desechable', 'Deltatrak', 'Nacional', 'Activo', 'se usa en los cuartos frios', 100, 50, 150, 180, '2016-04-11'),
+(4, '365510', 'Cronometro digital', 'Extech', 'Nacional', 'Activo', 'se usa en plantas de proceso', 200, 50, 300, 350, '2016-04-12'),
+(6, '6065N', 'Termometro Bimetalico', 'Taylor', 'Nacional', 'Activo', '', 50, 50, 75, 90, '2016-04-12'),
+(8, '11050', 'Termometro tipo paleta', 'Deltatrak', 'Nacional', 'Activo', 'aaaaa', 400, 30, 550, 600, '2016-04-15');
 
 --
 -- Índices para tablas volcadas
@@ -129,7 +130,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
@@ -139,7 +140,7 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
