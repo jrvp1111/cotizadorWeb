@@ -285,7 +285,6 @@ function editarProducto(id){
 				$('#costProd').val(datos[6]);
 				$('#utilidadProd').val(datos[7]);
 				$('#precProd').val(datos[8]);
-				$('#precRec').val(datos[9]);
 				$('#registra-producto').modal({
 					show:true,
 					backdrop:'static'

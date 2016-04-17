@@ -11,14 +11,14 @@ $notaProd = $_POST['notaProd'];
 $costoProd = $_POST['costProd'];
 $utilidadProd = $_POST['utilidadProd'];
 $precioProd = $_POST['precProd'];
-$precioRec = $_POST['precRec'];
+$precioReco = $_POST['precRec'];
 $fecha = date('Y-m-d');
 //VERIFICAMOS EL PROCESO
 
 switch($procesoProd){
 	case 'Registro':
 		mysql_query("INSERT INTO productos (nomb_prod, desc_prod, mca_prod, origen_prod, edo_prod, nota_prod, cost_prod, util_prod, prec_prod, prec_rec, fecha_prod)
-						VALUES('$nombreProd','$descripcionProd','$marcaProd', '$origenProd', '$estadoProd', '$notaProd', '$costoProd', '$utilidadProd', '$precioProd', '$precioRec', $fecha')");
+						VALUES('$nombreProd','$descripcionProd','$marcaProd', '$origenProd', '$estadoProd', '$notaProd', '$costoProd', '$utilidadProd', '$precioProd', '$precioReco','$fecha')");
 	break;
 
 	case 'Edicion':
@@ -32,7 +32,7 @@ switch($procesoProd){
 			cost_prod = '$costoProd',
 			util_prod = '$utilidadProd',
 			prec_prod = '$precioProd',
-			prec_rec = '$precioRec'
+			prec_rec = '$precioReco'
 			WHERE id_prod = '$id'");
 	break;
 }

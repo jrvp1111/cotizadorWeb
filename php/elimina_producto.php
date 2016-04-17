@@ -33,7 +33,7 @@ echo '<table class="table table-striped table-condensed table-hover">
                         <td>'.$registro2['origen_prod'].'</td>
                         <td>'.$registro2['edo_prod'].'</td>
                         <td>'.$registro2['cost_prod'].'</td>
-                        <td>'.$registro2['prec_rec'].'</td>
+                        <td>'.$registro2['prec_prod'].'</td>
                         <td>'.fechaNormal($registro2['fecha_prod']).'</td>
 				<td>
 					<a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>

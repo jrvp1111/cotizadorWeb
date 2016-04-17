@@ -81,7 +81,7 @@
                         <td>'.$registro2['origen_prod'].'</td>
                         <td>'.$registro2['edo_prod'].'</td>
                         <td>'.$registro2['cost_prod'].'</td>
-                        <td>'.$registro2['prec_prod'].'</td>
+                        <td>'.$registro2['prec_rec'].'</td>
                         <td>'.fechaNormal($registro2['fecha_prod']).'</td>
                         <td>
                             <a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>
@@ -93,7 +93,7 @@
         </table>
     </div>
     <!-- MODAL PARA EL REGISTRO DE PRODUCTOS-->
-    <div class="modal fade" id="registra-producto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" onload="calcular();" aria-hidden="true">
+    <div class="modal fade" id="registra-producto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -171,7 +171,7 @@
                     </tr>
 
                     <tr>
-                      <td>Porcentaje de Utilidad: </td>
+                      <td>Porcentaje de utilidad: </td>
                         <td><input type="text" required="required" name="utilidadProd" id="utilidadProd" onkeyup="calcular();" maxlength="100"/></td>
                     </tr>
 
@@ -184,17 +184,16 @@
                         }   
                     </script>
 
-
-
                     <tr>
                       <td>Precio venta: </td>
-                        <td><input type="text" required="required" name="precProd" id="precProd" maxlength="100"/></td>
+                        <td><input type="text" required="required" readonly="readonly" name="precProd" id="precProd" maxlength="100"/></td>
                     </tr>
 
                     <tr>
                         <td>Precio recomendado: </td>
                         <td><input type="text" required="required" name="precRec" id="precRec" maxlength="100"/></td>
                     </tr>
+
 
                     <tr>
                       <td colspan="2">
