@@ -62,6 +62,9 @@
             <tr>
                 <th width="300">Nombre de la marca</th>
                 <th width="200">Origen de la marca</th>
+                <th width="200">Proveedor</th>
+                <th width="200">Telefono</th>
+                <th width="200">Nota</th>
                 <th width="150">Fecha Registro</th>
                 <th width="50">Opciones</th>
             </tr>
@@ -72,6 +75,8 @@
                 echo '<tr>
                         <td>'.$registro2['nomb_mca'].'</td>
                         <td>'.$registro2['origen_mca'].'</td>
+                        <td>'.$registro2['prov_mca'].'</td>
+                        <td>'.$registro2['tel_mca'].'</td>
                         <td>'.fechaNormal($registro2['fecha_reg']).'</td>
                         <td>
                             <a href="javascript:editarMarca('.$registro2['id_mca'].');" class="glyphicon glyphicon-edit"></a>
@@ -100,8 +105,8 @@
                     	<td width="150">Proceso: </td>
                         <td><input type="text" required="required" readonly="readonly" id="pro-mca" name="pro-mca"/></td>
                     </tr>
-                	<tr>
-                    	<td>Nombre de la marca: </td>
+                	  <tr>
+                    	  <td>Nombre de la marca: </td>
                         <td><input type="text" required="required" name="nombreMca" id="nombreMca" maxlength="100"/></td>
                     </tr>
                     <tr>
@@ -111,6 +116,23 @@
                                 <option value="Importación">Importación</option>
                             </select></td>
                     </tr>
+
+                    <tr>
+                        <td>Proveedor: </td>
+                        <td><input type="text" required="required" name="provMca" id="nombreMca" maxlength="100"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>Telefono: </td>
+                        <td><input type="text" required="required" name="telMca" id="nombreMca" maxlength="100"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>Nota: </td>
+                        <td><input type="text" required="required" name="notaMca" id="nombreMca" maxlength="100"/></td>
+                    </tr>
+
+
                     <tr>
                     	<td colspan="2">
                         	<div id="mensaje"></div>
