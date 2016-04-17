@@ -64,7 +64,6 @@
                 <th width="200">Origen de la marca</th>
                 <th width="200">Proveedor</th>
                 <th width="200">Telefono</th>
-                <th width="200">Nota</th>
                 <th width="150">Fecha Registro</th>
                 <th width="50">Opciones</th>
             </tr>
@@ -119,17 +118,17 @@
 
                     <tr>
                         <td>Proveedor: </td>
-                        <td><input type="text" required="required" name="provMca" id="nombreMca" maxlength="100"/></td>
+                        <td><input type="text" required="required" name="provMca" id="provMca" maxlength="100"/></td>
                     </tr>
 
                     <tr>
                         <td>Telefono: </td>
-                        <td><input type="text" required="required" name="telMca" id="nombreMca" maxlength="100"/></td>
+                        <td><input type="text" required="required" name="telMca" id="telMca" maxlength="100"/></td>
                     </tr>
 
                     <tr>
                         <td>Nota: </td>
-                        <td><input type="text" required="required" name="notaMca" id="nombreMca" maxlength="100"/></td>
+                        <td><input type="text" required="required" name="notaMca" id="notaMca" maxlength="100"/></td>
                     </tr>
 
 

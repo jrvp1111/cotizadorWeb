@@ -251,6 +251,9 @@ function editarMarca(id){
 				$('#id-mca').val(id);
 				$('#nombreMca').val(datos[0]);
 				$('#origen').val(datos[1]);
+				$('#provMca').val(datos[2]);
+				$('#telMca').val(datos[3]);
+				$('#notaMca').val(datos[4]);
 				$('#registra-marca').modal({
 					show:true,
 					backdrop:'static'
