@@ -69,7 +69,7 @@
             </tr>
         <?php
             include('../php/conexion.php');
-            $registro = mysql_query("SELECT * FROM marcas"); 
+            $registro = mysql_query("SELECT * FROM marcas ORDER BY nomb_mca ASC"); 
             while($registro2 = mysql_fetch_array($registro)){
                 echo '<tr>
                         <td>'.$registro2['nomb_mca'].'</td>
@@ -81,7 +81,7 @@
                             <a href="javascript:editarMarca('.$registro2['id_mca'].');" class="glyphicon glyphicon-edit"></a>
                             <a href="javascript:eliminarMarca('.$registro2['id_mca'].');" class="glyphicon glyphicon-remove-circle"></a>
                         </td>
-                    </tr>';       
+                    </tr>';
             }
         ?>
         </table>
