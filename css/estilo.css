@@ -6,6 +6,7 @@ body{
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 	min-width:1000px;
 }
+
 header{
 	margin:auto;
 	padding:10px;
@@ -25,9 +26,9 @@ section table tr td input{
 }
 .registros{
 	margin:auto;
-	width:1000px;
+	width:95%;
 	margin-top:20px;
-	border:1px solid #6F96DF;
+	border:1px solid #D3D3D3;
 	height:auto;
 	padding:10px;
 }

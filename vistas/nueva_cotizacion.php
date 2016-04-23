@@ -29,9 +29,9 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="index.php">Inicio</a></li>>
-          <li><a href="cotizaciones.php">Cotizaciones</a></li>
+          <li class="active"><a href="cotizaciones.php">Cotizaciones</a></li>
           <li><a href="clientes.php">Clientes</a></li>
-          <li  class="active"><a href="productos.php">Productos</a></li>
+          <li><a href="productos.php">Productos</a></li>
           <li><a href="marcas.php">Marcas</a></li>
           <li><a href="usuarios.php">Usuarios</a></li>
           <li><a href="pagos.php">Pagos</a></li>
@@ -46,63 +46,12 @@
   <br><br><hr>
 
 
+    <header>Nueva Cotizacion</header>
 
-    <header>Productos</header>
-    <section>
-    <table border="0" align="center">
-      <tr>
-          <td width="335"><input type="text" placeholder="Busca un producto" id="bs-prod"/></td>
-            <td width="100"><button id="nuevo-producto" class="btn btn-primary">Nuevo</button></td>
-        </tr>
-    </table>
-    </section>
 
-    <div class="registros" id="agrega-registros-prod">
-        <table class="table table-striped table-condensed table-hover">
-            <tr>
-                <th width="200">Nombre</th>
-                <th width="500">Descripción</th>
-                <th width="150">Marca</th>
-                <th width="150">Origen</th>
-                <th width="150">Estado</th>
-                <th width="150">Costo</th>
-                <th width="150">Precio</th>
-                <th width="150">Fecha</th>
-                <th width="50">Opciones</th>
-            </tr>
-        <?php
-            include('../php/conexion.php');
-            $registro = mysql_query("SELECT * FROM productos ORDER BY desc_prod ASC"); 
-            while($registro2 = mysql_fetch_array($registro)){
-                echo '<tr>
-                        <td>'.$registro2['nomb_prod'].'</td>
-                        <td>'.$registro2['desc_prod'].'</td>
-                        <td>'.$registro2['mca_prod'].'</td>
-                        <td>'.$registro2['origen_prod'].'</td>
-                        <td>'.$registro2['edo_prod'].'</td>
-                        <td>'.$registro2['cost_prod'].'</td>
-                        <td>'.$registro2['prec_rec'].'</td>
-                        <td>'.fechaNormal($registro2['fecha_prod']).'</td>
-                        <td>
-                            <a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>
-                            <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a>
-                        </td>
-                    </tr>';
-            }
-        ?>
-        </table>
-    </div>
-    <!-- MODAL PARA EL REGISTRO DE PRODUCTOS-->
-    <div class="modal fade" id="registra-producto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel"><b>Registra o Edita un Producto</b></h4>
-            </div>
-            <form id="formulario-prod" class="formulario" onsubmit="return agregaRegistroProd();">
-            <div class="modal-body">
-        <table border="0" width="100%">
+<form id="formulario-prod" class="formulario" on="return agregaRegistroProd();">
+            <div>
+               <table border="0" width="100%">
                    <tr>
                         <td colspan="2"><input type="text" required="required" readonly="readonly" id="id-prod" name="id-prod" readonly="readonly" style="visibility:hidden; height:5px;"/></td>
                     </tr>
@@ -112,12 +61,12 @@
                     </tr>
 
                     <tr>
-                      <td>Nombre: </td>
+                      <td>Compañia:</td>
                         <td><input type="text" required="required" name="nombreProd" id="nombreProd" maxlength="100"/></td>
                     </tr>
 
                     <tr>
-                      <td>Descripcion: </td>
+                      <td>Atencion:</td>
                         <td><input type="text" required="required" name="descProd" id="descProd" maxlength="100"/></td>
                     </tr>
 
@@ -127,6 +76,7 @@
                         <td><select required="required" name="mcaProd" id="mcaProd">
 
                           <?php
+                          include('../php/conexion.php');
                           $sql="SELECT * FROM marcas ORDER BY nomb_mca ASC";
                           $rec=mysql_query($sql);
                           while($row=mysql_fetch_array($rec))
@@ -209,10 +159,6 @@
                 <input type="submit" value="Editar" class="btn btn-warning"  id="edi-prod"/>
             </div>
             </form>
-          </div>
-        </div>
-      </div>
-
 
 </body>
 </html>
