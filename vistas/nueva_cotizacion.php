@@ -12,6 +12,37 @@
 <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../bootstrap/js/bootstrap.js"></script>
+
+
+
+
+
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script type="text/javascript">
+$(function() {
+            $("#nombrecompaniacte").autocomplete({
+                source: "../php/cotizar_clientes.php",
+                minLength: 2,
+                select: function(event, ui) {
+          event.preventDefault();
+                    $('#nombrecompaniacte').val(ui.item.nombrecompaniacte);
+          $('#telefonocte').val(ui.item.telefonocte);
+          $('#direccioncte').val(ui.item.direccioncte);
+          $('#ciudadcte').val(ui.item.ciudadcte);
+          $('#estadocte').val(ui.item.estadocte);
+           }
+            });
+    });
+</script>
+
+
+
+
+
+
 </head>
 <body>
 
@@ -46,119 +77,73 @@
   <br><br><hr>
 
 
-    <header>Nueva Cotizacion</header>
+ <header>Nueva Cotizacion</header>
+
+<div class="container">
+
+<form role="form" class="form-horizontal">
+    
 
 
-<form id="formulario-prod" class="formulario" on="return agregaRegistroProd();">
-            <div>
-               <table border="0" width="100%">
-                   <tr>
-                        <td colspan="2"><input type="text" required="required" readonly="readonly" id="id-prod" name="id-prod" readonly="readonly" style="visibility:hidden; height:5px;"/></td>
-                    </tr>
-                     <tr>
-                      <td width="150">Proceso: </td>
-                        <td><input type="text" required="required" readonly="readonly" id="pro-prod" name="pro-prod"/></td>
-                    </tr>
+    <div class="form-group">
+      <label class="control-label col-sm-1">Compañia:</label>
+      <div class="col-sm-3"><input type="text" class="form-control" id="nombrecompaniacte"></div>
 
-                    <tr>
-                      <td>Compañia:</td>
-                        <td><input type="text" required="required" name="nombreProd" id="nombreProd" maxlength="100"/></td>
-                    </tr>
+      <label class="control-label col-sm-1">Atencion:</label>
+      <div class="col-sm-3"><input type="text" class="form-control" id="atencot" placeholder="Atencion"></div>
 
-                    <tr>
-                      <td>Atencion:</td>
-                        <td><input type="text" required="required" name="descProd" id="descProd" maxlength="100"/></td>
-                    </tr>
+      <label class="control-label col-sm-1">Email:</label>
+      <div class="col-sm-3"><input type="email" class="form-control" id="emailcot" placeholder="Introduce email"></div>
+    </div>
 
+    <div class="form-group">
+      <label class="control-label col-sm-1">Telefono:</label>
+      <div class="col-sm-3"><input type="text" class="form-control" id="telefonocte" readonly></div>
 
-                    <tr>
-                      <td>Marca: </td>
-                        <td><select required="required" name="mcaProd" id="mcaProd">
+      <label class="control-label col-sm-1">Dirección:</label>
+      <div class="col-sm-3"><input type="text" class="form-control" id="direccioncte" readonly></div>
 
-                          <?php
-                          include('../php/conexion.php');
-                          $sql="SELECT * FROM marcas ORDER BY nomb_mca ASC";
-                          $rec=mysql_query($sql);
-                          while($row=mysql_fetch_array($rec))
-                          {
-                            echo "<option>";
-                            echo $row['nomb_mca'];
-                            echo "</option>";
-                          }
+      <label class="control-label col-sm-1">Ciudad:</label>
+      <div class="col-sm-3"><input type="text" class="form-control"  id="ciudadcte" readonly></div>
+    </div>
 
-                           ?>
-                            </select>
-                        </td>
-                    </tr>
+    <div class="form-group">
+      <label class="control-label col-sm-1">Estado:</label>
+      <div class="col-sm-3"><input type="text" class="form-control" id="estadocte" readonly></div>
 
-                    <tr>
-                      <td>Origen: </td>
-                        <td><select required="required" name="origenProd" id="origenProd">
-                                <option value="Nacional">Nacional</option>
-                                <option value="Importación">Importación</option>
-                            </select>
-                        </td>
-                    </tr>
+      <label class="control-label col-sm-1">Condiciones de pago:</label>
+      <div class="col-sm-3">
+        <select class="form-control" id="condpagcot">
+            <option value="credito">Credito</option>
+            <option value="contado">Contado</option>
+        </select>
+      </div>
 
-                    <tr>
-                      <td>Estado: </td>
-                        <td><select required="required" name="edoProd" id="edoProd">
-                            <option value="Activo">Activo</option>
-                            <option value="Inactivo">Inactivo</option>
-                            <option value="Descontinuado">Descontinuado</option>
-                            </select>
-                        </td>
-                    </tr>
+      <label class="control-label col-sm-1">Validez:</label>
+      <div class="col-sm-3">
+        <select class="form-control" id="valicot">
+            <option value="7 días">7 días</option>
+            <option value="15 días">15 días</option>
+            <option value="30 días">30 días</option>
+            <option value="60 días">60 días</option>
+        </select>
+      </div>
 
-                    <tr>
-                      <td>Nota: </td>
-                        <td><input type="text" name="notaProd" id="notaProd" maxlength="100"/></td>
-                    </tr>
+    </div>
 
-                    <tr>
-                      <td>Costo: </td>
-                        <td><input type="text" required="required" name="costProd" id="costProd" onkeyup="calcular();" maxlength="100"/></td>
-                    </tr>
+      <div class="form-group">
+      <label class="control-label col-sm-1">Nota:</label>
+      <div class="col-sm-7"><input type="text" class="form-control" id="notacot" placeholder="Nota"></div>
 
-                    <tr>
-                      <td>Porcentaje de utilidad: </td>
-                        <td><input type="text" required="required" name="utilidadProd" id="utilidadProd" onkeyup="calcular();" maxlength="100"/></td>
-                    </tr>
-
-                    <script language="JavaScript">  
-                        function calcular()
-                        {
-                            var precio=  parseFloat( document.getElementById("costProd").value);   
-                            var costo = parseFloat( document.getElementById("utilidadProd").value);            
-                            var precioventa = document.getElementById("precProd").value = ((precio*costo)/100)+precio;              
-
-                        }   
-                    </script>
-
-                    <tr>
-                      <td>Precio venta: </td>
-                        <td><input type="text" required="required" readonly="readonly" name="precProd" id="precProd" maxlength="100"/></td>
-                    </tr>
-
-                    <tr>
-                        <td>Precio recomendado: </td>
-                        <td><input type="text" required="required" name="precRec" id="precRec" maxlength="100"/></td>
-                    </tr>
+    </div>
 
 
-                    <tr>
-                      <td colspan="2">
-                          <div id="mensaje"></div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
 
-            <div class="modal-footer">
-              <input type="submit" value="Registrar" class="btn btn-success" id="reg-prod"/>
-                <input type="submit" value="Editar" class="btn btn-warning"  id="edi-prod"/>
-            </div>
-            </form>
+ </form>
+
+</div>
+
+
 
 </body>
 </html>

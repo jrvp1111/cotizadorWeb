@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-04-2016 a las 20:11:15
+-- Tiempo de generación: 25-04-2016 a las 07:20:43
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -42,7 +42,9 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_cte`, `comp_cte`, `nombcomer_cte`, `tel_cte`, `dir_cte`, `ciud_cte`, `edo_cte`, `fecha_cte`) VALUES
-(1, 'Casa Ley S.A. De C.V.', 'Casa Ley', '(667) 759 1000', 'Carretera Internacional Km 1434 Col. Infonavit Humaya C.P. 80020', 'CuliacÃ¡n', 'Sinaloa', '2016-04-12');
+(1, 'Casa Ley S.A. De C.V.', 'Casa Ley', '(667) 759 1000', 'Carretera Internacional Km 1434 Col. Infonavit Humaya C.P. 80020', 'CuliacÃ¡n', 'Sinaloa', '2016-04-12'),
+(7, 'sukarne agroindustrial sa de cv', 'sukarne', '777777', 'la primavera', 'Culiacan', 'Aguascalientes', '2016-04-24'),
+(8, 'chata sa de cv', 'chata', '11111111', 'bachigualato', 'Culiacan', 'Sinaloa', '2016-04-25');
 
 -- --------------------------------------------------------
 
@@ -103,8 +105,7 @@ INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `orige
 (8, '11050', 'Termometro tipo paleta', 'Deltatrak', 'Nacional', 'Activo', 'aaaaa', 400, 50, 600, 650, '2016-04-15'),
 (10, '20901', 'Graficador reusable usb', 'Deltatrak', 'Nacional', 'Activo', 'grafica temperatura', 1000, 30, 1300, 1400, '2016-04-17'),
 (11, '1523', 'Termometro digital', 'Avaly', 'Nacional', 'Inactivo', 'sss', 100, 20, 120, 222, '2016-04-17'),
-(12, '62Max', 'Termometro infrarrojo digital', 'Fluke', 'Nacional', 'Activo', 'uso de lejos', 100, 200, 300, 350, '2016-04-17'),
-(14, 'aaaaaa', 'aaaaaaa', 'Extech', 'Nacional', 'Activo', 'adaa', 100, 20, 120, 2332, '2016-04-17');
+(12, '62Max', 'Termometro infrarrojo digital', 'Fluke', 'Nacional', 'Activo', 'uso de lejos', 100, 200, 300, 350, '2016-04-17');
 
 --
 -- Índices para tablas volcadas
@@ -136,7 +137,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_cte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
