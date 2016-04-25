@@ -82,7 +82,7 @@ $(function() {
 <div class="container">
 
 <form role="form" class="form-horizontal">
-    
+
 
 
     <div class="form-group">
@@ -131,7 +131,10 @@ $(function() {
 
     </div>
 
-      <div class="form-group">
+    <div class="form-group">
+      <label class="control-label col-sm-1">Tiempo de entrega:</label>
+      <div class="col-sm-3"><input type="text" class="form-control" id="tieentcot" value="Inmediata" placeholder="Tiempo de entrega"></div>
+
       <label class="control-label col-sm-1">Nota:</label>
       <div class="col-sm-7"><input type="text" class="form-control" id="notacot" placeholder="Nota"></div>
 
