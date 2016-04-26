@@ -40,7 +40,21 @@ $(function() {
 
 
 
-
+<script type="text/javascript">
+$(function() {
+            $("#nombrecompaniacte").autocomplete({
+                source: "../php/cotizar_clientes.php",
+                minLength: 2,
+                select: function(event, ui) {
+          event.preventDefault();
+                    $('#nombredelProd').val(ui.item.nombredelProd);
+          $('#marcaProd').val(ui.item.marcaProd);
+          $('#cantProd').val(ui.item.cantProd);
+          $('#precioRecomProd').val(ui.item.precioRecomProd);
+           }
+            });
+    });
+</script>
 
 
 </head>
@@ -87,33 +101,33 @@ $(function() {
 
     <div class="form-group">
       <label class="control-label col-sm-1">Compañia:</label>
-      <div class="col-sm-3"><input type="text" class="form-control" id="nombrecompaniacte"></div>
+      <div class="col-sm-3"><input type="text" class="form-control" id="nombrecompaniacte" name="nombrecompaniacte"></div>
 
       <label class="control-label col-sm-1">Atencion:</label>
-      <div class="col-sm-3"><input type="text" class="form-control" id="atencot" placeholder="Atencion"></div>
+      <div class="col-sm-3"><input type="text" class="form-control" id="atencot" name="atencot" placeholder="Atencion"></div>
 
       <label class="control-label col-sm-1">Email:</label>
-      <div class="col-sm-3"><input type="email" class="form-control" id="emailcot" placeholder="Introduce email"></div>
+      <div class="col-sm-3"><input type="email" class="form-control" id="emailcot" name="emailcot" placeholder="Introduce email"></div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-sm-1">Telefono:</label>
-      <div class="col-sm-3"><input type="text" class="form-control" id="telefonocte" readonly></div>
+      <div class="col-sm-3"><input type="text" class="form-control" id="telefonocte" name="telefonocte" readonly></div>
 
       <label class="control-label col-sm-1">Dirección:</label>
-      <div class="col-sm-3"><input type="text" class="form-control" id="direccioncte" readonly></div>
+      <div class="col-sm-3"><input type="text" class="form-control" id="direccioncte" name="direccioncte" readonly></div>
 
       <label class="control-label col-sm-1">Ciudad:</label>
-      <div class="col-sm-3"><input type="text" class="form-control"  id="ciudadcte" readonly></div>
+      <div class="col-sm-3"><input type="text" class="form-control"  id="ciudadcte" name="ciudadcte" readonly></div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-sm-1">Estado:</label>
-      <div class="col-sm-3"><input type="text" class="form-control" id="estadocte" readonly></div>
+      <div class="col-sm-3"><input type="text" class="form-control" id="estadocte" name="estadocte" readonly></div>
 
       <label class="control-label col-sm-1">Condiciones de pago:</label>
       <div class="col-sm-3">
-        <select class="form-control" id="condpagcot">
+        <select class="form-control" id="condpagcot" name="condpagcot">
             <option value="credito">Credito</option>
             <option value="contado">Contado</option>
         </select>
@@ -121,7 +135,7 @@ $(function() {
 
       <label class="control-label col-sm-1">Validez:</label>
       <div class="col-sm-3">
-        <select class="form-control" id="valicot">
+        <select class="form-control" id="valicot" name="valicot">
             <option value="7 días">7 días</option>
             <option value="15 días">15 días</option>
             <option value="30 días">30 días</option>
@@ -133,10 +147,10 @@ $(function() {
 
     <div class="form-group">
       <label class="control-label col-sm-1">Tiempo de entrega:</label>
-      <div class="col-sm-3"><input type="text" class="form-control" id="tieentcot" value="Inmediata" placeholder="Tiempo de entrega"></div>
+      <div class="col-sm-3"><input type="text" class="form-control" id="tieentcot" name="tieentcot" value="Inmediata" placeholder="Tiempo de entrega"></div>
 
       <label class="control-label col-sm-1">Nota:</label>
-      <div class="col-sm-7"><input type="text" class="form-control" id="notacot" placeholder="Nota"></div>
+      <div class="col-sm-7"><input type="text" class="form-control" id="notacot" name="notacot" placeholder="Nota"></div>
 
     </div>
 
@@ -144,7 +158,62 @@ $(function() {
 
 </div>
 
-<p>https://www.youtube.com/watch?v=p-bs1swF69Q</p>
+    <section>
+    <table border="0" align="center">
+        <tr>
+          <td width="100"><button id="nueva-cotizacion" class="btn btn-primary">Agrega Productos</button></td>
+        </tr>
+    </table>
+    </section>
+
+ <!-- MODAL PARA EL REGISTRO DE PRODUCTOS-->
+    <div >
+
+            <form id="formulario-cot" class="formulario" onsubmit="return agregaRegistroCot();">
+            <div>
+        <table class="table table-hover">
+                    <tr>
+                        <td colspan="2"><input type="text" required="required" readonly="readonly" id="id-cot" name="id-cot" readonly="readonly" style="visibility:hidden; height:5px;"/></td>
+                    </tr>
+
+                    <tr>
+                      <td>Proceso:</td>
+                      <td>Producto:</td>
+                      <td>Marca:</td>
+                      <td>Cantidad:</td>
+                      <td>Precio:</td>
+
+                    </tr>
+                    <tr>
+                      <td><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
+                      <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
+                      <td><input type="text" required="required" id="marcaProd" name="marcaProd"/></td>
+                      <td><input type="text" required="required" id="cantProd" name="cantProd"/></td>
+                      <td><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
+                    </tr>
+
+
+
+
+
+
+
+
+                    <tr>
+                      <td colspan="2">
+                          <div id="mensaje"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="modal-footer">
+              <input type="submit" value="Registrar" class="btn btn-success" id="reg-cot"/>
+                <input type="submit" value="Editar" class="btn btn-warning"  id="edi-cot"/>
+            </div>
+            </form>
+          </div>
+
 
 
 
