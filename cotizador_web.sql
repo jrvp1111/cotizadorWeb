@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-04-2016 a las 07:20:43
+-- Tiempo de generación: 26-04-2016 a las 02:31:58
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -43,8 +43,34 @@ CREATE TABLE `clientes` (
 
 INSERT INTO `clientes` (`id_cte`, `comp_cte`, `nombcomer_cte`, `tel_cte`, `dir_cte`, `ciud_cte`, `edo_cte`, `fecha_cte`) VALUES
 (1, 'Casa Ley S.A. De C.V.', 'Casa Ley', '(667) 759 1000', 'Carretera Internacional Km 1434 Col. Infonavit Humaya C.P. 80020', 'CuliacÃ¡n', 'Sinaloa', '2016-04-12'),
-(7, 'sukarne agroindustrial sa de cv', 'sukarne', '777777', 'la primavera', 'Culiacan', 'Aguascalientes', '2016-04-24'),
-(8, 'chata sa de cv', 'chata', '11111111', 'bachigualato', 'Culiacan', 'Sinaloa', '2016-04-25');
+(2, 'productos chata sa de cv', 'chata', '754512', 'Bachigualato', 'Culiacan', 'Sinaloa', '2016-04-25'),
+(3, 'Sukarne Agroindustrial SA DE CV', 'Sukarne', '795454', 'La primaver', 'Culiacan', 'Sinaloa', '2016-04-25');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cotizaciones`
+--
+
+CREATE TABLE `cotizaciones` (
+  `id_cotizacion` int(11) NOT NULL,
+  `cant_cot` int(11) NOT NULL,
+  `fecha_cotizacion` datetime NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `condiciones` varchar(30) NOT NULL,
+  `validez` varchar(20) NOT NULL,
+  `entrega` varchar(20) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `cotizaciones`
+--
+
+INSERT INTO `cotizaciones` (`id_cotizacion`, `cant_cot`, `fecha_cotizacion`, `email`, `condiciones`, `validez`, `entrega`, `id_cliente`, `id_producto`) VALUES
+(0, 2, '2016-04-25 00:00:00', 'jrvp11@hotmail.com', 'credito', '30 dias', '5 dias', 1, 4),
+(3, 1, '2016-04-25 00:00:00', 'asdasd', 'asdsad', 'asdas', 'asdasd', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -72,7 +98,8 @@ INSERT INTO `marcas` (`id_mca`, `nomb_mca`, `origen_mca`, `prov_mca`, `tel_mca`,
 (32, 'Taylor', 'Nacional', '', '', '', '2016-04-12'),
 (33, 'Extech', 'Nacional', '', '', '', '2016-04-12'),
 (34, 'Escort Ilog', 'ImportaciÃ³n', '', '', '', '2016-04-14'),
-(37, 'Dare', 'ImportaciÃ³n', 'Dare Products Inc', '888', 'Atn: Bob', '2016-04-17');
+(37, 'Dare', 'ImportaciÃ³n', 'Dare Products Inc', '888', 'Atn: Bob', '2016-04-17'),
+(38, 'Dosatron', 'ImportaciÃ³n', 'Dosatron', '77777777', 'asdadsasd', '2016-04-18');
 
 -- --------------------------------------------------------
 
@@ -105,7 +132,9 @@ INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `orige
 (8, '11050', 'Termometro tipo paleta', 'Deltatrak', 'Nacional', 'Activo', 'aaaaa', 400, 50, 600, 650, '2016-04-15'),
 (10, '20901', 'Graficador reusable usb', 'Deltatrak', 'Nacional', 'Activo', 'grafica temperatura', 1000, 30, 1300, 1400, '2016-04-17'),
 (11, '1523', 'Termometro digital', 'Avaly', 'Nacional', 'Inactivo', 'sss', 100, 20, 120, 222, '2016-04-17'),
-(12, '62Max', 'Termometro infrarrojo digital', 'Fluke', 'Nacional', 'Activo', 'uso de lejos', 100, 200, 300, 350, '2016-04-17');
+(12, '62Max', 'Termometro infrarrojo digital', 'Fluke', 'Nacional', 'Activo', 'uso de lejos', 100, 200, 300, 350, '2016-04-17'),
+(14, 'aaaaaa', 'aaaaaaa', 'Extech', 'Nacional', 'Activo', 'adaa', 100, 20, 120, 2332, '2016-04-17'),
+(15, 'D25RE2', 'Dosificador', 'Dosatron', 'ImportaciÃ³n', 'Activo', 'uso avicola', 228, 20, 273.6, 280, '2016-04-18');
 
 --
 -- Índices para tablas volcadas
@@ -116,6 +145,13 @@ INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `orige
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cte`);
+
+--
+-- Indices de la tabla `cotizaciones`
+--
+ALTER TABLE `cotizaciones`
+  ADD KEY `id_cliente` (`id_cliente`),
+  ADD KEY `id_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `marcas`
@@ -137,17 +173,17 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_cte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_mca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_mca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
