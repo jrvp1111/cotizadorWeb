@@ -42,14 +42,12 @@ $(function() {
 
 <script type="text/javascript">
 $(function() {
-            $("#nombrecompaniacte").autocomplete({
-                source: "../php/cotizar_clientes.php",
+            $("#nombredelProd").autocomplete({
+                source: "../php/cotizar_productos.php",
                 minLength: 2,
                 select: function(event, ui) {
           event.preventDefault();
                     $('#nombredelProd').val(ui.item.nombredelProd);
-          $('#marcaProd').val(ui.item.marcaProd);
-          $('#cantProd').val(ui.item.cantProd);
           $('#precioRecomProd').val(ui.item.precioRecomProd);
            }
             });
@@ -158,13 +156,6 @@ $(function() {
 
 </div>
 
-    <section>
-    <table border="0" align="center">
-        <tr>
-          <td width="100"><button id="nueva-cotizacion" class="btn btn-primary">Agrega Productos</button></td>
-        </tr>
-    </table>
-    </section>
 
  <!-- MODAL PARA EL REGISTRO DE PRODUCTOS-->
     <div >
@@ -179,7 +170,6 @@ $(function() {
                     <tr>
                       <td>Proceso:</td>
                       <td>Producto:</td>
-                      <td>Marca:</td>
                       <td>Cantidad:</td>
                       <td>Precio:</td>
 
@@ -187,7 +177,6 @@ $(function() {
                     <tr>
                       <td><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
                       <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
-                      <td><input type="text" required="required" id="marcaProd" name="marcaProd"/></td>
                       <td><input type="text" required="required" id="cantProd" name="cantProd"/></td>
                       <td><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
                     </tr>
