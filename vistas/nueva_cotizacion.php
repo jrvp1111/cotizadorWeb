@@ -25,7 +25,7 @@
 $(function() {
             $("#nombrecompaniacte").autocomplete({
                 source: "../php/cotizar_clientes.php",
-                minLength: 2,
+                minLength: 1,
                 select: function(event, ui) {
           event.preventDefault();
                     $('#nombrecompaniacte').val(ui.item.nombrecompaniacte);
@@ -44,10 +44,10 @@ $(function() {
 $(function() {
             $("#nombredelProd").autocomplete({
                 source: "../php/cotizar_productos.php",
-                minLength: 2,
+                minLength: 1,
                 select: function(event, ui) {
           event.preventDefault();
-                    $('#nombredelProd').val(ui.item.nombredelProd);
+          $('#nombredelProd').val(ui.item.nombredelProd);
           $('#precioRecomProd').val(ui.item.precioRecomProd);
            }
             });
@@ -166,20 +166,34 @@ $(function() {
                     <tr>
                         <td colspan="2"><input type="text" required="required" readonly="readonly" id="id-cot" name="id-cot" readonly="readonly" style="visibility:hidden; height:5px;"/></td>
                     </tr>
+                    <thead>
+                        <tr>
+                          <th>Proceso:</th>
+                          <th>Producto:</th>
+                          <th>Cantidad:</th>
+                          <th>Precio:</th>
+                          <th>Importe:</th>
+                        </tr>
+                    </thead>
 
-                    <tr>
-                      <td>Proceso:</td>
-                      <td>Producto:</td>
-                      <td>Cantidad:</td>
-                      <td>Precio:</td>
+                    <tbody>
+                        <tr>
+                          <td width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
+                          <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
+                          <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd"/></td>
+                          <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
+                              <script language="JavaScript">  
+                                  function calcularImporte()
+                                  {
+                                      var cantidad=  parseFloat( document.getElementById("cantProd").value);
+                                      var precioRec = parseFloat( document.getElementById("precioRecomProd").value);
+                                      var importe = parseFloat(document.getElementById("importeCot").value = (cantidad*precioRec));
 
-                    </tr>
-                    <tr>
-                      <td><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
-                      <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
-                      <td><input type="text" required="required" id="cantProd" name="cantProd"/></td>
-                      <td><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
-                    </tr>
+                                  }
+                              </script>
+                          <td width="200"><input type="text" readonly="readonly" id="importeCot" name="importeCot"/></td>
+                        </tr>
+                    </tbody>
 
 
 
