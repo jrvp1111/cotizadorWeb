@@ -144,7 +144,7 @@ $(function() {
     </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-1">Tiempo de entrega:</label>
+      <label class="control-label col-sm-1">T.E.:</label>
       <div class="col-sm-3"><input type="text" class="form-control" id="tieentcot" name="tieentcot" value="Inmediata" placeholder="Tiempo de entrega"></div>
 
       <label class="control-label col-sm-1">Nota:</label>
@@ -170,6 +170,7 @@ $(function() {
                         <tr>
                           <th>Proceso:</th>
                           <th>Producto:</th>
+                          <th>Nota:</th>
                           <th>Cantidad:</th>
                           <th>Precio:</th>
                           <th>Importe:</th>
@@ -180,27 +181,151 @@ $(function() {
                         <tr>
                           <td width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
                           <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
+                          <td width="300"><input type="text" id="notaProdCot" name="notaProdCot"/></td>
                           <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd"/></td>
                           <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
-                              <script language="JavaScript">  
+                              <script language="JavaScript">
                                   function calcularImporte()
+
                                   {
-                                      var cantidad=  parseFloat( document.getElementById("cantProd").value);
-                                      var precioRec = parseFloat( document.getElementById("precioRecomProd").value);
-                                      var importe = parseFloat(document.getElementById("importeCot").value = (cantidad*precioRec));
+
+                                      var cantidad=  ( document.getElementById("cantProd").value);
+                                      var precioRec = ( document.getElementById("precioRecomProd").value);
+                                      var importe = (document.getElementById("importeCot").value = (cantidad*precioRec));
 
                                   }
                               </script>
+
                           <td width="200"><input type="text" readonly="readonly" id="importeCot" name="importeCot"/></td>
                         </tr>
+
+                        <tr>
+                          <td width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
+                          <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
+                          <td width="300"><input type="text" id="notaProdCot" name="notaProdCot"/></td>
+                          <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd"/></td>
+                          <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
+                              <script language="JavaScript">
+                                  function calcularImporte()
+
+                                  {
+
+                                      var cantidad=  ( document.getElementById("cantProd").value);
+                                      var precioRec = ( document.getElementById("precioRecomProd").value);
+                                      var importe = (document.getElementById("importeCot").value = (cantidad*precioRec));
+
+                                  }
+                              </script>
+
+                          <td width="200"><input type="text" readonly="readonly" id="importeCot" name="importeCot"/></td>
+                        </tr>
+
+                                                <tr>
+                          <td width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
+                          <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
+                          <td width="300"><input type="text" id="notaProdCot" name="notaProdCot"/></td>
+                          <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd"/></td>
+                          <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
+                              <script language="JavaScript">
+                                  function calcularImporte()
+
+                                  {
+
+                                      var cantidad=  ( document.getElementById("cantProd").value);
+                                      var precioRec = ( document.getElementById("precioRecomProd").value);
+                                      var importe = (document.getElementById("importeCot").value = (cantidad*precioRec));
+
+                                  }
+                              </script>
+
+                          <td width="200"><input type="text" readonly="readonly" id="importeCot" name="importeCot"/></td>
+                        </tr>
+
+                                                <tr>
+                          <td width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
+                          <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
+                          <td width="300"><input type="text" id="notaProdCot" name="notaProdCot"/></td>
+                          <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd"/></td>
+                          <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
+                              <script language="JavaScript">
+                                  function calcularImporte()
+
+                                  {
+
+                                      var cantidad=  ( document.getElementById("cantProd").value);
+                                      var precioRec = ( document.getElementById("precioRecomProd").value);
+                                      var importe = (document.getElementById("importeCot").value = (cantidad*precioRec));
+
+                                  }
+                              </script>
+
+                          <td width="200"><input type="text" readonly="readonly" id="importeCot" name="importeCot"/></td>
+                        </tr>
+
+                                                <tr>
+                          <td width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
+                          <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
+                          <td width="300"><input type="text" id="notaProdCot" name="notaProdCot"/></td>
+                          <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd"/></td>
+                          <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
+                              <script language="JavaScript">
+                                  function calcularImporte()
+
+                                  {
+
+                                      var cantidad=  ( document.getElementById("cantProd").value);
+                                      var precioRec = ( document.getElementById("precioRecomProd").value);
+                                      var importe = (document.getElementById("importeCot").value = (cantidad*precioRec));
+
+                                  }
+                              </script>
+
+                          <td width="200"><input type="text" readonly="readonly" id="importeCot" name="importeCot"/></td>
+                        </tr>
+
+                                                <tr>
+                          <td width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
+                          <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
+                          <td width="300"><input type="text" id="notaProdCot" name="notaProdCot"/></td>
+                          <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd"/></td>
+                          <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
+                              <script language="JavaScript">
+                                  function calcularImporte()
+
+                                  {
+
+                                      var cantidad=  ( document.getElementById("cantProd").value);
+                                      var precioRec = ( document.getElementById("precioRecomProd").value);
+                                      var importe = (document.getElementById("importeCot").value = (cantidad*precioRec));
+
+                                  }
+                              </script>
+
+                          <td width="200"><input type="text" readonly="readonly" id="importeCot" name="importeCot"/></td>
+                        </tr>
+
+                                                <tr>
+                          <td width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
+                          <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"/></td>
+                          <td width="300"><input type="text" id="notaProdCot" name="notaProdCot"/></td>
+                          <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd"/></td>
+                          <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
+                              <script language="JavaScript">
+                                  function calcularImporte()
+
+                                  {
+
+                                      var cantidad=  ( document.getElementById("cantProd").value);
+                                      var precioRec = ( document.getElementById("precioRecomProd").value);
+                                      var importe = (document.getElementById("importeCot").value = (cantidad*precioRec));
+
+                                  }
+                              </script>
+
+                          <td width="200"><input type="text" readonly="readonly" id="importeCot" name="importeCot"/></td>
+                        </tr>
+
                     </tbody>
-
-
-
-
-
-
-
 
                     <tr>
                       <td colspan="2">
