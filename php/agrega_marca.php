@@ -14,14 +14,14 @@ switch($proceso){
 	case 'Registro':
 		mysql_query("INSERT INTO marcas (nomb_mca, origen_mca, prov_mca, tel_mca, nota_mca, fecha_reg)VALUES('$nombreMca','$origen', '$proveeMca', '$telMca', '$notaMca', '$fecha')");
 	break;
-	
+
 	case 'Edicion':
-		mysql_query("UPDATE marcas SET 
-			nomb_mca = '$nombreMca', 
+		mysql_query("UPDATE marcas SET
+			nomb_mca = '$nombreMca',
 			origen_mca = '$origen',
 			prov_mca = '$proveeMca',
 			tel_mca = '$telMca',
-			nota_mca = '$notaMca' 
+			nota_mca = '$notaMca'
 			WHERE id_mca = '$id'");
 	break;
 }

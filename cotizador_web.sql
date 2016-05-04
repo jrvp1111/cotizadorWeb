@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-04-2016 a las 02:31:58
+-- Tiempo de generación: 04-05-2016 a las 02:42:33
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -99,7 +99,53 @@ INSERT INTO `marcas` (`id_mca`, `nomb_mca`, `origen_mca`, `prov_mca`, `tel_mca`,
 (33, 'Extech', 'Nacional', '', '', '', '2016-04-12'),
 (34, 'Escort Ilog', 'ImportaciÃ³n', '', '', '', '2016-04-14'),
 (37, 'Dare', 'ImportaciÃ³n', 'Dare Products Inc', '888', 'Atn: Bob', '2016-04-17'),
-(38, 'Dosatron', 'ImportaciÃ³n', 'Dosatron', '77777777', 'asdadsasd', '2016-04-18');
+(38, 'Dosatron', 'ImportaciÃ³n', 'Dosatron', '77777777', 'asdadsasd', '2016-04-18'),
+(40, 'GLA', 'ImportaciÃ³n', 'GLA Agricultural', '8000 ', 'atn john', '2016-05-03');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `portalley`
+--
+
+CREATE TABLE `portalley` (
+  `id_port_ley` int(11) NOT NULL,
+  `fecha_factley` date NOT NULL,
+  `emp_ley` varchar(50) NOT NULL,
+  `num_fact_ley` int(11) NOT NULL,
+  `ord_comp_ley` varchar(50) NOT NULL,
+  `tipo_de_compra` varchar(40) NOT NULL,
+  `tien_carg_ley` int(11) NOT NULL,
+  `nomb_tiend_ley` varchar(50) NOT NULL,
+  `num_entr_ley` int(11) NOT NULL,
+  `fech_entr_ley` date NOT NULL,
+  `nomb_recibio` varchar(40) NOT NULL,
+  `num_rem_ley` int(11) NOT NULL,
+  `arriv_port_ley` text NOT NULL,
+  `fecha_reg_fact` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `portalley`
+--
+
+INSERT INTO `portalley` (`id_port_ley`, `fecha_factley`, `emp_ley`, `num_fact_ley`, `ord_comp_ley`, `tipo_de_compra`, `tien_carg_ley`, `nomb_tiend_ley`, `num_entr_ley`, `fech_entr_ley`, `nomb_recibio`, `num_rem_ley`, `arriv_port_ley`, `fecha_reg_fact`) VALUES
+(9, '2016-04-11', 'Casa Ley', 3836, '600335170', 'Servicios', 4239, 'Trafico Hermosillo', 0, '0000-00-00', 'karla', 0, 'Subida', '2016-04-30'),
+(12, '2016-04-11', 'Casa Ley', 3834, '8003037495', 'Mercaderia', 4104, 'Escuinapa', 10001113, '2016-04-13', 'Armando Leal', 0, 'Subida', '2016-04-30'),
+(13, '2016-04-13', 'Casa Ley', 3847, '8003063781', 'Mercaderia', 4104, 'Santa Anita', 10001116, '2016-04-13', 'Armando Leal', 0, 'Subida', '2016-04-30'),
+(14, '2016-04-18', 'Casa Ley', 3874, '8003070272', 'Mercaderia', 4104, 'Cajeme', 10001168, '0000-00-00', 'Armando Leal', 0, 'Subida', '2016-04-30'),
+(15, '2016-04-30', 'Casa Ley', 3937, '6000338242', 'Servicios', 1137, 'Express Sanalona', 0, '0000-00-00', '', 0, 'Pendiente', '2016-05-02'),
+(16, '2016-05-03', 'Casa Ley', 3951, '6000339166', 'Servicios', 4239, 'Trafico Hermosillo', 0, '2016-05-03', '', 0, 'Pendiente', '2016-05-04'),
+(17, '2016-04-29', 'Casa Ley', 3936, '6000338506', 'Servicios', 4239, 'Trafico Hermosillo', 0, '0000-00-00', 'Paquete Express', 0, 'Pendiente', '2016-05-04'),
+(18, '2016-04-11', 'Casa Ley', 3835, '8003057140', 'Mercaderia', 4104, 'Jiquilpan', 10001114, '2016-04-13', 'Armando Leal', 0, 'Subida', '2016-05-04'),
+(19, '2016-04-28', 'Centros Comerciales', 3924, '5100026561', 'Activos Fijos', 1295, 'Cerro Colorado', 0, '0000-00-00', '', 0, 'Pendiente', '2016-05-04'),
+(20, '2016-04-28', 'Casa Ley', 3921, '8003109965', 'Mercaderia', 4104, 'Super Ley 2000', 0, '0000-00-00', '', 0, 'Pendiente', '2016-05-04'),
+(21, '2016-04-27', 'Casa Ley', 3919, '8003103053', 'Mercaderia', 4104, 'La Gloria', 0, '0000-00-00', '', 0, 'Pendiente', '2016-05-04'),
+(22, '2016-04-27', 'Casa Ley', 3918, '8003096387', 'Mercaderia', 4104, 'Plaza El Dorado', 0, '0000-00-00', '', 0, 'Pendiente', '2016-05-04'),
+(23, '2016-04-25', 'Casa Ley', 3915, '6000337557', 'Servicios', 4239, 'Trafico Hermosillo', 0, '0000-00-00', '', 0, 'Pendiente', '2016-05-04'),
+(24, '2016-04-19', 'Casa Ley', 3888, '6000336707', 'Servicios', 4239, 'Trafico Hermosillo', 0, '0000-00-00', '', 0, 'Pendiente', '2016-05-04'),
+(25, '2016-04-22', 'Casa Ley', 3903, '6000337101', 'Servicios', 4011, 'Bodega de Frutas', 0, '0000-00-00', '', 0, 'Subida', '2016-05-04'),
+(26, '2016-04-20', 'Casa Ley', 3896, '6000335157', 'Servicios', 1056, 'Humaya', 0, '0000-00-00', '', 0, 'Subida', '2016-05-04');
 
 -- --------------------------------------------------------
 
@@ -134,7 +180,8 @@ INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `orige
 (11, '1523', 'Termometro digital', 'Avaly', 'Nacional', 'Inactivo', 'sss', 100, 20, 120, 222, '2016-04-17'),
 (12, '62Max', 'Termometro infrarrojo digital', 'Fluke', 'Nacional', 'Activo', 'uso de lejos', 100, 200, 300, 350, '2016-04-17'),
 (14, 'aaaaaa', 'aaaaaaa', 'Extech', 'Nacional', 'Activo', 'adaa', 100, 20, 120, 2332, '2016-04-17'),
-(15, 'D25RE2', 'Dosificador', 'Dosatron', 'ImportaciÃ³n', 'Activo', 'uso avicola', 228, 20, 273.6, 280, '2016-04-18');
+(15, 'D25RE2', 'Dosificador', 'Dosatron', 'ImportaciÃ³n', 'Activo', 'uso avicola', 228, 20, 273.6, 280, '2016-04-18'),
+(16, 'm750', 'termometro', 'GLA', 'ImportaciÃ³n', 'Activo', 'asdd', 100, 15, 115, 120, '2016-05-03');
 
 --
 -- Índices para tablas volcadas
@@ -160,6 +207,12 @@ ALTER TABLE `marcas`
   ADD PRIMARY KEY (`id_mca`);
 
 --
+-- Indices de la tabla `portalley`
+--
+ALTER TABLE `portalley`
+  ADD PRIMARY KEY (`id_port_ley`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -178,12 +231,17 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_mca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_mca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+--
+-- AUTO_INCREMENT de la tabla `portalley`
+--
+ALTER TABLE `portalley`
+  MODIFY `id_port_ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
