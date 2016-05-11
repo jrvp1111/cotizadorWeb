@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-05-2016 a las 15:55:48
+-- Tiempo de generación: 12-05-2016 a las 00:32:23
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -54,23 +54,16 @@ INSERT INTO `clientes` (`id_cte`, `comp_cte`, `nombcomer_cte`, `tel_cte`, `dir_c
 
 CREATE TABLE `cotizaciones` (
   `id_cotizacion` int(11) NOT NULL,
+  `num_cotizacion` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `fecha_cotizacion` datetime NOT NULL,
   `email` varchar(30) NOT NULL,
+  `atn_cliente` varchar(50) NOT NULL,
   `condiciones` varchar(30) NOT NULL,
   `validez` varchar(20) NOT NULL,
   `entrega` varchar(20) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `atn_cliente` varchar(50) NOT NULL,
   `nota` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `cotizaciones`
---
-
-INSERT INTO `cotizaciones` (`id_cotizacion`, `fecha_cotizacion`, `email`, `condiciones`, `validez`, `entrega`, `id_cliente`, `atn_cliente`, `nota`) VALUES
-(0, '2016-04-25 00:00:00', 'jrvp11@hotmail.com', 'credito', '30 dias', '5 dias', 1, '', ''),
-(3, '2016-04-25 00:00:00', 'asdasd', 'asdsad', 'asdas', 'asdasd', 2, '', '');
 
 -- --------------------------------------------------------
 
@@ -150,7 +143,8 @@ INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `orige
 (12, '62Max', 'Termometro infrarrojo digital', 'Fluke', 'Nacional', 'Activo', 'uso de lejos', 100, 200, 300, 350, '2016-04-17'),
 (14, 'aaaaaa', 'aaaaaaa', 'Extech', 'Nacional', 'Activo', 'adaa', 100, 20, 120, 2332, '2016-04-17'),
 (15, 'D25RE2', 'Dosificador', 'Dosatron', 'ImportaciÃ³n', 'Activo', 'uso avicola', 228, 20, 273.6, 280, '2016-04-18'),
-(16, 'm750', 'termometro', 'GLA', 'ImportaciÃ³n', 'Activo', 'asdd', 100, 15, 115, 120, '2016-05-03');
+(16, 'm750', 'termometro', 'GLA', 'ImportaciÃ³n', 'Activo', 'asdd', 100, 15, 115, 120, '2016-05-03'),
+(17, '11063', 'Termometro tipo paleta', 'Deltatrak', 'Nacional', 'Activo', 'uso veterinario', 50, 10, 55, 60, '2016-05-12');
 
 --
 -- Índices para tablas volcadas
@@ -166,13 +160,17 @@ ALTER TABLE `clientes`
 -- Indices de la tabla `cotizaciones`
 --
 ALTER TABLE `cotizaciones`
-  ADD KEY `id_cliente` (`id_cliente`);
+  ADD PRIMARY KEY (`id_cotizacion`),
+  ADD KEY `id_cliente` (`id_cliente`),
+  ADD KEY `num_cotizacion` (`num_cotizacion`);
 
 --
 -- Indices de la tabla `detalle_cotizaciones`
 --
 ALTER TABLE `detalle_cotizaciones`
-  ADD PRIMARY KEY (`id_detalle_cotizacion`);
+  ADD PRIMARY KEY (`id_detalle_cotizacion`),
+  ADD KEY `id_producto` (`id_producto`),
+  ADD KEY `num_cotizacion` (`num_cotizacion`);
 
 --
 -- Indices de la tabla `marcas`
@@ -204,7 +202,7 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
