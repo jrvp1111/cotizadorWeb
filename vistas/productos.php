@@ -195,13 +195,19 @@
                         <td><input type="text" required="required" name="precRec" id="precRec" maxlength="100"/></td>
                     </tr>
 
+                    <tr>
+                      <td>Imagen:</td>
+                      <td><input type="file" id="foto" name="foto"/></td>
+                    </tr>
 
                     <tr>
                       <td colspan="2">
                           <div id="mensaje"></div>
                         </td>
                     </tr>
+
                 </table>
+
             </div>
 
             <div class="modal-footer">
