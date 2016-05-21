@@ -1,5 +1,11 @@
 <?php
 include('conexion.php');
+$ruta = "../Imagenes/";
+opendir($ruta);
+$destino = $ruta.$_FILES['foto']['name'];
+copy($_FILES['foto']['tmp_name'],$destino);
+$nombre=$_FILES['foto']['name'];
+
 $id = $_POST['id-prod'];
 $procesoProd = $_POST['pro-prod'];
 $nombreProd = $_POST['nombreProd'];
@@ -12,13 +18,14 @@ $costoProd = $_POST['costProd'];
 $utilidadProd = $_POST['utilidadProd'];
 $precioProd = $_POST['precProd'];
 $precioReco = $_POST['precRec'];
+// $fotoProd = $_POST['fotoProd'];
 $fecha = date('Y-m-d');
 //VERIFICAMOS EL PROCESO
 
 switch($procesoProd){
 	case 'Registro':
-		mysql_query("INSERT INTO productos (nomb_prod, desc_prod, mca_prod, origen_prod, edo_prod, nota_prod, cost_prod, util_prod, prec_prod, prec_rec, fecha_prod)
-						VALUES('$nombreProd','$descripcionProd','$marcaProd', '$origenProd', '$estadoProd', '$notaProd', '$costoProd', '$utilidadProd', '$precioProd', '$precioReco','$fecha')");
+		mysql_query("INSERT INTO productos (nomb_prod, desc_prod, mca_prod, origen_prod, edo_prod, nota_prod, cost_prod, util_prod, prec_prod, prec_rec, foto_prod, fecha_prod)
+						VALUES('$nombreProd','$descripcionProd','$marcaProd', '$origenProd', '$estadoProd', '$notaProd', '$costoProd', '$utilidadProd', '$precioProd', '$precioReco', '$nombre','$fecha')");
 	break;
 
 	case 'Edicion':
@@ -32,7 +39,8 @@ switch($procesoProd){
 			cost_prod = '$costoProd',
 			util_prod = '$utilidadProd',
 			prec_prod = '$precioProd',
-			prec_rec = '$precioReco'
+			prec_rec = '$precioReco',
+			foto_prod = '$nombre'
 			WHERE id_prod = '$id'");
 	break;
 }

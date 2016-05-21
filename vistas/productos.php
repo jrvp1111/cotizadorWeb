@@ -12,6 +12,7 @@
 <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../bootstrap/js/bootstrap.js"></script>
+<meta name="generator" content="Geany 1.22" />
 </head>
 <body>
 
@@ -100,7 +101,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h4 class="modal-title" id="myModalLabel"><b>Registra o Edita un Producto</b></h4>
             </div>
-            <form id="formulario-prod" class="formulario" onsubmit="return agregaRegistroProd();">
+            <form id="formulario-prod" class="formulario" onsubmit="return agregaRegistroProd();" enctype="multipart/form-data">
             <div class="modal-body">
         <table border="0" width="100%">
                    <tr>
@@ -180,9 +181,8 @@
                         {
                             var precio=  parseFloat( document.getElementById("costProd").value);   
                             var costo = parseFloat( document.getElementById("utilidadProd").value);            
-                            var precioventa = document.getElementById("precProd").value = ((precio*costo)/100)+precio;              
-
-                        }   
+                            var precioventa = document.getElementById("precProd").value = ((precio*costo)/100)+precio;
+                        }
                     </script>
 
                     <tr>
@@ -194,16 +194,15 @@
                         <td>Precio recomendado: </td>
                         <td><input type="text" required="required" name="precRec" id="precRec" maxlength="100"/></td>
                     </tr>
-
                     <tr>
                       <td>Imagen:</td>
                       <td><input type="file" id="foto" name="foto"/></td>
                     </tr>
 
                     <tr>
-                      <td colspan="2">
+                          <td colspan="2">
                           <div id="mensaje"></div>
-                        </td>
+                    </td>
                     </tr>
 
                 </table>
