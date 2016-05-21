@@ -368,7 +368,6 @@ function editarProducto(id){
 				$('#utilidadProd').val(datos[7]);
 				$('#precProd').val(datos[8]);
 				$('#precRec').val(datos[9]);
-				$('#fotoProd').val(datos[10]);
 				$('#registra-producto').modal({
 					show:true,
 					backdrop:'static'

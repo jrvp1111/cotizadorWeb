@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-05-2016 a las 00:32:23
+-- Tiempo de generación: 21-05-2016 a las 21:04:36
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -127,6 +127,7 @@ CREATE TABLE `productos` (
   `util_prod` float NOT NULL,
   `prec_prod` float NOT NULL,
   `prec_rec` float NOT NULL,
+  `Imagen` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `fecha_prod` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -134,17 +135,18 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `origen_prod`, `edo_prod`, `nota_prod`, `cost_prod`, `util_prod`, `prec_prod`, `prec_rec`, `fecha_prod`) VALUES
-(1, '16100', 'Graficador Desechable', 'Deltatrak', 'Nacional', 'Activo', 'se usa en los cuartos frios', 100, 30, 130, 1354, '2016-04-11'),
-(4, '365510', 'Cronometro digital', 'Extech', 'Nacional', 'Activo', 'se usa en plantas de proceso', 200, 50, 300, 350, '2016-04-12'),
-(8, '11050', 'Termometro tipo paleta', 'Deltatrak', 'Nacional', 'Activo', 'aaaaa', 400, 50, 600, 650, '2016-04-15'),
-(10, '20901', 'Graficador reusable usb', 'Deltatrak', 'Nacional', 'Activo', 'grafica temperatura', 1000, 30, 1300, 1400, '2016-04-17'),
-(11, '1523', 'Termometro digital', 'Avaly', 'Nacional', 'Inactivo', 'sss', 100, 20, 120, 222, '2016-04-17'),
-(12, '62Max', 'Termometro infrarrojo digital', 'Fluke', 'Nacional', 'Activo', 'uso de lejos', 100, 200, 300, 350, '2016-04-17'),
-(14, 'aaaaaa', 'aaaaaaa', 'Extech', 'Nacional', 'Activo', 'adaa', 100, 20, 120, 2332, '2016-04-17'),
-(15, 'D25RE2', 'Dosificador', 'Dosatron', 'ImportaciÃ³n', 'Activo', 'uso avicola', 228, 20, 273.6, 280, '2016-04-18'),
-(16, 'm750', 'termometro', 'GLA', 'ImportaciÃ³n', 'Activo', 'asdd', 100, 15, 115, 120, '2016-05-03'),
-(17, '11063', 'Termometro tipo paleta', 'Deltatrak', 'Nacional', 'Activo', 'uso veterinario', 50, 10, 55, 60, '2016-05-12');
+INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `origen_prod`, `edo_prod`, `nota_prod`, `cost_prod`, `util_prod`, `prec_prod`, `prec_rec`, `Imagen`, `fecha_prod`) VALUES
+(1, '16100', 'Graficador Desechable', 'Deltatrak', 'Nacional', 'Activo', 'se usa en los cuartos frios', 100, 30, 130, 1354, '', '2016-04-11'),
+(4, '365510', 'Cronometro digital', 'Extech', 'Nacional', 'Activo', 'se usa en plantas de proceso', 200, 50, 300, 350, '', '2016-04-12'),
+(8, '11050', 'Termometro tipo paleta', 'Deltatrak', 'Nacional', 'Activo', 'aaaaa', 400, 50, 600, 650, '', '2016-04-15'),
+(10, '20901', 'Graficador reusable usb', 'Deltatrak', 'Nacional', 'Activo', 'grafica temperatura', 1000, 30, 1300, 1400, '', '2016-04-17'),
+(11, '1523', 'Termometro digital', 'Avaly', 'Nacional', 'Inactivo', 'sss', 100, 20, 120, 222, '', '2016-04-17'),
+(12, '62Max', 'Termometro infrarrojo digital', 'Fluke', 'Nacional', 'Activo', 'uso de lejos', 100, 200, 300, 350, '', '2016-04-17'),
+(14, 'aaaaaa', 'aaaaaaa', 'Extech', 'Nacional', 'Activo', 'adaa', 100, 20, 120, 2332, '', '2016-04-17'),
+(15, 'D25RE2', 'Dosificador', 'Dosatron', 'ImportaciÃ³n', 'Activo', 'uso avicola', 228, 20, 273.6, 280, '', '2016-04-18'),
+(17, '11063', 'Termometro tipo paleta', 'Deltatrak', 'Nacional', 'Activo', 'uso veterinario', 50, 10, 55, 60, '', '2016-05-12'),
+(18, 'CASC', 'CAS', 'Dare', '', '', '', 0, 0, 0, 0, '3085850D1.jpg', '0000-00-00'),
+(19, '12', '12', 'Dare', '', '', '', 0, 0, 0, 0, '40007_05.jpg', '0000-00-00');
 
 --
 -- Índices para tablas volcadas
@@ -202,7 +204,7 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
