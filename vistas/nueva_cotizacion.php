@@ -57,7 +57,11 @@ $(function() {
 
 
 </head>
+
+
+
 <body>
+
 
       <!--empieza el menu-->
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -158,9 +162,6 @@ $(function() {
 </div>
 
 
-
-
-
  <!-- MODAL PARA EL REGISTRO DE PRODUCTOS-->
     <div >
 
@@ -176,8 +177,22 @@ $(function() {
                   <td width="300"><input type="text" id="notaProdCot" name="notaProdCot" placeholder="Intruduce una nota"/></td>
                   <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd" placeholder="Cantidad"/></td>
                   <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
-                  <td width="100"><img src="" id="imagenProducto" name="imagenProducto"/></td>
+                  <input type="text" id="imagenProducto" style="display: none;" name="nombre">
+                  <td width="100"><?php $imgprod = $_COOKIE["var"]; echo $imgprod; ?></td>
+                  <td width="20"><input type="button" name="boton01" id="boton01" value="imagen"></td>
 
+<script type="text/javascript">
+$(document).ready(function()
+  {
+  $("#boton01").click(function () {
+  //saco el valor accediendo a un input de tipo text y name = nombre
+  var imgprod = ($('input:text[name=nombre]').val());
+
+  document.cookie ='var='+imgprod;
+
+  });
+});
+</script>
 
                   <td>
                     <a href="#" onClick="borraFila(this.parentNode.parentNode)"><span class="glyphicon glyphicon-minus"></span></a> &nbsp; &nbsp;
@@ -252,4 +267,8 @@ document.getElementById( id ).parentNode.removeChild( document.getElementById(id
 
 
 </body>
+
 </html>
+
+
+

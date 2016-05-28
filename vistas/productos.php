@@ -101,7 +101,7 @@
                             <a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>
                             <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a>
                         </td>
-                    </tr>';
+                      </tr>';
             }
         ?>
         </table>
