@@ -67,9 +67,14 @@
                 <th width="150">Estado</th>
                 <th width="150">Costo</th>
                 <th width="150">Precio</th>
+                <th width="150">Imagen</th>
                 <th width="150">Fecha</th>
                 <th width="50">Opciones</th>
             </tr>
+
+
+
+
         <?php
             include('../php/conexion.php');
             $registro = mysql_query("SELECT * FROM productos ORDER BY desc_prod ASC"); 
@@ -80,8 +85,17 @@
                         <td>'.$registro2['mca_prod'].'</td>
                         <td>'.$registro2['origen_prod'].'</td>
                         <td>'.$registro2['edo_prod'].'</td>
-                        <td>'.$registro2['cost_prod'].'</td>
-                        <td>'.$registro2['prec_rec'].'</td>
+                        <td>'.$registro2['cost_prod'].'</td>';
+                        if($registro2['prec_rec']>0)
+                          {
+                            echo '<td class="color9">'.$registro2['prec_rec'].'</td>';
+                          }
+                        else
+                          {
+                            echo '<td>'.$registro2['prec_rec'].'</td>';
+                          }
+
+                  echo '<td><img height="50px"src="../Imagenes/'.$registro2['mca_prod'].'/'.$registro2['Imagen'].'"/></td>
                         <td>'.fechaNormal($registro2['fecha_prod']).'</td>
                         <td>
                             <a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>

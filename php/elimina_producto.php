@@ -9,7 +9,7 @@ mysql_query("DELETE FROM productos WHERE id_prod = '$id'");
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysql_query("SELECT * FROM productos ORDER BY id_prod ASC");
+$registro = mysql_query("SELECT * FROM productos ORDER BY desc_prod ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -22,6 +22,7 @@ echo '<table class="table table-striped table-condensed table-hover">
                 <th width="150">Estado</th>
                 <th width="150">Costo</th>
                 <th width="150">Precio</th>
+                <th width="150">Imagen</th>
                 <th width="150">Fecha</th>
 				<th width="50">Opciones</th>
             </tr>';
@@ -34,6 +35,7 @@ echo '<table class="table table-striped table-condensed table-hover">
                         <td>'.$registro2['edo_prod'].'</td>
                         <td>'.$registro2['cost_prod'].'</td>
                         <td>'.$registro2['prec_prod'].'</td>
+                        <td><img height="50px"src="../Imagenes/'.$registro2['mca_prod'].'/'.$registro2['Imagen'].'"/></td>
                         <td>'.fechaNormal($registro2['fecha_prod']).'</td>
 				<td>
 					<a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>

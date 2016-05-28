@@ -49,6 +49,7 @@ $(function() {
           event.preventDefault();
           $('#nombredelProd').val(ui.item.nombredelProd);
           $('#precioRecomProd').val(ui.item.precioRecomProd);
+          $('#imagenProducto').val(ui.item.imagenProducto);
            }
             });
     });
@@ -169,31 +170,31 @@ $(function() {
             <table class="table table-hover" id="tabla_1">
 
 
-
-
-
                 <tr id="clonable" >
                   <td width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
-                  <td><input type="text" required="required" id="nombredelProd" name="nombredelProd" placeholder="Introduce producto, modelo o marca"/></td>
+                  <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"  placeholder="Introduce producto, modelo o marca"/></td>
                   <td width="300"><input type="text" id="notaProdCot" name="notaProdCot" placeholder="Intruduce una nota"/></td>
                   <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd" placeholder="Cantidad"/></td>
                   <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
+                  <td width="100"><img src="" id="imagenProducto" name="imagenProducto"/></td>
+
+
                   <td>
                     <a href="#" onClick="borraFila(this.parentNode.parentNode)"><span class="glyphicon glyphicon-minus"></span></a> &nbsp; &nbsp;
                     <a href="javascript:agregaFila( 'tabla_1' );"><span class="glyphicon glyphicon-plus"></span></a>
                   </td>
                 </tr>
 
-            
+
                 <tr>
                   <th>Proceso:</th>
                   <th>Producto:</th>
                   <th>Nota:</th>
                   <th>Cantidad:</th>
                   <th>Precio:</th>
-                  <th>Opcion</th>
+                  <th>Imagen</th>
+                  <th>Opción</th>
                 </tr>
-             
 
 
              <tbody>
@@ -215,6 +216,7 @@ $(function() {
               <tr><td colspan="2"><div id="mensaje"></div></td></tr>
             </table>
           </div>
+
 
           <div class="modal-footer">
             <input type="submit" value="Registrar" class="btn btn-success" id="reg-cot"/>

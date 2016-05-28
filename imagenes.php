@@ -1,14 +1,12 @@
 <?php 
 	include "datos/conexion.php";
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<title>sin título</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" href="css/estilo.css">
-	<meta name="generator" content="Geany 1.22" />
 </head>
 <body>
 	<h1>Sube tus productos con imagenes a este servidor.</h1>
@@ -21,7 +19,7 @@
 	</TR>
 	<TR>
 		<td><label>Descripcion:</label></td>
-		<td><label><input type="text" name="Descripcion"/> $</label></td>
+		<td><label><input type="text" name="Descripcion"/></label></td>
 	</TR>
 	<tr>
 		<td><label>Marca</label></td>

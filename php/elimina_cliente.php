@@ -9,7 +9,7 @@ mysql_query("DELETE FROM clientes WHERE id_cte = '$id'");
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysql_query("SELECT * FROM clientes ORDER BY id_cte ASC");
+$registro = mysql_query("SELECT * FROM clientes ORDER BY nombcomer_cte ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 

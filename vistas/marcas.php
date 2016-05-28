@@ -118,17 +118,17 @@
 
                     <tr>
                         <td>Proveedor: </td>
-                        <td><input type="text" required="required" name="provMca" id="provMca" maxlength="100"/></td>
+                        <td><input type="text" name="provMca" id="provMca" maxlength="100"/></td>
                     </tr>
 
                     <tr>
                         <td>Telefono: </td>
-                        <td><input type="text" required="required" name="telMca" id="telMca" maxlength="100"/></td>
+                        <td><input type="text"  name="telMca" id="telMca" maxlength="100"/></td>
                     </tr>
 
                     <tr>
                         <td>Nota: </td>
-                        <td><input type="text" required="required" name="notaMca" id="notaMca" maxlength="100"/></td>
+                        <td><input type="text"  name="notaMca" id="notaMca" maxlength="100"/></td>
                     </tr>
 
 
