@@ -178,7 +178,7 @@ $(function() {
                   <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd" placeholder="Cantidad"/></td>
                   <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
                   <input type="text" id="imagenProducto" style="display: none;" name="nombre">
-                  <td width="100"><?php $imgprod = $_COOKIE["var"]; echo $imgprod; ?></td>
+                  <td width="100"><?php  ?></td>
                   <td width="20"><input type="button" name="boton01" id="boton01" value="imagen"></td>
 
 <script type="text/javascript">
@@ -187,12 +187,13 @@ $(document).ready(function()
   $("#boton01").click(function () {
   //saco el valor accediendo a un input de tipo text y name = nombre
   var imgprod = ($('input:text[name=nombre]').val());
+  document.writeln (imgprod);
 
-  document.cookie ='var='+imgprod;
 
   });
 });
 </script>
+
 
                   <td>
                     <a href="#" onClick="borraFila(this.parentNode.parentNode)"><span class="glyphicon glyphicon-minus"></span></a> &nbsp; &nbsp;
