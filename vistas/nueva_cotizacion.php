@@ -13,47 +13,17 @@
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../bootstrap/js/bootstrap.js"></script>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="../js/autocomplete.js"></script>
 
 
+<link href="../css/validationEngine.jquery.css" rel="stylesheet">
+<script src="../js/jquery.validationEngine.min.js"></script>
+<script src="../js/jquery.validationEngine-es.js"></script>
+<script src="../js/agregafilas.js"></script>
 
-
-
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script type="text/javascript">
-$(function() {
-            $("#nombrecompaniacte").autocomplete({
-                source: "../php/cotizar_clientes.php",
-                minLength: 1,
-                select: function(event, ui) {
-          event.preventDefault();
-                    $('#nombrecompaniacte').val(ui.item.nombrecompaniacte);
-          $('#telefonocte').val(ui.item.telefonocte);
-          $('#direccioncte').val(ui.item.direccioncte);
-          $('#ciudadcte').val(ui.item.ciudadcte);
-          $('#estadocte').val(ui.item.estadocte);
-           }
-            });
-    });
-</script>
-
-
-
-<script type="text/javascript">
-$(function() {
-            $("#nombredelProd").autocomplete({
-                source: "../php/cotizar_productos.php",
-                minLength: 1,
-                select: function(event, ui) {
-          event.preventDefault();
-          $('#nombredelProd').val(ui.item.nombredelProd);
-          $('#precioRecomProd').val(ui.item.precioRecomProd);
-          $('#imagenProducto').val(ui.item.imagenProducto);
-           }
-            });
-    });
-</script>
 
 
 </head>
@@ -162,109 +132,43 @@ $(function() {
 </div>
 
 
- <!-- MODAL PARA EL REGISTRO DE PRODUCTOS-->
-    <div >
-
-       <form id="formulario-cot" class="formulario" onsubmit="return agregaRegistroCot();">
-          <div>
-
-            <table class="table table-hover" id="tabla_1">
 
 
-                <tr id="clonable" >
-                  <td width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
-                  <td><input type="text" required="required" id="nombredelProd" name="nombredelProd"  placeholder="Introduce producto, modelo o marca"/></td>
-                  <td width="300"><input type="text" id="notaProdCot" name="notaProdCot" placeholder="Intruduce una nota"/></td>
-                  <td width="100"><input type="text" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd" placeholder="Cantidad"/></td>
-                  <td width="100"><input type="text" required="required" id="precioRecomProd" name="precioRecomProd"/></td>
-                  <input type="text" id="imagenProducto" style="display: none;" name="nombre">
-                  <td width="100"><?php  ?></td>
-                  <td width="20"><input type="button" name="boton01" id="boton01" value="imagen"></td>
+<div id="container ">
+  <div class="row-fluid top-buffer">
+    <div class="col-sm-10 col-lg-offset-1 text-center">
+      <form id="miform">
+        <table id="tblprod" class="table table-hover table-bordered">
+            <thead>
+            <tr>
+              <th>Partida</th>
+              <th>Nombre</th>
+              <th>Nota</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                  <td style="display:none" width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
+                  <td>1</td>
+                  <td class="col-sm-4"><div class="form-group"><input class="form-control" required="required" id="nombredelProd" name="nombredelProd[]" placeholder="Introduce producto, modelo o marca"/></div></td>
+                  <td class="col-sm-3"><div class="form-group"><input class="form-control" id="notaProdCot" name="notaProdCot[]" placeholder="Intruduce una nota"/></div></td>
+                  <td class="col-sm-2"><div class="form-group"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"/></div></td>
+                  <td class="col-sm-2"><div class="form-group"><input class="form-control" required="required" id="precioRecomProd" name="precioRecomProd[]"/></div></td>
+            </tr>
 
-<script type="text/javascript">
-$(document).ready(function()
-  {
-  $("#boton01").click(function () {
-  //saco el valor accediendo a un input de tipo text y name = nombre
-  var imgprod = ($('input:text[name=nombre]').val());
-  document.writeln (imgprod);
-
-
-  });
-});
-</script>
-
-
-                  <td>
-                    <a href="#" onClick="borraFila(this.parentNode.parentNode)"><span class="glyphicon glyphicon-minus"></span></a> &nbsp; &nbsp;
-                    <a href="javascript:agregaFila( 'tabla_1' );"><span class="glyphicon glyphicon-plus"></span></a>
-                  </td>
-                </tr>
-
-
-                <tr>
-                  <th>Proceso:</th>
-                  <th>Producto:</th>
-                  <th>Nota:</th>
-                  <th>Cantidad:</th>
-                  <th>Precio:</th>
-                  <th>Imagen</th>
-                  <th>Opción</th>
-                </tr>
-
-
-             <tbody>
-
-
-
-             </tbody>
-
-              <tfoot>
-                <tr>
-                  <td></td><td></td><td></td><td>Subtotal</td><td><input type="text" readonly="readonly" class="subtotal" id="subtotal"/></td>
-                </tr>
-                <tr><td></td><td></td><td></td><td>I.V.A.(16%)</td><td><input type="text" readonly="readonly"/></td></tr>
-                <tr><td></td><td></td><td></td><td>Neto</td><td><input type="text" readonly="readonly"/></td></tr>
-                <input type="button" value="Calcular" onclick="calcular_total()"/>
-
-              </tfoot>
-
-              <tr><td colspan="2"><div id="mensaje"></div></td></tr>
-            </table>
-          </div>
-
-
-          <div class="modal-footer">
-            <input type="submit" value="Registrar" class="btn btn-success" id="reg-cot"/>
-            <input type="submit" value="Editar" class="btn btn-warning"  id="edi-cot"/>
-          </div>
+            </tbody>
+          </table>
+          <button id="btnadd" class="btn btn-primary">Agregar Nuevo</button>
+          <button id="btnsubmit" type="submit" class="btn btn-success">Guardar</button>
       </form>
     </div>
+  </div>
+</div>
 
 
 
-<script>
-
-function agregaFila( id ) {
-var tabla = document.getElementById( id );
-var tbody = document.getElementById( tabla.id ).tBodies[0];
-var row = tbody.rows[0].cloneNode( true );
-var id = 1;
-while( document.getElementById( tabla.id+'_fila_'+id ) ) {
-id++;
-}
-row.id = tabla.id+'_fila_'+id;
-row.style.display = '';
-tbody.appendChild( row );
-}
-
-function borraFila( fila ) {
-var id = fila.id;
-if( fila.parentNode.rows.length <= 1 ) return;
-document.getElementById( id ).parentNode.removeChild( document.getElementById(id) );
-}
-
-</script>
 
 
 </body>
@@ -273,3 +177,4 @@ document.getElementById( id ).parentNode.removeChild( document.getElementById(id
 
 
 
+    
