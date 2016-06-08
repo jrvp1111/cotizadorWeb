@@ -77,12 +77,12 @@
 
         <?php
             include('../php/conexion.php');
-            $registro = mysql_query("SELECT * FROM productos ORDER BY desc_prod ASC"); 
+            $registro = mysql_query("SELECT * FROM productos inner join marcas on productos.id_mca=marcas.id_mca ORDER BY desc_prod ASC"); 
             while($registro2 = mysql_fetch_array($registro)){
                 echo '<tr>
                         <td>'.$registro2['nomb_prod'].'</td>
                         <td>'.$registro2['desc_prod'].'</td>
-                        <td>'.$registro2['mca_prod'].'</td>
+                        <td>'.$registro2['nomb_mca'].'</td>
                         <td>'.$registro2['origen_prod'].'</td>
                         <td>'.$registro2['edo_prod'].'</td>
                         <td>'.$registro2['cost_prod'].'</td>';
@@ -95,7 +95,7 @@
                             echo '<td>'.$registro2['prec_rec'].'</td>';
                           }
 
-                  echo '<td><img height="50px"src="../Imagenes/'.$registro2['mca_prod'].'/'.$registro2['Imagen'].'"/></td>
+                  echo '<td><img height="50px"src="../Imagenes/'.$registro2['nomb_mca'].'/'.$registro2['Imagen'].'"/></td>
                         <td>'.fechaNormal($registro2['fecha_prod']).'</td>
                         <td>
                             <a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>
@@ -141,7 +141,7 @@
                         <td><select required="required" name="mcaProd" id="mcaProd">
 
                           <?php
-                          $sql="SELECT * FROM marcas ORDER BY nomb_mca ASC";
+                          $sql="SELECT * FROM productos right join marcas on productos.id_mca=marcas.id_mca ORDER BY nomb_mca ASC";
                           $rec=mysql_query($sql);
                           while($row=mysql_fetch_array($rec))
                           {
