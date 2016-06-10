@@ -31,7 +31,7 @@
                           while($row=mysql_fetch_array($rec))
                           {
                             echo "<option>";
-                            echo $row['nomb_mca'];
+                            echo $row['id_mca']." ".$row['nomb_mca'];
                             echo "</option>";
                           }
 
@@ -54,7 +54,7 @@
 	</tr>
 	<?php
 		include 'Datos/conexion.php';
-		$re=mysql_query("select * from productos")or die(mysql_error());
+		$re=mysql_query("SELECT * FROM productos left join marcas on productos.id_mca=marcas.id_mca ORDER BY desc_prod ASC")or die(mysql_error());
 		while ($f=mysql_fetch_array($re)) {
 	?>
 
@@ -62,8 +62,8 @@
 		<td><?php echo $f['id_prod'];?></td>
 		<td><?php echo $f['nomb_prod'];?></td>
 		<td><?php echo $f['desc_prod'];?></td>
-		<td><?php echo $f['mca_prod'];?></td>
-		<td><?php echo "<img class=\"imagen\" src=\""."Imagenes/".$f['mca_prod']."/".$f['Imagen']."\"/>";?></td>
+		<td><?php echo $f['nomb_mca'];?></td>
+		<td><?php echo "<img class=\"imagen\" src=\""."Imagenes/".$f['nomb_mca']."/".$f['Imagen']."\"/>";?></td>
 	</tr>
 	<?php
 	}

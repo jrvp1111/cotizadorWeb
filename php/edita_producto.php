@@ -5,13 +5,14 @@ $id = $_POST['id'];
 
 //OBTENEMOS LOS VALORES DEL PRODUCTO
 
-$valores = mysql_query("SELECT * FROM productos WHERE id_prod = '$id'");
+
+$valores = mysql_query("SELECT * FROM productos LEFT JOIN marcas ON productos.id_mca=marcas.id_mca WHERE id_prod = '$id'");
 $valores2 = mysql_fetch_array($valores);
 
 $datos = array(
 				0 => $valores2['nomb_prod'],
 				1 => $valores2['desc_prod'],
-				2 => $valores2['mca_prod'],
+				2 => $valores2['id_mca']." ".$valores2['nomb_mca'],
 				3 => $valores2['origen_prod'],
 				4 => $valores2['edo_prod'],
 				5 => $valores2['nota_prod'],

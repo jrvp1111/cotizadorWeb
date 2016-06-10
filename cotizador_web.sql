@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-06-2016 a las 19:25:46
+-- Tiempo de generación: 10-06-2016 a las 03:04:27
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `cotizador_web`
+-- Base de datos: `cotizador_web_prueba`
 --
 
 -- --------------------------------------------------------
@@ -119,9 +119,9 @@ INSERT INTO `marcas` (`id_mca`, `nomb_mca`, `origen_mca`, `prov_mca`, `tel_mca`,
 
 CREATE TABLE `productos` (
   `id_prod` int(11) NOT NULL,
+  `id_mca` int(100) NOT NULL,
   `nomb_prod` varchar(100) NOT NULL,
   `desc_prod` varchar(100) NOT NULL,
-  `mca_prod` varchar(100) NOT NULL,
   `origen_prod` varchar(20) NOT NULL,
   `edo_prod` varchar(15) NOT NULL,
   `nota_prod` varchar(150) NOT NULL,
@@ -137,12 +137,9 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_prod`, `nomb_prod`, `desc_prod`, `mca_prod`, `origen_prod`, `edo_prod`, `nota_prod`, `cost_prod`, `util_prod`, `prec_prod`, `prec_rec`, `Imagen`, `fecha_prod`) VALUES
-(18, 'ls4250', 'Bateria 3.6v', 'Saft', 'ImportaciÃ³n', 'Activo', 'no recargable', 100, 60, 160, 1.5, 'LS14250.jpg', '0000-00-00'),
-(19, '780', 'Flotador', 'Dare', 'ImportaciÃ³n', 'Activo', 'de plastico', 130, 30, 169, 168, '798.JPG', '0000-00-00'),
-(21, 'Ag4910', 'Tijeras', 'Corona Tools', 'ImportaciÃ³n', 'Activo', '', 75, 30, 97.5, 100, 'AG 4910.jpg', '2016-05-27'),
-(22, '16100', 'Graficador Desechable 10 DÃ­as', 'Deltatrak', 'Nacional', 'Activo', '', 113, 50, 169.5, 175, '16100.jpg', '2016-05-28'),
-(23, 'Nylon Congelacion 8" Liso', 'Banda Polivinilo', 'Corona Tools', '', '', '', 0, 0, 0, 0, 'descarga.jpg', '2016-06-07');
+INSERT INTO `productos` (`id_prod`, `id_mca`, `nomb_prod`, `desc_prod`, `origen_prod`, `edo_prod`, `nota_prod`, `cost_prod`, `util_prod`, `prec_prod`, `prec_rec`, `Imagen`, `fecha_prod`) VALUES
+(26, 32, 'mex', 'mex desc', 'Nacional', 'Activo', 'nota nada', 10, 15, 150, 155, 'taylor.jpg', '2016-06-07'),
+(76, 42, 'ag4910', 'aas', 'Nacional', 'Activo', 'asda', 50, 40, 70, 1200, '', '2016-06-10');
 
 --
 -- Índices para tablas volcadas
@@ -180,7 +177,8 @@ ALTER TABLE `marcas`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id_prod`);
+  ADD PRIMARY KEY (`id_prod`),
+  ADD KEY `id_mca` (`id_mca`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -200,7 +198,7 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

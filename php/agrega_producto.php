@@ -1,5 +1,6 @@
 <?php
 include('conexion.php');
+
 $id = $_POST['id-prod'];
 $procesoProd = $_POST['pro-prod'];
 $nombreProd = $_POST['nombreProd'];
@@ -15,9 +16,11 @@ $precioReco = $_POST['precRec'];
 $fecha = date('Y-m-d');
 //VERIFICAMOS EL PROCESO
 
+
 switch($procesoProd){
+
 	case 'Registro':
-		mysql_query("INSERT INTO productos (nomb_prod, desc_prod, mca_prod, origen_prod, edo_prod, nota_prod, cost_prod, util_prod, prec_prod, prec_rec, fecha_prod)
+		mysql_query("INSERT INTO productos (nomb_prod, desc_prod, id_mca, origen_prod, edo_prod, nota_prod, cost_prod, util_prod, prec_prod, prec_rec, fecha_prod)
 						VALUES('$nombreProd','$descripcionProd','$marcaProd', '$origenProd', '$estadoProd', '$notaProd', '$costoProd', '$utilidadProd', '$precioProd', '$precioReco','$fecha')");
 	break;
 
@@ -25,7 +28,7 @@ switch($procesoProd){
 		mysql_query("UPDATE productos SET
 			nomb_prod = '$nombreProd',
 			desc_prod = '$descripcionProd',
-			mca_prod = '$marcaProd',
+			id_mca = '$marcaProd',
 			origen_prod = '$origenProd',
 			edo_prod = '$estadoProd',
 			nota_prod = '$notaProd',
@@ -40,7 +43,7 @@ switch($procesoProd){
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysql_query("SELECT * FROM productos ORDER BY desc_prod ASC");
+$registro = mysql_query("SELECT * FROM productos left join marcas on productos.id_mca=marcas.id_mca ORDER BY desc_prod ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -61,12 +64,12 @@ echo '<table class="table table-striped table-condensed table-hover">
 		echo '<tr>
 						<td>'.$registro2['nomb_prod'].'</td>
                         <td>'.$registro2['desc_prod'].'</td>
-                        <td>'.$registro2['mca_prod'].'</td>
+                        <td>'.$registro2['nomb_mca'].'</td>
                         <td>'.$registro2['origen_prod'].'</td>
                         <td>'.$registro2['edo_prod'].'</td>
                         <td>'.$registro2['cost_prod'].'</td>
                         <td>'.$registro2['prec_rec'].'</td>
-                        <td><img height="50px"src="../Imagenes/'.$registro2['mca_prod'].'/'.$registro2['Imagen'].'"/></td>
+                        <td><img height="50px"src="../Imagenes/'.$registro2['nomb_mca'].'/'.$registro2['Imagen'].'"/></td>
                         <td>'.fechaNormal($registro2['fecha_prod']).'</td>
 				<td>
 					<a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>

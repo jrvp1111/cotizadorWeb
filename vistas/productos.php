@@ -12,6 +12,7 @@
 <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../bootstrap/js/bootstrap.js"></script>
+
 </head>
 <body>
 
@@ -77,7 +78,7 @@
 
         <?php
             include('../php/conexion.php');
-            $registro = mysql_query("SELECT * FROM productos inner join marcas on productos.id_mca=marcas.id_mca ORDER BY desc_prod ASC"); 
+            $registro = mysql_query("SELECT * FROM productos left join marcas on productos.id_mca=marcas.id_mca ORDER BY desc_prod ASC"); 
             while($registro2 = mysql_fetch_array($registro)){
                 echo '<tr>
                         <td>'.$registro2['nomb_prod'].'</td>
@@ -141,16 +142,18 @@
                         <td><select required="required" name="mcaProd" id="mcaProd">
 
                           <?php
-                          $sql="SELECT * FROM productos right join marcas on productos.id_mca=marcas.id_mca ORDER BY nomb_mca ASC";
+                          $sql="SELECT * FROM marcas ORDER BY nomb_mca ASC";
                           $rec=mysql_query($sql);
                           while($row=mysql_fetch_array($rec))
                           {
                             echo "<option>";
-                            echo $row['nomb_mca'];
+                            echo $row['id_mca']." ".$row['nomb_mca'];
                             echo "</option>";
                           }
 
+
                            ?>
+
                             </select>
                         </td>
                     </tr>
@@ -189,14 +192,14 @@
                         <td><input type="text" required="required" name="utilidadProd" id="utilidadProd" onkeyup="calcular();" maxlength="100"/></td>
                     </tr>
 
-                    <script language="JavaScript">  
+                    <script language="JavaScript">
                         function calcular()
                         {
-                            var precio=  parseFloat( document.getElementById("costProd").value);   
-                            var costo = parseFloat( document.getElementById("utilidadProd").value);            
-                            var precioventa = document.getElementById("precProd").value = ((precio*costo)/100)+precio;              
+                            var precio=  parseFloat( document.getElementById("costProd").value);
+                            var costo = parseFloat( document.getElementById("utilidadProd").value);
+                            var precioventa = document.getElementById("precProd").value = ((precio*costo)/100)+precio;
 
-                        }   
+                        }
                     </script>
 
                     <tr>
