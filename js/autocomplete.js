@@ -5,7 +5,7 @@ $(function() {
                 minLength: 1,
                 select: function(event, ui) {
           event.preventDefault();
-                    $('#nombrecompaniacte').val(ui.item.nombrecompaniacte);
+          $('#nombrecompaniacte').val(ui.item.nombrecompaniacte);
           $('#telefonocte').val(ui.item.telefonocte);
           $('#direccioncte').val(ui.item.direccioncte);
           $('#ciudadcte').val(ui.item.ciudadcte);

@@ -76,8 +76,32 @@
       <label class="control-label col-sm-1">Compañia:</label>
       <div class="col-sm-3"><input type="text" class="form-control" id="nombrecompaniacte" name="nombrecompaniacte"></div>
 
+
       <label class="control-label col-sm-1">Atencion:</label>
-      <div class="col-sm-3"><input type="text" class="form-control" id="atencot" name="atencot" placeholder="Atencion"></div>
+
+                          <div class="col-sm-3">
+                            <select class="form-control" id="atencot" name="atencot" placeholder="Atencion">
+
+
+                          <?php
+                          include('../php/conexion.php');
+                          $sql="SELECT nomb_contacto FROM detalle_cliente
+                          inner join clientes on detalle_cliente.id_cliente=clientes.id_cte
+                          inner join contactos on detalle_cliente.id_contacto=contactos.id_contacto
+                          where nombcomer_cte like '%Casa Ley%' ORDER BY nomb_contacto ASC";
+                          $rec=mysql_query($sql);
+                          while($row=mysql_fetch_array($rec))
+                          {
+                            echo "<option>";
+                            echo $row['nomb_contacto'];
+                            echo "</option>";
+                          }
+
+
+                           ?>
+
+                            </select>
+                        </div>
 
       <label class="control-label col-sm-1">Email:</label>
       <div class="col-sm-3"><input type="email" class="form-control" id="emailcot" name="emailcot" placeholder="Introduce email"></div>

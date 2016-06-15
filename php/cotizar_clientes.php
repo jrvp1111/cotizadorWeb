@@ -7,7 +7,7 @@ $return_arr = array();
 /* Si la conexión a la base de datos , ejecuta instrucción SQL. */
 if ($conexion)
 {
-	$fetch = mysqli_query($conexion,"SELECT * FROM clientes where nombcomer_cte like '%" . mysqli_real_escape_string($conexion,($_GET['term'])) . "%' LIMIT 0 ,50"); 
+	$fetch = mysqli_query($conexion,"SELECT * FROM vista_clientes where nombcomer_cte like '%" . mysqli_real_escape_string($conexion,($_GET['term'])) . "%' LIMIT 0 ,50"); 
 	
 	/* Recuperar y almacenar en conjunto los resultados de la consulta.*/
 	while ($row = mysqli_fetch_array($fetch)) {
