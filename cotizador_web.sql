@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-06-2016 a las 00:53:03
+-- Tiempo de generación: 25-06-2016 a las 21:49:40
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -130,6 +130,18 @@ CREATE TABLE `detalle_cotizaciones` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `divisas`
+--
+
+CREATE TABLE `divisas` (
+  `id_tcambio` int(11) NOT NULL,
+  `precio_dolar` float NOT NULL,
+  `fecha_tcambio` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `marcas`
 --
 
@@ -150,7 +162,7 @@ CREATE TABLE `marcas` (
 INSERT INTO `marcas` (`id_mca`, `nomb_mca`, `origen_mca`, `prov_mca`, `tel_mca`, `nota_mca`, `fecha_reg`) VALUES
 (29, 'Deltatrak', 'Nacional', 'Deltatrak International Mexico', '7373737373', 'eejjjej', '2016-04-11'),
 (31, 'Extruflex', 'ImportaciÃ³n', '', '', '', '2016-04-11'),
-(32, 'Taylor', 'Nacional', '', '', '', '2016-04-12'),
+(32, 'Taylor', 'Nacional', '', '', 'attn nayeli', '2016-04-12'),
 (33, 'Extech', 'Nacional', '', '', '', '2016-04-12'),
 (34, 'Escort Ilog', 'ImportaciÃ³n', '', '', '', '2016-04-14'),
 (37, 'Dare', 'ImportaciÃ³n', 'Dare Products Inc', '888', 'Atn: Bob', '2016-04-17'),
@@ -174,6 +186,7 @@ CREATE TABLE `productos` (
   `edo_prod` varchar(15) NOT NULL,
   `nota_prod` varchar(150) NOT NULL,
   `cost_prod` float NOT NULL,
+  `mon_prod` varchar(15) NOT NULL,
   `util_prod` float NOT NULL,
   `prec_prod` float NOT NULL,
   `prec_rec` float NOT NULL,
@@ -185,9 +198,9 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_prod`, `id_mca`, `nomb_prod`, `desc_prod`, `origen_prod`, `edo_prod`, `nota_prod`, `cost_prod`, `util_prod`, `prec_prod`, `prec_rec`, `Imagen`, `fecha_prod`) VALUES
-(26, 32, 'mex', 'mex desc', 'Nacional', 'Activo', 'nota nada', 10, 15, 150, 155, 'taylor.jpg', '2016-06-07'),
-(76, 42, 'ag4910', 'aas', 'Nacional', 'Activo', 'asda', 50, 40, 70, 1200, '', '2016-06-10');
+INSERT INTO `productos` (`id_prod`, `id_mca`, `nomb_prod`, `desc_prod`, `origen_prod`, `edo_prod`, `nota_prod`, `cost_prod`, `mon_prod`, `util_prod`, `prec_prod`, `prec_rec`, `Imagen`, `fecha_prod`) VALUES
+(26, 32, 'mex', 'mex desc', 'Nacional', 'Activo', 'nota nada', 10, 'USD', 15, 150, 156, 'taylor.jpg', '2016-06-25'),
+(76, 42, 'ag4910', 'aas', 'Nacional', 'Activo', 'asda', 50, 'USD', 40, 70, 1300, '', '2016-06-25');
 
 -- --------------------------------------------------------
 
@@ -255,6 +268,12 @@ ALTER TABLE `detalle_cotizaciones`
   ADD KEY `num_cotizacion` (`num_cotizacion`);
 
 --
+-- Indices de la tabla `divisas`
+--
+ALTER TABLE `divisas`
+  ADD PRIMARY KEY (`id_tcambio`);
+
+--
 -- Indices de la tabla `marcas`
 --
 ALTER TABLE `marcas`
@@ -286,6 +305,11 @@ ALTER TABLE `contactos`
 --
 ALTER TABLE `detalle_cliente`
   MODIFY `id_detallecte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `divisas`
+--
+ALTER TABLE `divisas`
+  MODIFY `id_tcambio` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --

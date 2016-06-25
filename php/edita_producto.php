@@ -17,9 +17,10 @@ $datos = array(
 				4 => $valores2['edo_prod'],
 				5 => $valores2['nota_prod'],
 				6 => $valores2['cost_prod'],
-				7 => $valores2['util_prod'],
-				8 => $valores2['prec_prod'],
-				9 => $valores2['prec_rec'],
+				7 => $valores2['mon_prod'],
+				8 => $valores2['util_prod'],
+				9 => $valores2['prec_prod'],
+				10 => $valores2['prec_rec'],
 				);
 echo json_encode($datos);
 ?>

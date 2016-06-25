@@ -36,6 +36,7 @@
           <li><a href="marcas.php">Marcas</a></li>
           <li><a href="usuarios.php">Usuarios</a></li>
           <li><a href="pagos.php">Pagos</a></li>
+          <li><a href="tcambio.php">T. Cambio</a></li>
         </ul>
       </div>
     </div>
@@ -46,9 +47,10 @@
   <!--saltos para que no se oculte el texto en el detras del nav-->
   <br><br><hr>
 
-
+ 
 
     <header>Productos</header>
+
     <section>
     <table border="0" align="center">
       <tr>
@@ -89,11 +91,11 @@
                         <td>'.$registro2['cost_prod'].'</td>';
                         if($registro2['prec_rec']>0)
                           {
-                            echo '<td class="color9">'.$registro2['prec_rec'].'</td>';
+                            echo '<td class="color9">'.$registro2['prec_rec'].' '.$registro2['mon_prod'].'</td>';
                           }
                         else
                           {
-                            echo '<td>'.$registro2['prec_rec'].'</td>';
+                            echo '<td>'.$registro2['prec_rec'].' '.$registro2['mon_prod'].'</td>';
                           }
 
                   echo '<td><img height="50px"src="../Imagenes/'.$registro2['nomb_mca'].'/'.$registro2['Imagen'].'"/></td>
@@ -185,6 +187,16 @@
                     <tr>
                       <td>Costo: </td>
                         <td><input type="text" required="required" name="costProd" id="costProd" onkeyup="calcular();" maxlength="100"/></td>
+                    </tr>
+
+                    <tr>
+                      <td>Moneda: </td>
+                        <td><select required="required" name="monProd" id="monProd">
+                            <option value="" disabled selected hidden>Selecciona el tipo de moneda...</option>
+                            <option value="MXN">MXN</option>
+                            <option value="USD">USD</option>
+                            </select>
+                        </td>
                     </tr>
 
                     <tr>

@@ -45,13 +45,13 @@ $(function(){
 		});
 
 
-	$('#nueva-fact-ley').on('click',function()
+	$('#nuevo-TCambio').on('click',function()
 		{
-			$('#formulario-fact-ley')[0].reset();
-			$('#pro-port-ley').val('Registro');
-			$('#edi-fact-ley').hide();
-			$('#reg-fact-ley').show();
-			$('#registra-fact-ley').modal
+			$('#formulario-TCambio')[0].reset();
+			$('#pro-TCambio').val('Registro');
+			$('#edi-TCambio').hide();
+			$('#reg-TCambio').show();
+			$('#registra-TCambio').modal
 			({
 				show:true,
 				backdrop:'static'
@@ -111,10 +111,10 @@ $(function(){
 	});
 
 
-		$('#bs-fact-ley').on('keyup',function()
+		$('#bs-TCambio').on('keyup',function()
 		{
-			var dato = $('#bs-fact-ley').val();
-			var url = '../php/busca_fact_ley.php';
+			var dato = $('#bs-TCambio').val();
+			var url = '../php/busca_tcambio.php';
 			$.ajax(
 				{
 					type:'POST',
@@ -122,7 +122,7 @@ $(function(){
 					data:'dato='+dato,
 					success: function(datos)
 						{
-							$('#agrega-registros-fact-ley').html(datos);
+							$('#agrega-registros-TCambio').html(datos);
 						}
 				});
 		return false;
@@ -207,21 +207,21 @@ function agregaRegistroCte(){
 
 
 
-function agregaRegistroFactLey(){
-	var url = '../php/agrega_fact_ley.php';
+function agregaRegistroTCambio(){
+	var url = '../php/agrega_tipocambio.php';
 	$.ajax({
 		type:'POST',
 		url:url,
-		data:$('#formulario-fact-ley').serialize(),
+		data:$('#formulario-TCambio').serialize(),
 		success: function(registro){
-			if ($('#pro-fact-ley').val() == 'Registro'){
-			$('#formulario-fact-ley')[0].reset();
+			if ($('#pro-TCambio').val() == 'Registro'){
+			$('#formulario-TCambio')[0].reset();
 			$('#mensaje').addClass('bien').html('Registro completado con exito').show(200).delay(2500).hide(200);
-			$('#agrega-registros-fact-ley').html(registro);
+			$('#agrega-registros-TCambio').html(registro);
 			return false;
 			}else{
 			$('#mensaje').addClass('bien').html('Edicion completada con exito').show(200).delay(2500).hide(200);
-			$('#agrega-registros-fact-ley').html(registro);
+			$('#agrega-registros-TCambio').html(registro);
 			return false;
 			}
 		}
@@ -294,16 +294,16 @@ function eliminarCliente(id){
 }
 
 
-function eliminarPortalLey(id){
-	var url = '../php/elimina_fact_ley.php';
-	var pregunta = confirm('¿Esta seguro de eliminar esta factura?');
+function eliminarTCambio(id){
+	var url = '../php/elimina_tcambio.php';
+	var pregunta = confirm('¿Esta seguro de eliminar este registro?');
 	if(pregunta==true){
 		$.ajax({
 		type:'POST',
 		url:url,
 		data:'id='+id,
 		success: function(registro){
-			$('#agrega-registros-fact-ley').html(registro);
+			$('#agrega-registros-TCambio').html(registro);
 			return false;
 		}
 	});
@@ -365,9 +365,10 @@ function editarProducto(id){
 				$('#edoProd').val(datos[4]);
 				$('#notaProd').val(datos[5]);
 				$('#costProd').val(datos[6]);
-				$('#utilidadProd').val(datos[7]);
-				$('#precProd').val(datos[8]);
-				$('#precRec').val(datos[9]);
+				$('#monProd').val(datos[7]);
+				$('#utilidadProd').val(datos[8]);
+				$('#precProd').val(datos[9]);
+				$('#precRec').val(datos[10]);
 				$('#registra-producto').modal({
 					show:true,
 					backdrop:'static'
@@ -411,32 +412,21 @@ function editarCliente(id){
 
 
 
-function editarPortalLey(id){
+function editarTCambio(id){
 	$('#formulario-fact-ley')[0].reset();
-	var url = '../php/edita_fact_ley.php';
+	var url = '../php/edita_tcambio.php';
 		$.ajax({
 		type:'POST',
 		url:url,
 		data:'id='+id,
 		success: function(valores){
 				var datos = eval(valores);
-				$('#reg-fact-ley').hide();
-				$('#edi-fact-ley').show();
-				$('#pro-port-ley').val('Edicion');
-				$('#id-port-ley').val(id);
-				$('#fechaFactLey').val(datos[0]);
-				$('#empreLey').val(datos[1]);
-				$('#numFactLey').val(datos[2]);
-				$('#ordCompraLey').val(datos[3]);
-				$('#tipoCompraLey').val(datos[4]);
-				$('#tienCargoLey').val(datos[5]);
-				$('#nombTienLey').val(datos[6]);
-				$('#numEntrBultLey').val(datos[7]);
-				$('#fechEntrBultLey').val(datos[8]);
-				$('#nomQuienRecibLey').val(datos[9]);
-				$('#numRemLey').val(datos[10]);
-				$('#estPortLey').val(datos[11]);
-				$('#registra-fact-ley').modal({
+				$('#reg-TCambio').hide();
+				$('#edi-TCambio').show();
+				$('#pro-TCambio').val('Edicion');
+				$('#id-TCambio').val(id);
+				$('#tipoCambio').val(datos[0]);
+				$('#registra-TCambio').modal({
 					show:true,
 					backdrop:'static'
 				});

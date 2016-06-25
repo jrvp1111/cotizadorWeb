@@ -174,13 +174,14 @@
             </thead>
             <tbody>
             <tr>
-                  <td style="display:none" width="150"><input type="text" required="required" readonly="readonly" id="pro-cot" name="pro-cot"/></td>
+                  <td style="display:none" width="150"><input type="text" required="required" readonly="readonly" id="pro-cot[]" name="pro-cot"/></td>
                   <td>1</td>
                   <td class="col-sm-4"><div class="form-group"><input class="form-control" required="required" id="nombredelProd" name="nombredelProd[]" placeholder="Introduce producto, modelo o marca"/></div></td>
                   <td class="col-sm-3"><div class="form-group"><input class="form-control" id="notaProdCot" name="notaProdCot[]" placeholder="Intruduce una nota"/></div></td>
                   <td class="col-sm-2"><div class="form-group"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"/></div></td>
                   <td class="col-sm-2"><div class="form-group"><input class="form-control" required="required" id="precioRecomProd" name="precioRecomProd[]"/></div></td>
             </tr>
+
 
             </tbody>
           </table>

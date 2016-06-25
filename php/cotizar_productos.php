@@ -24,12 +24,13 @@ if ($conexion)
 		$row_array['id_prod']=$row['id_prod'];
 		$row_array['nombredelProd']=$row['nomb_prod'].' '.$row['desc_prod'].' '.$row['mca_prod'];
 		$row_array['precioRecomProd']=$row['prec_rec'];
-		$row_array['imagenProducto']='<img src="../Imagenes/'.$row['mca_prod'].'/'.$row['Imagen'].'" height="50px">';
 
 		//$row_array['imagenProducto']=$row['Imagen'];
 		array_push($return_arr,$row_array);
     }
 }
+
+
 
 /* Cierra la conexión. */
 mysqli_close($conexion);
