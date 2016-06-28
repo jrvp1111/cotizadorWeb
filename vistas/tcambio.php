@@ -73,7 +73,7 @@
 
         <?php
             include('../php/conexion.php');
-            $registro = mysql_query("SELECT * FROM divisas"); 
+            $registro = mysql_query("SELECT * FROM divisas ORDER BY fecha_tcambio ASC"); 
             while($registro2 = mysql_fetch_array($registro)){
                 echo '<tr>
                         <td>'.$registro2['precio_dolar'].'</td>

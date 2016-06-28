@@ -47,9 +47,10 @@
   <!--saltos para que no se oculte el texto en el detras del nav-->
   <br><br><hr>
 
- 
+
 
     <header>Productos</header>
+
 
     <section>
     <table border="0" align="center">
@@ -199,6 +200,28 @@
                         </td>
                     </tr>
 
+
+
+                      <td>Tipo de cambio: </td>
+                        <td><select required="required" id="preciotipoCambio" name="preciotipoCambio">
+
+                          <?php
+                          $sql="SELECT * FROM divisas ORDER BY id_tcambio DESC LIMIT 1";
+                          $rec=mysql_query($sql);
+                          while($row=mysql_fetch_array($rec))
+                          {
+                            echo "<option>";
+                            echo $row['precio_dolar'];
+                            echo "</option>";
+                          }
+
+
+                           ?>
+
+                            </select>
+                        </td>
+
+
                     <tr>
                       <td>Porcentaje de utilidad: </td>
                         <td><input type="text" required="required" name="utilidadProd" id="utilidadProd" onkeyup="calcular();" maxlength="100"/></td>
@@ -206,8 +229,17 @@
 
                     <script language="JavaScript">
                         function calcular()
-                        {
+                        {   var obtentc = parseFloat( document.getElementById("preciotipoCambio").value);
+                            var tc = document.getElementById("monProd").value;
                             var precio=  parseFloat( document.getElementById("costProd").value);
+                            if  (tc == 'USD')
+                              {
+                                precioventa = document.getElementById("precProd").value = obtentc*precio;
+                              }
+
+                           else
+
+                            
                             var costo = parseFloat( document.getElementById("utilidadProd").value);
                             var precioventa = document.getElementById("precProd").value = ((precio*costo)/100)+precio;
 

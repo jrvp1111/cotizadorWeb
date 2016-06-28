@@ -18,10 +18,10 @@ if(mysql_num_rows($registro)>0){
     while($registro2 = mysql_fetch_array($registro)){
         echo '<tr>
                         <td>'.$registro2['precio_dolar'].'</td>
-                        <td>'.fechaNormal($registro2['fecha_prod']).'</td>
+                        <td>'.fechaNormal($registro2['fecha_tcambio']).'</td>
                         <td>
                             <a href="javascript:editarTCambio('.$registro2['id_tcambio'].');" class="glyphicon glyphicon-edit"></a>
-                            <a href="javascript:eliminarProducto('.$registro2['id_tcambio'].');" class="glyphicon glyphicon-remove-circle"></a>
+                            <a href="javascript:eliminarTCambio('.$registro2['id_tcambio'].');" class="glyphicon glyphicon-remove-circle"></a>
                         </td>
                       </tr>';
 	}

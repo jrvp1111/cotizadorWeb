@@ -8,7 +8,7 @@ $fecha = date('Y-m-d');
 
 switch($proceso){
 	case 'Registro':
-		mysql_query("INSERT INTO divisas (precio_dolar, fecha_tcambio)VALUES( $tipoCambio', '$fecha')");
+		mysql_query("INSERT INTO divisas (precio_dolar, fecha_tcambio)VALUES( '$tipoCambio', '$fecha')");
 	break;
 
 	case 'Edicion':
@@ -34,10 +34,10 @@ echo '<table class="table table-striped table-condensed table-hover">
 	while($registro2 = mysql_fetch_array($registro)){
 		echo '<tr>
                         <td>'.$registro2['precio_dolar'].'</td>
-                        <td>'.fechaNormal($registro2['fecha_prod']).'</td>
+                        <td>'.fechaNormal($registro2['fecha_tcambio']).'</td>
                         <td>
                             <a href="javascript:editarTCambio('.$registro2['id_tcambio'].');" class="glyphicon glyphicon-edit"></a>
-                            <a href="javascript:eliminarProducto('.$registro2['id_tcambio'].');" class="glyphicon glyphicon-remove-circle"></a>
+                            <a href="javascript:eliminarTCambio('.$registro2['id_tcambio'].');" class="glyphicon glyphicon-remove-circle"></a>
                         </td>
                       </tr>';
 	}
