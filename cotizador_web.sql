@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2016 a las 21:49:40
+-- Tiempo de generación: 04-08-2016 a las 01:38:18
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -43,8 +43,8 @@ CREATE TABLE `clientes` (
 
 INSERT INTO `clientes` (`id_cte`, `comp_cte`, `nombcomer_cte`, `tel_cte`, `dir_cte`, `ciud_cte`, `edo_cte`, `fecha_cte`) VALUES
 (1, 'Casa Ley S.A. De C.V.', 'Casa Ley', '(667) 759 1000', 'Carretera Internacional Km 1434 Col. Infonavit Humaya C.P. 80020', 'CuliacÃ¡n', 'Sinaloa', '2016-04-12'),
-(2, 'productos chata sa de cv', 'Chata', '754512', 'Bachigualato', 'Culiacan', 'Sinaloa', '2016-04-25'),
-(3, 'Sukarne Agroindustrial SA DE CV', 'Sukarne', '795454', 'La primaver', 'Culiacan', 'Sinaloa', '2016-04-25');
+(2, 'productos chata sa de cv', 'Chata', '754512', 'Bachigualato', 'CuliacÃ¡n', 'Sinaloa', '2016-04-25'),
+(3, 'Sukarne Agroindustrial SA DE CV', 'Sukarne', '795454', 'La primaver', 'CuliacÃ¡n', 'Sinaloa', '2016-04-25');
 
 -- --------------------------------------------------------
 
@@ -139,6 +139,20 @@ CREATE TABLE `divisas` (
   `fecha_tcambio` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `divisas`
+--
+
+INSERT INTO `divisas` (`id_tcambio`, `precio_dolar`, `fecha_tcambio`) VALUES
+(7, 13.5, '2016-06-28'),
+(9, 19.56, '2016-06-28'),
+(10, 19.5, '2016-06-28'),
+(11, 15, '2016-06-28'),
+(12, 5, '2016-06-28'),
+(13, 50, '2016-06-28'),
+(14, 19.5, '2016-06-28'),
+(15, 19, '2016-06-29');
+
 -- --------------------------------------------------------
 
 --
@@ -160,16 +174,23 @@ CREATE TABLE `marcas` (
 --
 
 INSERT INTO `marcas` (`id_mca`, `nomb_mca`, `origen_mca`, `prov_mca`, `tel_mca`, `nota_mca`, `fecha_reg`) VALUES
-(29, 'Deltatrak', 'Nacional', 'Deltatrak International Mexico', '7373737373', 'eejjjej', '2016-04-11'),
-(31, 'Extruflex', 'ImportaciÃ³n', '', '', '', '2016-04-11'),
-(32, 'Taylor', 'Nacional', '', '', 'attn nayeli', '2016-04-12'),
-(33, 'Extech', 'Nacional', '', '', '', '2016-04-12'),
+(29, 'Deltatrak', 'Nacional', 'Deltatrak International Mexico', '01 33 31 88 3161', 'Paola Gutierrez o Alejandra Moreno', '2016-04-11'),
+(31, 'Extruflex', 'ImportaciÃ³n', 'Extruflex North America', '', 'Fernando CastaÃ±eda', '2016-04-11'),
+(32, 'Taylor', 'Nacional', 'Comercial Mofeg', '01 33 1002 1500', 'Nayelo,  descuentos PL-50%-5%-3', '2016-04-12'),
+(33, 'Extech', 'Nacional', 'Grainger Mexico', '', 'Alonso', '2016-04-12'),
 (34, 'Escort Ilog', 'ImportaciÃ³n', '', '', '', '2016-04-14'),
 (37, 'Dare', 'ImportaciÃ³n', 'Dare Products Inc', '888', 'Atn: Bob', '2016-04-17'),
-(38, 'Dosatron', 'ImportaciÃ³n', 'Dosatron', '77777777', 'asdadsasd', '2016-04-18'),
-(40, 'GLA', 'ImportaciÃ³n', 'GLA Agricultural', '8000 ', 'atn john', '2016-05-03'),
+(38, 'Dosatron', 'ImportaciÃ³n', 'Dosatron', '727 443 5404', 'Mario Garcia', '2016-04-18'),
+(40, 'GLA Agricultural Electronics', 'ImportaciÃ³n', 'GLA Agricultural Electronics', '800 346 1182', 'John K. Thomas', '2016-05-03'),
 (41, 'Saft', 'ImportaciÃ³n', 'Florida Distributors', '123321321', 'nada', '2016-05-24'),
-(42, 'Corona Tools', 'ImportaciÃ³n', 'Corona Clipper', '800 2255 225', 'tijeras', '2016-05-24');
+(42, 'Corona Tools', 'ImportaciÃ³n', 'Corona Clipper', '800 2255 225', 'tijeras', '2016-05-24'),
+(43, 'Fluke', 'Nacional', 'ABSA Sonora', '712-4885', 'Laura Dominguez', '2016-06-29'),
+(44, 'Steren', 'Nacional', 'Electronica Steren de Guadalajara', '01 33 3614 4979', 'GISELA LUNA', '2016-07-18'),
+(45, 'Avaly', 'Nacional', 'Comercial Mofeg', '', 'Nataly, descuentos PL-50%-5%-3%', '2016-07-18'),
+(46, 'SuperKlean', 'ImportaciÃ³n', 'Racing Revolution Team', '650 375 7001', 'Joel Alvarez, descuentos -35%', '2016-07-18'),
+(47, 'Kestrel', 'ImportaciÃ³n', 'Florida Distributors', '', '', '2016-07-18'),
+(48, 'Arod', 'Nacional', 'Arod de Mexico', '999-920-1616', 'Mayra Lorena Ext 112', '2016-07-18'),
+(49, 'Philips', 'Nacional', 'Arod de Mexico', '', '', '2016-07-18');
 
 -- --------------------------------------------------------
 
@@ -180,6 +201,7 @@ INSERT INTO `marcas` (`id_mca`, `nomb_mca`, `origen_mca`, `prov_mca`, `tel_mca`,
 CREATE TABLE `productos` (
   `id_prod` int(11) NOT NULL,
   `id_mca` int(100) NOT NULL,
+  `id_tcambio` int(11) NOT NULL,
   `nomb_prod` varchar(100) NOT NULL,
   `desc_prod` varchar(100) NOT NULL,
   `origen_prod` varchar(20) NOT NULL,
@@ -198,9 +220,29 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_prod`, `id_mca`, `nomb_prod`, `desc_prod`, `origen_prod`, `edo_prod`, `nota_prod`, `cost_prod`, `mon_prod`, `util_prod`, `prec_prod`, `prec_rec`, `Imagen`, `fecha_prod`) VALUES
-(26, 32, 'mex', 'mex desc', 'Nacional', 'Activo', 'nota nada', 10, 'USD', 15, 150, 156, 'taylor.jpg', '2016-06-25'),
-(76, 42, 'ag4910', 'aas', 'Nacional', 'Activo', 'asda', 50, 'USD', 40, 70, 1300, '', '2016-06-25');
+INSERT INTO `productos` (`id_prod`, `id_mca`, `id_tcambio`, `nomb_prod`, `desc_prod`, `origen_prod`, `edo_prod`, `nota_prod`, `cost_prod`, `mon_prod`, `util_prod`, `prec_prod`, `prec_rec`, `Imagen`, `fecha_prod`) VALUES
+(83, 33, 0, '365510', 'Cronometro Digital', 'Nacional', 'Activo', '', 288, 'MXN', 56, 449.28, 450, '365510.jpg', '2016-08-04'),
+(84, 29, 0, '16100', 'Graficador Desechable 10 DÃ­as', 'Nacional', 'Activo', '', 6.5, 'USD', 30, 164.775, 170, '16100 GRAFICADOR.jpg', '2016-06-29'),
+(85, 29, 0, '16200', 'Graficador Desechable 20 DÃ­as', 'Nacional', 'Activo', '', 6.5, 'USD', 30, 164.775, 170, '16100 GRAFICADOR.jpg', '2016-06-29'),
+(87, 29, 0, '16300', 'Graficador Desechable 30 DÃ­as', 'Nacional', 'Activo', '', 6.5, 'USD', 30, 164.775, 170, '16100 GRAFICADOR.jpg', '2016-06-29'),
+(88, 29, 0, '16400', 'Graficador Desechable 40 DÃ­as', 'Nacional', 'Activo', '', 6.5, 'USD', 30, 164.775, 170, '16100 GRAFICADOR.jpg', '2016-06-29'),
+(89, 29, 0, '16500', 'Graficador Desechable 90 DÃ­as', 'Nacional', 'Activo', '', 6.5, 'USD', 30, 164.775, 170, '16100 GRAFICADOR.jpg', '2016-06-29'),
+(90, 29, 0, '11050', 'TermÃ³metro tipo paleta', 'Nacional', 'Activo', '', 19, 'USD', 30, 469.3, 480, '11050-wcover_specsheet.png', '2016-07-20'),
+(91, 29, 0, '20901', 'Graficador de temperatura reusable', 'Nacional', 'Activo', '', 50.5, 'USD', 30, 1247.35, 1400, 'reusableUSB_small.jpg', '2016-08-04'),
+(92, 43, 0, '62Max', 'Termometro Infrarrojo', 'Nacional', 'Activo', '', 99.99, 'USD', 30, 2469.75, 2404, 'FLUKE_62_MAX.jpg', '2016-06-29'),
+(94, 48, 0, 'Black Thunder', 'Trampa para moscas', 'Nacional', 'Activo', 'son 200 de flete', 1897.42, 'MXN', 30, 2466.65, 2726.65, 'Black_Thunder.JPG', '2016-07-19'),
+(96, 48, 0, 'Black Slim', 'Trampa para moscas', 'Nacional', 'Activo', 'son 200 de flete', 1616.4, 'MXN', 30, 2101.32, 2361.32, 'Black_Slim.JPG', '2016-07-19'),
+(97, 48, 0, 'Black Mini Slim', 'Trampa para moscas', '', '', '', 0, '', 0, 0, 0, 'Black_Mini_Slim.JPG', '2016-07-18'),
+(98, 49, 0, 'TL-D Secura', 'Lampara inastillable 15 watts', 'Nacional', 'Activo', '', 117, 'MXN', 30, 152.1, 412, 'COMF2788-CLP-global-001.jpg', '2016-07-18'),
+(99, 48, 0, 'Black Doble', 'Placa engomada doble 125 pzs', 'Nacional', 'Activo', 'son 200 de flete', 1523.55, 'MXN', 30, 1980.61, 2240.62, 'placa_doble_arod.JPG', '2016-07-19'),
+(100, 48, 0, 'Black', 'Placa engomada 75 pzs', '', '', '', 0, '', 0, 0, 0, 'placa_black_arod.JPG', '2016-07-19'),
+(101, 48, 0, 'Black Doble', 'Placa engomada doble 75 pzs', 'Nacional', 'Activo', 'son 200 de flete', 1325.63, 'MXN', 30, 1723.32, 1983.32, 'placa_doble_arod.JPG', '2016-07-19'),
+(102, 45, 0, 'VA-EDT-1-54', 'TermÃ³metro int. y ext.', 'Nacional', 'Activo', '', 17.55, 'USD', 30, 433.485, 392.42, 'VAEDT154.jpg', '2016-07-19'),
+(103, 45, 0, 'VA-EDT-1H', 'Termohigrometro', 'Nacional', 'Activo', '', 16.22, 'USD', 30, 400.634, 362.68, 'VAEDT1H.jpg', '2016-07-19'),
+(104, 45, 0, 'VA-RF60A', 'TermÃ³metro para vitrina de bulbo', 'Nacional', 'Activo', '', 19.97, 'USD', 30, 493.259, 446.53, 'VARF604.jpg', '2016-08-04'),
+(105, 32, 0, '5981N', 'Termometro para vitrina', 'Nacional', 'Activo', 'Para uso refrigerador', 3.93, 'USD', 30, 97.071, 96, '5981n.JPG', '2016-07-19'),
+(107, 32, 0, '5327', 'Termometro de columna Permacolor Int Ext', 'Nacional', 'Activo', '', 4.42, 'USD', 30, 109.174, 120, '5327.JPG', '2016-07-19'),
+(108, 32, 0, '9940N', 'Termometro de bulbo para panel de montaje', '', '', '', 0, '', 0, 0, 0, '9940n.JPG', '2016-07-19');
 
 -- --------------------------------------------------------
 
@@ -284,7 +326,8 @@ ALTER TABLE `marcas`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_prod`),
-  ADD KEY `id_mca` (`id_mca`);
+  ADD KEY `id_mca` (`id_mca`),
+  ADD KEY `id_tcambio` (`id_tcambio`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -309,17 +352,17 @@ ALTER TABLE `detalle_cliente`
 -- AUTO_INCREMENT de la tabla `divisas`
 --
 ALTER TABLE `divisas`
-  MODIFY `id_tcambio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tcambio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_mca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_mca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

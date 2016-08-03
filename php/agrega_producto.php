@@ -70,17 +70,31 @@ echo '<table class="table table-striped table-condensed table-hover">
                         <td>'.$registro2['nomb_mca'].'</td>
                         <td>'.$registro2['origen_prod'].'</td>
                         <td>'.$registro2['edo_prod'].'</td>
-                        <td>'.$registro2['cost_prod'].'</td>';
-                        if($registro2['prec_rec']>0)
+                        <td>'.$registro2['cost_prod'].' '.$registro2['mon_prod'].'</td>';
+                        if($registro2['mon_prod']=='MXN')
                           {
-                            echo '<td class="color9">'.$registro2['prec_rec'].' '.$registro2['mon_prod'].'</td>';
+                            if($registro2['prec_rec']>$registro2['prec_prod'])
+                              {
+                                echo '<td class="color10">$ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-ok-circle"></span></td>';
+                              }
+                            else
+                              {
+                                echo '<td class="color9">$ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-warning-sign"></span></td>';
+                              }
                           }
                         else
-                          {
-                            echo '<td>'.$registro2['prec_rec'].' '.$registro2['mon_prod'].'</td>';
-                          }
+                        {
+                          if($registro2['prec_rec']>$registro2['prec_prod'])
+                              {
+                                echo '<td class="color10">$ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-ok-circle"></span></td>';
+                              }
+                            else
+                              {
+                                echo '<td class="color9">$ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-warning-sign"></span></td>';
+                              }
+                        }
 
-                  echo '<td><img height="50px"src="../Imagenes/'.$registro2['nomb_mca'].'/'.$registro2['Imagen'].'"/></td>
+                  echo '<td><img onmouseover="this.height=200;" onmouseout="this.height=50;" height="50px"src="../Imagenes/'.$registro2['id_mca'].' '.$registro2['nomb_mca'].'/'.$registro2['Imagen'].'"/></td>
                         <td>'.fechaNormal($registro2['fecha_prod']).'</td>
                         <td>
                             <a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>

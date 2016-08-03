@@ -35,6 +35,7 @@
           <li class="active"><a href="marcas.php">Marcas</a></li>
           <li><a href="usuarios.php">Usuarios</a></li>
           <li><a href="pagos.php">Pagos</a></li>
+          <li><a href="cortinas.php">Medidas Cortinas</a></li>
         </ul>
       </div>
     </div>

@@ -24,7 +24,12 @@
 <script src="../js/jquery.validationEngine-es.js"></script>
 <script src="../js/agregafilas.js"></script>
 
-
+  <link rel="stylesheet" href="../ejemplo/docsupport/prism.css">
+  <link rel="stylesheet" href="../ejemplo/chosen.css">
+  <style type="text/css" media="all">
+    /* fix rtl for demo */
+    .chosen-rtl .chosen-drop { left: -9000px; }
+  </style>
 
 </head>
 
@@ -53,6 +58,7 @@
           <li><a href="marcas.php">Marcas</a></li>
           <li><a href="usuarios.php">Usuarios</a></li>
           <li><a href="pagos.php">Pagos</a></li>
+          <li><a href="cortinas.php">Medidas Cortinas</a></li>
         </ul>
       </div>
     </div>
@@ -71,6 +77,14 @@
 <form role="form" class="form-horizontal">
 
 
+    <div class="form-group">
+      <label class="control-label col-sm-1">Cotizacion:</label>
+      <div class="col-sm-3"><input type="number" class="form-control" readonly id="idcotizacion" name="idcotizacion"></div>
+
+
+      <label class="control-label col-sm-1">Fecha:</label>
+      <div class="col-sm-3"><input type="date" class="form-control" id="fechacotizacion" name="fechacotizacion"></div>
+    </div>
 
     <div class="form-group">
       <label class="control-label col-sm-1">Compañia:</label>
@@ -78,30 +92,9 @@
 
 
       <label class="control-label col-sm-1">Atencion:</label>
-
-                          <div class="col-sm-3">
-                            <select class="form-control" id="atencot" name="atencot" placeholder="Atencion">
+      <div class="col-sm-3"><input type="text" class="form-control" id="atencot" name="atencot"></div>
 
 
-                          <?php
-                          include('../php/conexion.php');
-                          $sql="SELECT nomb_contacto FROM detalle_cliente
-                          inner join clientes on detalle_cliente.id_cliente=clientes.id_cte
-                          inner join contactos on detalle_cliente.id_contacto=contactos.id_contacto
-                          where nombcomer_cte like '%Casa Ley%' ORDER BY nomb_contacto ASC";
-                          $rec=mysql_query($sql);
-                          while($row=mysql_fetch_array($rec))
-                          {
-                            echo "<option>";
-                            echo $row['nomb_contacto'];
-                            echo "</option>";
-                          }
-
-
-                           ?>
-
-                            </select>
-                        </div>
 
       <label class="control-label col-sm-1">Email:</label>
       <div class="col-sm-3"><input type="email" class="form-control" id="emailcot" name="emailcot" placeholder="Introduce email"></div>
@@ -167,25 +160,333 @@
             <tr>
               <th>Partida</th>
               <th>Nombre</th>
-              <th>Nota</th>
               <th>Cantidad</th>
               <th>Precio</th>
             </tr>
             </thead>
             <tbody>
+
             <tr>
-                  <td style="display:none" width="150"><input type="text" required="required" readonly="readonly" id="pro-cot[]" name="pro-cot"/></td>
                   <td>1</td>
-                  <td class="col-sm-4"><div class="form-group"><input class="form-control" required="required" id="nombredelProd" name="nombredelProd[]" placeholder="Introduce producto, modelo o marca"/></div></td>
-                  <td class="col-sm-3"><div class="form-group"><input class="form-control" id="notaProdCot" name="notaProdCot[]" placeholder="Intruduce una nota"/></div></td>
-                  <td class="col-sm-2"><div class="form-group"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"/></div></td>
-                  <td class="col-sm-2"><div class="form-group"><input class="form-control" required="required" id="precioRecomProd" name="precioRecomProd[]"/></div></td>
+                  <td class="col-sm-7">
+                    <div>
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            include('../php/conexion.php');
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
             </tr>
 
 
+              <tr>
+                  <td>2</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
+            <tr>
+                  <td>3</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
+             <tr>
+                  <td>4</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
+            <tr>
+                  <td>5</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
+             <tr>
+                  <td>6</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
+            <tr>
+                  <td>7</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
+            <tr>
+                  <td>8</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
+            <tr>
+                  <td>9</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
+            <tr>
+                  <td>10</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
+            <tr>
+                  <td>11</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
+            <tr>
+                  <td>12</td>
+                  <td class="col-sm-7">
+                    <div class="form-group">
+                      <select placeholder="Selecciona un producto" class="form-control chosen-select-deselect chosen-rtl" id="nombredelProd" name="nombredelProd[]">
+                         <option disabled selected hidden></option>
+                            <?php
+                            $sql="SELECT * FROM productos
+                            inner join marcas on marcas.id_mca = productos.id_mca ORDER BY nomb_prod ASC";
+                            $rec=mysql_query($sql);
+                            while($row=mysql_fetch_array($rec))
+                            {
+                              echo "<option>";
+                              echo $row['nomb_prod'].' '.$row['desc_prod'].' '.$row['nomb_mca'];
+                              echo "</option>";
+                            }
+
+                             ?>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="col-sm-2"><input class="form-control" required="required" onkeyup="calcularImporte();" id="cantProd" name="cantProd[]" placeholder="Cantidad"></td>
+                  <td class='col-sm-2'><input class='form-control' required='required' id='precioRecomProd' name='precioRecomProd[]'></td>
+
+            </tr>
+
             </tbody>
+            <tfoot>
+              <tr><td></td><td></td><td align="right"><strong>Subtotal</strong></td><td><input class="form-control" type="text"></td></tr>
+              <tr><td></td><td></td><td align="right"><strong>I.V.A(16%)</strong></td><td><input class="form-control" type="text"></td></tr>
+              <tr><td></td><td></td><td align="right"><strong>Total</strong></td><td><input class="form-control" type="text"></td></tr>
+            </tfoot>
           </table>
-          <button id="btnadd" class="btn btn-primary">Agregar Nuevo</button>
           <button id="btnsubmit" type="submit" class="btn btn-success">Guardar</button>
       </form>
     </div>
@@ -194,12 +495,18 @@
 
 
 
+  <script src="../ejemplo/chosen.jquery.js" type="text/javascript"></script>
+  <script src="../ejemplo/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../ejemplo/scriptchosen.js" type="text/javascript"></script>
+
+
+
+
+
+
+
 
 
 </body>
 
 </html>
-
-
-
-    

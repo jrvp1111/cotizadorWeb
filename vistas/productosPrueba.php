@@ -50,30 +50,8 @@
 
 
 
+
     <header>Productos</header>
-
-
-    <?php
-$i=0;
-$j=0;
-$k=0;
-   echo "<table border='1'>";
-   
-   while($i < 5){
-      echo "<tr>";
-      while ($j < 3){
-         echo "<td>";
-            echo "Esto es un ejemplo $k";
-            $k++;
-         echo "</td>";
-      $j++;      
-      }
-      $j=0;
-      echo "</tr>";
-   $i++;
-   }  
-echo "</table>"; 
-?>
 
 
     <section>
@@ -86,66 +64,70 @@ echo "</table>";
     </section>
 
     <div class="registros" id="agrega-registros-prod">
-        <table class="table table-striped table-condensed table-hover">
-            <tr>
-                <th width="200">Nombre</th>
-                <th width="500">Descripción</th>
-                <th width="150">Marca</th>
-                <th width="150">Origen</th>
-                <th width="150">Estado</th>
-                <th width="150">Costo</th>
-                <th width="150">Precio</th>
-                <th width="150">Imagen</th>
-                <th width="150">Fecha</th>
-                <th width="50">Opciones</th>
-            </tr>
-
+        <div class="container">
 
         <?php
             include('../php/conexion.php');
             $registro = mysql_query("SELECT * FROM productos
               left join marcas on productos.id_mca=marcas.id_mca ORDER BY desc_prod ASC");
+
+
+
             while($registro2 = mysql_fetch_array($registro)){
-                echo '<tr>
-                        <td>'.$registro2['nomb_prod'].'</td>
-                        <td>'.$registro2['desc_prod'].'</td>
-                        <td>'.$registro2['nomb_mca'].'</td>
-                        <td>'.$registro2['origen_prod'].'</td>
-                        <td>'.$registro2['edo_prod'].'</td>
-                        <td>'.$registro2['cost_prod'].' '.$registro2['mon_prod'].'</td>';
-                        if($registro2['mon_prod']=='MXN')
+
+
+                
+
+
+                echo '<div style="height:300px" class="col-xs-3 img-thumbnail" align="center">
+                <img height="50px" src="../Imagenes/'.$registro2['id_mca'].' '.$registro2['nomb_mca'].'/'.$registro2['Imagen'].'"/>
+                <p>'.$registro2['nomb_prod'].'</p>
+                <p>'.$registro2['desc_prod'].'</p>
+                <p>'.$registro2['nomb_mca'].'</p>
+                <p>'.$registro2['origen_prod'].'</p>
+                <p><strong>Costo: '.$registro2['cost_prod'].' '.$registro2['mon_prod'].'</strong></p>';
+                if($registro2['mon_prod']=='MXN')
                           {
                             if($registro2['prec_rec']>$registro2['prec_prod'])
                               {
-                                echo '<td class="color10">$ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-ok-circle"></span></td>';
+                                echo '<p class="color10">Recomendado: $ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-ok-circle"></span></p>';
                               }
                             else
                               {
-                                echo '<td class="color9">$ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-warning-sign"></span></td>';
+                                echo '<p class="color9">Recomendado: $ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-warning-sign"></span></p>';
                               }
                           }
-                        else
+                else
                         {
                           if($registro2['prec_rec']>$registro2['prec_prod'])
                               {
-                                echo '<td class="color10">$ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-ok-circle"></span></td>';
+                                echo '<p class="color10">Recomendado: $ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-ok-circle"></span></p>';
                               }
                             else
                               {
-                                echo '<td class="color9">$ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-warning-sign"></span></td>';
+                                echo '<p class="color9">Recomendado: $ '.$registro2['prec_rec'].' '.'<span class="glyphicon glyphicon-warning-sign"></span></p>';
                               }
                         }
 
-                  echo '<td><img onmouseover="this.height=200;" onmouseout="this.height=50;" height="50px"src="../Imagenes/'.$registro2['id_mca'].' '.$registro2['nomb_mca'].'/'.$registro2['Imagen'].'"/></td>
-                        <td>'.fechaNormal($registro2['fecha_prod']).'</td>
-                        <td>
-                            <a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>
-                            <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a>
-                        </td>
-                      </tr>';
+                echo '<p>'.fechaNormal($registro2['fecha_prod']).'</p>
+                      <p>
+                          <a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a>
+                          <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a>
+                      </p>';
+
+                echo '</div>';
+                
+
+
+
+
+
+
+
+
             }
         ?>
-        </table>
+        </div>
     </div>
     <!-- MODAL PARA EL REGISTRO DE PRODUCTOS-->
     <div class="modal fade" id="registra-producto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

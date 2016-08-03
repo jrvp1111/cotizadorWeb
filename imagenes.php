@@ -63,7 +63,7 @@
 		<td><?php echo $f['nomb_prod'];?></td>
 		<td><?php echo $f['desc_prod'];?></td>
 		<td><?php echo $f['nomb_mca'];?></td>
-		<td><?php echo "<img class=\"imagen\" src=\""."Imagenes/".$f['nomb_mca']."/".$f['Imagen']."\"/>";?></td>
+		<td><?php echo "<img class=\"imagen\" src=\""."Imagenes/".$f['id_mca'].' '.$f['nomb_mca']."/".$f['Imagen']."\"/>";?></td>
 	</tr>
 	<?php
 	}

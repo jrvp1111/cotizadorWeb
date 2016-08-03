@@ -37,6 +37,7 @@
           <li><a href="usuarios.php">Usuarios</a></li>
           <li><a href="pagos.php">Pagos</a></li>
           <li class="active"><a href="tcambio.php">T. Cambio</a></li>
+          <li><a href="cortinas.php">Medidas Cortinas</a></li>
         </ul>
       </div>
     </div>
