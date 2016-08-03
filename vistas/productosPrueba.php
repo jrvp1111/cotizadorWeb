@@ -80,7 +80,7 @@
 
 
                 echo '<div style="height:300px" class="col-xs-3 img-thumbnail" align="center">
-                <img height="50px" src="../Imagenes/'.$registro2['id_mca'].' '.$registro2['nomb_mca'].'/'.$registro2['Imagen'].'"/>
+                <img onmouseover="this.height=200;" onmouseout="this.height=50;" height="50px" src="../Imagenes/'.$registro2['id_mca'].' '.$registro2['nomb_mca'].'/'.$registro2['Imagen'].'"/>
                 <p>'.$registro2['nomb_prod'].'</p>
                 <p>'.$registro2['desc_prod'].'</p>
                 <p>'.$registro2['nomb_mca'].'</p>
